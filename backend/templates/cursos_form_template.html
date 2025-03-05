@@ -1,0 +1,32 @@
+<!-- BEGIN BLK_FORM -->
+<div  style="text-align:center;"><a href="javascript:subM({hdn_id})"><img src="images/form/bot_cancelar.png"  alt="Volver"/></a></div>
+<div class="form-top">
+    <div class="form-bottom">
+        <div class="form-middle">
+            {flash}
+            {err_string}
+            <form action="" method="post" name="cursos">
+                <p>Editar Curso</p>
+                <p>
+                    <label >Nombre:</label>
+                    <input type="text"name="txtNombre" maxlength="50" style="width:300px;" value="{txtNombre}"/>
+                </p>
+                <p>
+                    <label>Descripci&oacute;n:</label><br/>
+                    <textarea name="taDescripcion" cols="100" rows="10">{taDescripcion}</textarea>
+                </p>
+                <input type="submit" value="Guardar" name="submited"/>
+                <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+                <input type="hidden" name="hdn_op_int" value="{alta_modif}"/>
+                <input type="hidden" name="hdn_op" value="mc"/>
+                <input type="hidden" name="hdn_alt_id" value="{hdn_curso_id}"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<form action="" method="POST" name="frmops">
+    <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+    <input type="hidden" name="hdn_op" value=""/>
+</form>
+<!-- END BLK_FORM -->

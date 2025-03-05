@@ -1,0 +1,29 @@
+<!-- BEGIN BLK_FORM -->
+<div class="form-top">
+    <div class="form-bottom">
+        <div class="form-middle">
+            <form action="" method="post" name="fotos" enctype="multipart/form-data">
+                <p>Cambiar Foto</p>
+                <div>{flash}</div>
+                <div id="foto">
+                    <img src="{rutaFoto}" alt="foto-cv" style="width:128px;height:128px;"/>
+                </div>
+                <p>
+                    <label >Seleccionar foto:</label>
+                    <input type="file" name="archivo" style="width:350px;" value=""/>
+                </p>
+                <input type="submit" value="Guardar" name="submited"/>
+                <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+                <input type="hidden" name="hdn_op" value="mimg"/>
+                <input type="hidden" name="hdn_alt_id" value=""/>
+            </form>
+            <a href="javascript:subM({hd_cv_id})">Volver</a>
+        </div>
+    </div>
+</div>
+
+<form action="" method="POST" name="frmops">
+    <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+    <input type="hidden" name="hdn_op" value=""/>
+</form>
+<!-- END BLK_FORM -->

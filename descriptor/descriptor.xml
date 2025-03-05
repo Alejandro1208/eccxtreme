@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<commands>
+	<command name="sp_estados_civil_combo">
+		SELECT
+			id_estado_civil,
+			nombre,
+                        i18n_string
+		FROM
+			estados_civil
+		ORDER BY
+			nombre;
+	</command>
+
+
+
+
+	<command name="sp_tipos_documento_combo">
+		SELECT
+			id_tipo_documento,
+			nombre
+		FROM
+			tipos_documento
+		ORDER BY
+			nombre;
+	</command>
+
+
+
+
+
+	<command name="sp_provincias_combo">
+		SELECT
+			id_provincia,
+			nombre,
+                        i18n_string
+		FROM
+			provincias
+		ORDER BY
+			nombre;
+	</command>
+
+
+
+
+
+	<command name="sp_niveles_estudio_combo">
+		SELECT
+			id_nivel_estudio,
+			nombre,
+                        i18n_string
+		FROM
+			niveles_estudio
+		ORDER BY
+			nombre;
+	</command>
+
+}
+
+
+
+	<command name="sp_paises_combo">
+		SELECT
+			id_pais,
+			nombre,
+                        i18n_string
+		FROM
+			paises
+		ORDER BY
+			nombre;
+	</command>
+
+
+
+
+
+	<command name="sp_idiomas_combo">
+		SELECT
+			id_idioma,
+			nombre,
+                        i18n_string
+		FROM
+			idiomas
+		ORDER BY
+			orden;
+	</command>
+
+
+
+
+	<command name="sp_niveles_idioma_getall">
+		SELECT
+			id_nivel_idioma,
+			nombre,
+                        i18n_string
+		FROM
+			niveles_idioma
+		ORDER BY
+			nombre;
+	</command>
+
+
+
+
+
+	<command name="sp_perfiles_combo">
+		SELECT
+			id_perfil,
+			nombre,
+                        i18n_string
+		FROM
+			perfiles
+		ORDER BY
+			orden;
+	</command>
+
+
+
+
+
+	<command name="sp_cvs_a">
+		INSERT INTO cvs
+		(
+			nya,
+			fecha_nac,
+			fk_id_estado_civil,
+			hijos,
+			fk_id_tipo_documento,
+			numero_documento,
+			cuil,
+			telefono,
+			calle,
+			numero,
+			piso,
+			depto,
+			cp,
+			barrio,
+			fk_id_provincia,
+			email,
+
+			fk_id_perfil,
+			perfil,
+			tiene_conocimientos_sap,
+			tiene_certificado_sap,
+			conocimientos,
+
+			remuneracion,
+			modalidad,
+                        ruta_foto
+		)
+		VALUES
+		(
+			{sNyA},
+			{dFechaNac},
+			{iFk_id_estado_civil},
+			{iHijos},
+			{iFk_id_tipo_documento},
+			{iNumeroDocumento},
+			{iCuil},
+			{iTelefono},
+			{sCalle},
+			{iNumero},
+			{sPiso},
+			{sDepto},
+			{sCp},
+			{sBarrio},
+			{iFk_id_provincia},
+			{sEmail},
+
+			{iFk_id_perfil},
+			{sPerfil},
+			{bTieneConocimientosSap},
+			{bTieneCertificadoSap},
+			{sConocimientos},
+
+			{cRemuneracion},
+			{sModalidad},
+                        {rutaFoto}
+		);
+	</command>
+	<command name="sp_cvs_LastId">
+		SELECT
+			id_cv
+		FROM
+			cvs
+		ORDER BY
+			id_cv DESC;
+	</command>
+	<command name="sp_cvs_name_count">
+		SELECT
+			count(*) as conteo
+		FROM
+			cvs
+		WHERE
+			nya = {nya};
+	</command>
+
+
+
+
+
+	<command name="sp_experiencias_laboral_a">
+		INSERT INTO experiencias_laboral
+		(
+			fk_id_cv,
+			fecha_desde,
+			fecha_hasta,
+			actualidad,
+			cargo,
+			compania,
+			cliente,
+			fk_id_pais,
+			pais,
+			contexto_proyecto,
+			actividades
+		)
+		VALUES
+		(
+			{iFk_id_cv},
+			{dFechaDesde},
+			{dFechaHasta},
+			{bActualidad},
+			{sCargo},
+			{sCompania},
+			{sCliente},
+			{iFk_id_pais},
+			{sPais},
+			{sContextoProyecto},
+			{sActividades}		
+		);
+	</command>
+
+
+
+
+
+	<command name="sp_estudios_a">
+		INSERT INTO estudios
+		(
+			fk_id_cv,
+			fk_id_nivel_estudio,
+			titulo,
+			area,
+			institucion,
+			fecha_desde,
+			fecha_hasta,
+			descripcion,
+			actualidad
+			
+		)
+		VALUES
+		(
+			{iFk_id_cv},
+			{iFk_id_nivel},
+			{sTitulo},
+			{sArea},
+			{sInstitucion},
+			{dFechaDesde},
+			{dFechaHasta},
+			{sDescripcion},
+			{bActualidadE}
+		);
+	</command>
+
+
+
+
+
+	<command name="sp_cvs_idiomas_niveles_a">
+		INSERT INTO cvs_idiomas_niveles
+		(
+			fk_id_cv,
+			fk_id_idioma,
+			idioma,
+			institucion,
+			fk_id_nivel,
+			calificacion
+		)
+		VALUES
+		(
+			{iFk_id_cv},
+			{iFk_id_idioma},
+			{sIdioma},
+			{sInstitucion},
+			{iFk_id_nivel},
+			{sCalificacion}
+		);
+	</command>
+	
+	
+	
+	
+	
+	<command name="sp_cvs_idiomas_niveles_a">
+		INSERT INTO cvs_idiomas_niveles
+		(
+			fk_id_cv,
+			fk_id_idioma,
+			fk_id_nivel,
+			calificacion
+		)
+		VALUES
+		(
+			{iFk_id_cv},
+			{iFk_id_idioma},
+			{iFk_id_nivel},
+			{sCalificacion}
+		);
+	</command>
+
+
+
+
+	<command name="sp_cursos_a">
+		INSERT INTO cursos
+		(
+			fk_id_cv,
+			nombre,
+			descripcion
+		)
+		VALUES
+		(
+			{iFk_id_cv},
+			{sNombre},
+			{sDescripcion}
+		);
+	</command>
+</commands>

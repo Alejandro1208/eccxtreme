@@ -1,0 +1,96 @@
+<!-- BEGIN BLK_FORM -->
+<script type="text/javascript">
+    function subB(idEntrevista){
+        if(window.confirm("¿Esta seguro que desea dar de baja este item?")){
+            with(document.frmAcciones)
+            {
+                action		 = "cvs-l.php";
+                target		 = "";
+                enctype		 = "application/x-www-form-urlencoded";
+                hdn_id.value = {hdn_id};
+                hdn_op.value = "ent";
+                hdn_alt_id.value = idEntrevista;
+                hdn_op_int.value = "b"
+                submit();
+            }
+        }
+    }
+
+    function subNuevaEntrevista(){
+        with(document.frmAcciones){
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_id.value = {hdn_id};
+            hdn_op.value = "nent";
+            hdn_alt_id.value = "";
+            hdn_op_int.value = "alta"
+            submit();
+        }
+    }
+
+    function subEditarEntrevista(idEntrevista){
+        with(document.frmAcciones){
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_id.value = {hdn_id};
+            hdn_op.value = "nent";
+            hdn_alt_id.value = idEntrevista;
+            hdn_op_int.value = "modificacion"
+            submit();
+        }
+    }
+
+
+</script>
+{flash}
+{err_string}
+<form name="frmAcciones" method="POST">
+    <input id="hdn_op" type="hidden" name="hdn_op"/>
+    <input id="hdn_id" type="hidden" name="hdn_id" value="{hdn_id}"/> <!-- id del cv -->
+    <input id="hdn_alt_id" type="hidden" name="hdn_alt_id"/> <!-- id de la entrevista -->
+    <input id="hdn_op_int" type="hidden" name="hdn_op_int"/> <!-- id de la operacion interna-->
+</form>
+<!-- END BLK_FORM -->
+<div  style="text-align:center;"><a href='javascript:document.location="cvs-l.php"'><img src="images/form/bot_cancelar.png"  alt="Volver"/></a></div>
+
+<a href="javascript:subNuevaEntrevista()" style="font-size: 14px; font-weight:bold;"> Nueva entrevista</a><br/>
+<br/>
+<br/>
+<div style="font-size:15px;">
+    <!-- BEGIN BLK_ENTREVISTA -->
+    <fieldset>
+        <legend><strong>{org}</strong></legend>
+        <!--        <h2>Entrevistas de XTREME:</h2>-->
+        <!--        <p>Entrevistado por <strong>{org}</strong></p>-->
+        <p>Fecha: {fecha}</p>
+        <p>Contacto: {contacto}</p>
+        <p>Aprobo entrevista? <strong>{aprobado}</strong><br/>
+            <cite>{observaciones}</cite>
+        </p>
+
+        <ul>
+            <li>
+                Nivel Técnico: <strong>{nivel_tecnico}</strong><br/>
+                <cite>{comentario_tecnico}</cite><p></p>
+            </li>
+            <li>
+                Nivel Idiomas: <strong>{nivel_idiomas}</strong><br/>
+                <cite>{comentario_idiomas}</cite><p></p>
+            </li>
+            <li>
+                Nivel Presentación: <strong>{nivel_presentacion}</strong><br/>
+                <cite>{comentario_presentacion}</cite><p></p>
+            </li>
+        </ul>
+        <p>Comentarios:<br/>
+            <cite>{comentarios}</cite></p>
+
+
+        <a href="javascript:subB({id_ent})"> Eliminar</a>
+        <a href="javascript:subEditarEntrevista({id_ent})"> Modificar</a>
+
+    </fieldset><br/>
+    <!-- END BLK_ENTREVISTA -->
+</div>

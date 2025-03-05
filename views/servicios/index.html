@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECC Extreme Cloud Computing SA</title>
+    <!-- Mantenemos los meta tags existentes -->
+    <meta name="keywords" content="sap, cursos de sap, consultores, sistemas, consultores sap, capacitación sap, implementaciones, búsqueda y selección de personal, software factory o desarrollo de software, sistema alemán SAP">
+    <meta name="Description" content="Servicios. Dirección y Coordinación de Proyectos, Desarrollo de Software, Consultoría de SAP.">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="es-AR">
+    <meta name="geo.region" content="AR-C">
+    <meta name="geo.position" content="-38.416097;-63.616672">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../../estilo.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Analytics Script -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-32006801-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo" id="logo">
+                <img src="../../images/logo.png" alt="ECC Extreme Cloud Computing">
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../servicios/" class="active">Servicios</a></li>
+                    <li><a href="../proyectos/">Proyectos</a></li>
+                    <li><a href="../consultoria/">Consultoría</a></li>
+                    <li><a href="../contacto/">Contacto</a></li>
+                </ul>
+                <div class="mobile-language-selector">
+                    <a href="servicios_eng.html" class="lang-btn" title="English">EN</a>
+                    <a href="servicios_por.html" class="lang-btn" title="Português">PT</a>
+                    <a href="servicios_esp.html" class="lang-btn active" title="Castellano">ES</a>
+                </div>
+            </nav>
+
+            <div class="language-selector">
+                <a href="servicios_eng.html" class="lang-btn" title="English">EN</a>
+                <a href="servicios_por.html" class="lang-btn" title="Português">PT</a>
+                <a href="servicios_esp.html" class="lang-btn active" title="Castellano">ES</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="container hero-content">
+            <h1>Servicios</h1>
+            <p>Soluciones tecnológicas innovadoras para tu empresa</p>
+        </div>
+    </section>
+
+    <main class="section">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-content">
+                        <h3>Dirección de Proyectos</h3>
+                        <p>En el escenario presente, los proyectos se han tornado más complejos técnicamente, con más gente, con compromisos más agresivos, y presupuestos ajustados. Acordar objetivos, planificar, decidir, motivar, organizar, administrar, controlar e informar es nuestra tarea. Sabemos como lograr el éxito.</p>
+                        <img src="images/esp/serviciosx.png" alt="Servicios" class="service-image">
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-content">
+                        <h3>Desarrollo de Software</h3>
+                        <p>Proveemos servicios de desarrollo de aplicaciones, desde el relevamiento hasta la puesta en marcha utilizando distintas metodologías. Nuestro equipo de profesionales son expertos en Java, .Net, PHP, C++, Xcode y ABAP además utilizamos todas las bases de datos existentes en el mercado, tanto open source como comerciales.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-content">
+                        <h3>Consultoría SAP</h3>
+                        <p>Un área dedicada a SAP con un plantel profesional altamente capacitado en forma contínua con experiencia en grandes implementaciones, instalaciones, upgrades, QA y seguridad, en Proyectos Nacionales e Internacionales.</p>
+                        <a href="pdf/PresentacionECC2015.pdf" class="btn btn-primary">Ver más información</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="more-services">
+                <a href="rrhh/" class="btn btn-primary">
+                    <i class="fas fa-users"></i> Más Servicios
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">
+                <img src="../../images/logo.png" alt="ECC Extreme Cloud Computing">
+            </div>
+            <p class="copyright">
+                Copyright ECC Extreme Cloud Computing SA © 2024 - Buenos Aires - Argentina
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menuToggle");
+            const mainNav = document.getElementById("mainNav");
+            const body = document.body;
+    
+            menuToggle.addEventListener("click", function () {
+                mainNav.classList.toggle("active");
+                menuToggle.classList.toggle("active");
+                body.style.overflow = mainNav.classList.contains("active") ? "hidden" : "";
+            });
+    
+            const navLinks = mainNav.getElementsByTagName("a");
+            Array.from(navLinks).forEach(link => {
+                link.addEventListener("click", () => {
+                    mainNav.classList.remove("active");
+                    menuToggle.classList.remove("active");
+                    body.style.overflow = "";
+                });
+            });
+        });
+    </script>
+    <script src="../../js/header-scroll.js"></script>
+</body>
+</html>

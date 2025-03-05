@@ -1,0 +1,110 @@
+/* Importamos los estilos base */
+@import 'estilo.css';
+
+/* Sobreescribimos los estilos específicos para proyectos */
+.hero-banner {
+    min-height: 400px;
+    padding-top: 120px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/proyectos-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Grid específico para proyectos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin: 4rem 0;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card .card-content {
+    padding: 2.5rem;
+}
+
+.project-card h3 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.project-card h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.project-card p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Animaciones para el contenido */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-banner h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-banner p {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.project-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 300px;
+        padding-top: 100px;
+    }
+
+    .projects-grid {
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .project-card .card-content {
+        padding: 1.5rem;
+    }
+}

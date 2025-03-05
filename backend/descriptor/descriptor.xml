@@ -1,0 +1,1728 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<commands>
+    <command name="sp_be_LogIn">
+		SELECT 
+			id_administrador
+		FROM
+			be_administradores
+		WHERE 
+			LOWER(username) = LOWER({strUserName}) AND 
+			LOWER(password) = LOWER({strPassword}) AND 
+			habilitado;
+    </command>
+    <command name="sp_be_permiso_xAdministradorAndPagina">
+		SELECT 
+			pm.permiso
+		FROM 
+			be_perfiles AS p INNER JOIN be_administradores AS a 
+			ON p.id_perfil = a.fk_id_perfil 
+				INNER JOIN be_perfiles__be_modulos AS pm
+				ON p.id_perfil = pm.fk_id_perfil			
+					INNER JOIN be_modulos AS m			
+			 		ON m.id_modulo = pm.fk_id_modulo 
+		WHERE 
+			a.id_administrador = {intId_administrador} AND
+			LOWER(MID(pagina, 1, INSTR(pagina, '-') - 1)) = LOWER({strPage});
+    </command>
+    <command name="sp_be_permiso_xPerfilAndModulo">
+		SELECT 
+			permiso
+		FROM 
+			be_perfiles__be_modulos
+		WHERE 
+			fk_id_perfil = {intFk_id_prefil} AND 
+			fk_id_modulo = {intFk_id_modulo};
+    </command>
+    <command name="sp_be_menu_xAdministradorOculto">
+		SELECT
+			*
+		FROM
+		(
+			SELECT 
+				'a' AS permiso, 
+				descripcion,
+	            pagina
+			FROM 
+				be_modulos
+			WHERE
+				id_modulo IN(1,2)
+			ORDER BY 
+				descripcion
+		) t1
+		UNION
+		SELECT
+			*
+		FROM
+			(	
+				SELECT 
+					'a' AS permiso, 
+					descripcion,
+		            pagina
+				FROM 
+					be_modulos
+				WHERE
+					id_modulo > 2
+				ORDER BY 
+					descripcion
+			) t2;
+    </command>
+    <command name="sp_be_menu_xAdministrador">
+		SELECT 
+			pm.permiso, 
+			m.descripcion,
+			pagina
+		FROM 
+			be_perfiles__be_modulos AS pm INNER JOIN be_perfiles AS p
+			ON pm.fk_id_perfil = p.id_perfil
+				INNER JOIN be_administradores AS a
+				ON p.id_perfil = a.fk_id_perfil
+					INNER JOIN be_modulos AS m 
+					ON pm.fk_id_modulo = m.id_modulo
+		WHERE 
+			a.id_administrador = {intId_administrador}
+		ORDER BY 
+			m.orden;
+    </command>
+
+
+
+
+
+    <command name="sp_be_modulos_GetAll">
+		SELECT 
+			*
+		FROM 
+			be_modulos
+		ORDER BY 
+			descripcion;
+    </command>
+    <command name="sp_be_modulos_get">
+		SELECT 
+			*
+		FROM 
+			be_modulos
+		WHERE
+			id_modulo = {intId_modulo};
+    </command>
+
+
+
+
+
+    <command name="sp_be_perfiles_get">
+		SELECT
+			*
+		FROM   
+			be_perfiles
+		WHERE  
+			id_perfil = {intId};			
+    </command>
+    <command name="sp_be_perfiles_exist">
+		SELECT 
+			id_perfil
+		FROM
+			be_perfiles
+		WHERE
+			LOWER(nombre) = LOWER({strNombre}) AND 
+			id_perfil != {intId}
+		LIMIT 1;
+    </command>
+    <command name="sp_be_perfiles_LastId">
+		SELECT
+			id_perfil
+		FROM
+			be_perfiles
+		ORDER BY
+			id_perfil DESC
+		LIMIT 1;
+    </command>
+    <command name="sp_be_perfiles_a">
+		INSERT INTO be_perfiles 
+		( 
+			nombre,
+			auditoria_administrador,
+			habilitado
+		)
+		VALUES
+		(
+			{strNombre},
+			{strAuditoriaAdmin},
+			{blnHabilitado}
+		);
+    </command>
+
+    <command name="sp_delete_entrevista">
+		DELETE FROM
+                        entrevistas
+		WHERE
+			id_entrevista = {id_entrevista};
+    </command>
+    
+    <command name="sp_be_perfiles_b">
+		DELETE FROM
+			be_perfiles
+		WHERE  
+			id_perfil = {intId};
+    </command>
+
+    <command name="sp_be_perfiles_m">
+		UPDATE be_perfiles 
+		SET
+			nombre = {strNombre},
+			auditoria_administrador = {strAuditoriaAdmin},
+			auditoria_fecha = NOW(),			
+			habilitado = {blnHabilitado} 
+		WHERE
+			id_perfil = {intId};
+    </command>
+    <command name="sp_be_perfiles_h">
+		UPDATE
+			be_perfiles
+		SET   
+			habilitado = 1
+		WHERE  
+			id_perfil = {intId};			
+    </command>
+    <command name="sp_be_perfiles_dh">
+		UPDATE
+			be_perfiles
+		SET   
+			habilitado = 0
+		WHERE  
+			id_perfil = {intId};			
+    </command>
+    <command name="sp_be_perfiles_combo">
+		SELECT 
+			id_perfil,
+			nombre
+		FROM 
+			be_perfiles
+		ORDER BY
+			nombre;
+    </command>
+
+
+
+
+
+    <command name="sp_be_administradores_get">
+		SELECT 
+			*
+		FROM 
+			be_administradores
+		WHERE 
+			id_administrador = {intId};
+    </command>
+    <command name="sp_be_administradores_exist">
+		SELECT
+			id_administrador
+		FROM 
+			be_administradores
+		WHERE
+			LOWER(username) = LOWER({strUsername}) AND
+			id_administrador != {intId}
+		LIMIT 1;
+    </command>
+    <command name="sp_be_administradores_LastId">
+		SELECT
+			id_administrador
+		FROM
+			be_administradores
+		ORDER BY
+			id_administrador DESC
+		LIMIT 1;
+    </command>
+    <command name="sp_be_administradores_a">
+		INSERT INTO be_administradores 
+		( 
+			username, 
+			password, 
+			nombre, 
+			apellido, 
+			fk_id_perfil,
+			auditoria_administrador, 
+			habilitado
+		)
+		VALUES
+		(
+			{strUsername}, 
+			{strPassword}, 
+			{strNombre}, 
+			{strApellido}, 
+			{intFk_id_perfil},
+			{strAuditoriaAdmin}, 
+			{blnHabilitado}
+		);
+    </command>
+    <command name="sp_be_administradores_b">
+		DELETE FROM
+			be_administradores
+		WHERE  
+			id_administrador = {intId};
+    </command>
+    <command name="sp_be_administradores_m">
+		UPDATE
+			be_administradores
+		SET  
+			username = {strUsername}, 
+			password = {strPassword}, 
+			nombre = {strNombre}, 
+			apellido = {strApellido}, 
+			fk_id_perfil = {intFk_id_perfil}, 
+			auditoria_administrador = {strAuditoriaAdmin},
+			auditoria_fecha = NOW(),
+			habilitado = {blnHabilitado}
+		WHERE  
+			id_administrador = {intId};			
+    </command>
+    <command name="sp_be_administradores_h">
+		UPDATE
+			be_administradores
+		SET   
+			habilitado = 1
+		WHERE  
+			id_administrador = {intId};			
+    </command>
+    <command name="sp_be_administradores_dh">
+		UPDATE
+			be_administradores
+		SET   
+			habilitado = 0
+		WHERE  
+			id_administrador = {intId};			
+    </command>
+
+
+
+
+
+    <command name="sp_be_perfiles__be_modulos_b_xPerfil">
+		DELETE FROM 
+			be_perfiles__be_modulos
+		WHERE 
+			fk_id_perfil = {intFk_id_perfil};
+    </command>
+    <command name="sp_be_perfiles__be_modulos_a">
+		INSERT INTO be_perfiles__be_modulos
+		(
+			fk_id_perfil, 
+			fk_id_modulo, 
+			permiso
+		)
+		VALUES
+		(
+			{intFk_id_perfil}, 
+			{intFk_id_modulo}, 
+			{strPermiso}
+		);
+    </command>
+
+
+
+
+
+
+
+
+
+
+	
+    <command name="sp_banners_get">
+		SELECT 
+			*
+		FROM 
+			banners
+		WHERE 
+			id_banner = {intId};
+    </command>
+    <command name="sp_banners_exist">
+		SELECT
+			id_banner
+		FROM 
+			banners
+		WHERE
+			LOWER(nombre) = LOWER({strNombre}) AND
+			id_banner != {intId}
+		LIMIT 1;
+    </command>
+    <command name="sp_banners_LastId">
+		SELECT
+			id_banner
+		FROM
+			banners
+		ORDER BY
+			id_banner DESC
+		LIMIT 1;
+    </command>
+    <command name="sp_banners_a">
+		INSERT INTO banners
+		( 
+			fk_id_ubicacion, 
+			nombre, 
+			url, 
+			vigencia_desde, 
+			vigencia_hasta,
+			auditoria_administrador, 
+			habilitado
+		)
+		VALUES
+		(
+			{intFk_id_ubicacion},
+			{strNombre},
+			{strUrl},
+			{dteVigencia_desde},
+			{dteVigencia_hasta},
+			{strAuditoriaAdmin},
+			{blnHabilitado}
+		);
+    </command>
+    <command name="sp_banners_b">
+		DELETE FROM
+			banners
+		WHERE  
+			id_banner = {intId};
+    </command>
+    <command name="sp_banners_m">
+		UPDATE
+			banners
+		SET  
+			fk_id_ubicacion = {intFk_id_ubicacion},
+			nombre = {strNombre},
+			url = {strUrl},
+			vigencia_desde = {dteVigencia_desde},
+			vigencia_hasta = {dteVigencia_hasta},
+			auditoria_administrador = {strAuditoriaAdmin},
+			auditoria_fecha = NOW(),			
+			habilitado = {blnHabilitado}
+			
+		WHERE  
+			id_banner = {intId};			
+    </command>
+    <command name="sp_banners_h">
+		UPDATE
+			banners
+		SET   
+			habilitado = 1
+		WHERE  
+			id_banner = {intId};			
+    </command>
+    <command name="sp_banners_dh">
+		UPDATE
+			banners
+		SET   
+			habilitado = 0
+		WHERE  
+			id_banner = {intId};			
+    </command>
+    <command name="sp_banners_m_imagen">
+		UPDATE
+			banners
+		SET
+			imagen = {strValue}
+		WHERE
+			id_banner = {intId};
+    </command>
+    <command name="sp_banners_combo">
+		SELECT
+			id_banner,
+			nombre
+		FROM
+			banners
+		ORDER BY
+			nombre;
+    </command>
+	
+
+
+
+
+    <command name="sp_cvs_get">
+		SELECT 
+			*,
+			ec.nombre AS estado_civil,
+			td.nombre AS tipo_documento,
+			pr.nombre AS provincia,
+			pe.nombre AS perfil2
+		FROM 
+			cvs cv INNER JOIN estados_civil ec
+			on cv.fk_id_estado_civil = ec.id_estado_civil
+				INNER JOIN tipos_documento td
+				on cv.fk_id_tipo_documento = td.id_tipo_documento
+					LEFT JOIN provincias pr
+					on cv.fk_id_provincia = pr.id_provincia
+						LEFT JOIN perfiles pe
+						on cv.fk_id_perfil = pe.id_perfil
+		WHERE 
+			id_cv = {intId};
+    </command>
+    <command name="sp_cvs_b">
+		DELETE
+		FROM 
+			cvs
+		WHERE 
+			id_cv = {intId};
+    </command>
+
+
+
+
+    <command name="sp_experiencias_laboral_xCv">
+		SELECT 
+			*
+		FROM 
+			experiencias_laboral
+		WHERE 
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_experiencia_laboral">
+		SELECT
+                        *
+                FROM
+			experiencias_laboral
+		WHERE
+                        id_experiencia_laboral = {id_experiencia_laboral};
+    </command>
+
+
+
+
+	
+    <command name="sp_estudios_xCv">
+		SELECT 
+			e.*,
+			n.nombre AS nivel
+		FROM 
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE 
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT 
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel 
+		FROM 
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE 
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT 
+			*
+		FROM 
+			cursos
+		WHERE 
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+
+
+    <command name="sp_estudios_xCv">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+<!--
+    <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+<!--
+    <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+<!--
+    <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+<!--
+    <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+<!--
+    <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+<!--
+    <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+<!--
+    <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+
+ <!--   <command name="sp_remuneracion_cvs">
+		SELECT
+			e.*,
+			n.nombre AS nivel
+		FROM
+			estudios e INNER JOIN niveles_estudio n
+			ON e.fk_id_nivel_estudio = n.id_nivel_estudio
+		WHERE
+			e.fk_id_cv = {intFk_id_cv};
+    </command>
+-->
+    <command name="sp_estudio">
+		SELECT
+			*
+		FROM
+			estudios
+                WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+
+    <command name="sp_idiomas">
+		SELECT
+			*
+		FROM
+			idiomas;
+    </command>
+
+    <command name="sp_idioma">
+		SELECT
+			*
+		FROM
+			cvs_idiomas_niveles
+                WHERE
+			fk_id_idioma= {id_idioma}
+                        and
+                        fk_id_cv = {id_cv};
+    </command>
+
+    <command name="sp_idiomas_xcv">
+    SELECT fk_id_idioma,idioma FROM `cvs_idiomas_niveles` WHERE `fk_id_cv` = {id_cv}  GROUP BY fk_id_idioma
+    </command>
+
+    <command name="sp_cvs_idiomas_niveles_xCv">
+		SELECT
+			cin.*,
+			CASE (cin.fk_id_idioma = 4)
+				WHEN 1 THEN cin.idioma
+				ELSE i.nombre
+			END AS idioma,
+			ni.nombre AS nivel
+		FROM
+			cvs_idiomas_niveles cin INNER JOIN idiomas i
+			ON cin.fk_id_idioma = i.id_idioma
+				INNER JOIN niveles_idioma ni
+				ON cin.fk_id_nivel = ni.id_nivel_idioma
+		WHERE
+			cin.fk_id_cv = {intFk_id_cv};
+    </command>
+
+
+    <command name="sp_niveles_estudio">
+                SELECT
+                        *
+                FROM
+                        niveles_estudio;
+    </command>
+
+
+
+    <command name="sp_cursos_xCv">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			fk_id_cv = {intFk_id_cv};
+    </command>
+
+    <command name="sp_cursos">
+		SELECT
+			*
+		FROM
+			cursos
+		WHERE
+			id_curso = {id_curso};
+    </command>
+
+    <command name="sp_remuneracion_cvs">
+                SELECT
+                        remuneracion, nombre   
+                FROM 
+                        `cvs` LEFT JOIN `tipos_contratacion` ON modalidad = id_tipo_contratacion
+                WHERE
+                        id_cv = {id_cv}
+    </command>
+
+    <command name="sp_ruta_foto">
+		SELECT
+			ruta_foto
+		FROM
+			cvs
+		WHERE
+			id_cv = {id_cv};
+    </command>
+
+    <command name="sp_nya_cv">
+		SELECT
+			nya
+		FROM
+			cvs
+		WHERE
+			id_cv = {id_cv};
+    </command>
+
+    <command name="sp_entrevistas_cv">
+                SELECT
+                        *
+                FROM
+                        entrevistas
+                WHERE
+                        id_cv = {id_cv}
+    </command>
+
+    <command name="sp_entrevista_id">
+                SELECT
+                        *
+                FROM
+                        entrevistas
+                WHERE
+                        id_entrevista = {id_entrevista}
+    </command>
+
+    <command name="sp_calificacion_entrevista">
+                SELECT
+                        *
+                FROM
+                        calificaciones
+                WHERE
+                        id_entrevista = {id_entrevista}
+    </command>
+
+    <command name="sp_niveles_entrevista">
+                SELECT
+                        *
+                FROM
+                        niveles_entrevista
+    </command>
+
+    <command name="sp_perfiles_combo">
+		SELECT 
+			id_perfil,
+			nombre 
+		FROM 
+			perfiles
+		ORDER BY
+			nombre;
+    </command>
+
+    <command name="sp_provincias_combo">
+		SELECT
+			id_provincia,
+			nombre
+		FROM
+			provincias
+		ORDER BY
+			nombre;
+    </command>
+
+    <command name="sp_niveles_idioma_combo">
+		SELECT
+                        *
+		FROM
+			niveles_idioma;
+    </command>
+
+    <command name="sp_niveles_idioma_cv">
+		SELECT
+                        fk_id_nivel,
+                        calificacion
+		FROM
+			cvs_idiomas_niveles
+                WHERE   fk_id_cv = {id_cv} and fk_id_idioma = {id_idioma};
+    </command>
+
+    <command name="sp_niveles_idioma_update">
+                INSERT INTO  cvs_idiomas_niveles
+                            (fk_id_cv,
+                             fk_id_idioma,
+                             idioma,
+                             institucion,
+                             fk_id_nivel,
+                             calificacion)
+                       VALUES
+                             ({id_cv},
+                              {id_idioma},
+                              {idioma},
+                              {institucion},
+                              {id_nivel},
+                              {calificacion})
+                       ON DUPLICATE KEY UPDATE
+                              calificacion = {calificacion},
+                              institucion =  {institucion};
+    </command>
+
+    <command name="sp_paises_combo">
+		SELECT
+                        *
+		FROM
+			paises
+		ORDER BY
+			id_pais;
+    </command>
+
+    <command name="sp_tipos_contratacion_combo">
+		SELECT
+                        *
+		FROM
+			tipos_contratacion
+		ORDER BY
+			id_tipo_contratacion;
+    </command>
+
+
+    <command name="sp_estado_civil_combo">
+		SELECT
+			id_estado_civil,
+			nombre
+		FROM
+			estados_civil
+		ORDER BY
+			nombre;
+    </command>
+
+
+    <command name="sp_cursos_update">
+                UPDATE cursos
+                    set
+                        nombre = {nombre},
+                        descripcion = {descripcion}
+                WHERE
+                        id_curso = {id_curso};
+    </command>
+
+    <command name="sp_ruta_foto_update">
+                UPDATE cvs
+                    set
+                        ruta_foto = {ruta_foto}
+                WHERE
+                        id_cv = {id_cv};
+    </command>
+
+    <command name="sp_cvs_update">
+		UPDATE cvs
+                    set
+			nya = {sNyA},
+			fecha_nac = {dFechaNac},
+			fk_id_estado_civil = {iFk_id_estado_civil},
+			hijos = {iHijos},
+			fk_id_tipo_documento = {iFk_id_tipo_documento},
+			numero_documento = {iNumeroDocumento},
+			cuil = {iCuil},
+			telefono = {iTelefono},
+			calle = {sCalle},
+			numero = {iNumero},
+			piso = {sPiso},
+			depto = {sDepto},
+			cp = {sCp},
+			barrio = {sBarrio},
+			fk_id_provincia = {iFk_id_provincia},
+			email = {sEmail},
+			fk_id_perfil = {iFk_id_perfil},
+			perfil = {sPerfil},
+                        perfil_otro = {sPerfilSapOtro},
+			tiene_conocimientos_sap = {bTieneConocimientosSap},
+			tiene_certificado_sap =	{bTieneCertificadoSap},
+			conocimientos = {sConocimientos},
+			remuneracion = 	{cRemuneracion},
+			modalidad = {iModalidad}
+                  WHERE
+			id_cv = {id_cv};
+    </command>
+
+
+    <command name="sp_experiencia_update">
+		UPDATE experiencias_laboral
+                    set
+                        fecha_desde = {fecha_desde},
+                        fecha_hasta = {fecha_hasta},
+                        actividades = {actividades},
+                        cargo = {cargo},
+                        compania = {compania},
+                        cliente = {cliente},
+                        fk_id_pais = {fk_id_pais},
+                        pais = {pais},
+                        contexto_proyecto = {contexto_proyecto},
+                        actividades = {actividades}
+                  WHERE
+			id_experiencia_laboral = {id_experiencia_laboral};
+    </command>
+
+    <command name="sp_estudios_update">
+		UPDATE estudios
+                    set
+                        titulo = {titulo},
+                        area = {area},
+                        institucion = {institucion},
+                        fk_id_nivel_estudio = {fk_id_nivel_estudio},
+                        fecha_desde = {fecha_desde},
+                        fecha_hasta = {fecha_hasta},
+                        descripcion = {descripcion},
+                        actualidad = {actualidad}
+                  WHERE
+			id_estudio = {id_estudio};
+    </command>
+
+    <command name="sp_entrevista_update">
+		UPDATE entrevistas
+                    set
+                        organizacion = {organizacion},
+                        contacto = {contacto},
+                        fecha = {fecha},
+                        comentario = {comentario},
+                        nivel_tecnico = {nivel_tecnico},
+                        nivel_idiomas = {nivel_idiomas},
+                        nivel_presentacion = {nivel_presentacion},
+                        comentario_tecnico = {comentario_tecnico},
+                        comentario_idiomas = {comentario_idiomas},
+                        comentario_presentacion = {comentario_presentacion},
+                        aprobado = {aprobado},
+                        observaciones = {observaciones}
+                  WHERE
+			id_entrevista = {id_entrevista};
+    </command>
+
+
+
+    <command name="sp_entrevistas_a">
+		INSERT INTO entrevistas
+		(
+                        id_cv,
+                        organizacion,
+                        contacto,
+                        fecha,
+                        comentario,
+                        nivel_tecnico,
+                        nivel_idiomas,
+                        nivel_presentacion,
+                        comentario_tecnico,
+                        comentario_idiomas,
+                        comentario_presentacion,
+                        aprobado,
+                        observaciones
+		)
+		VALUES
+		(
+			{id_cv},
+			{organizacion},
+			{contacto},
+			{fecha},
+			{comentario},
+                        {nivel_tecnico},
+                        {nivel_idiomas},
+                        {nivel_presentacion},
+			{comentario_tecnico},
+			{comentario_idiomas},
+			{comentario_presentacion},
+                        {aprobado},
+                        {observaciones}
+		);
+    </command>
+
+    <command name="sp_experiencias_a">
+      		INSERT INTO experiencias_laboral
+                (
+                        fk_id_cv,
+                        fecha_desde,
+                        fecha_hasta,
+                        cargo,
+                        compania,
+                        cliente,
+                        fk_id_pais,
+                        pais,
+                        contexto_proyecto,
+                        actividades
+                )
+                VALUES
+                (
+                        {fk_id_cv},
+                        {fecha_desde},
+                        {fecha_hasta},
+                        {cargo},
+                        {compania},
+                        {cliente},
+                        {fk_id_pais},
+                        {pais},
+                        {contexto_proyecto},
+                        {actividades}
+                );
+    </command>
+
+    <command name="sp_estudios_a">
+		INSERT INTO estudios
+		(
+			fk_id_cv,
+			fk_id_nivel_estudio,
+			titulo,
+			area,
+			institucion,
+			fecha_desde,
+			fecha_hasta,
+			descripcion,
+			actualidad
+
+		)
+		VALUES
+		(
+			{fk_id_cv},
+			{fk_id_nivel_estudio},
+			{titulo},
+			{area},
+			{institucion},
+			{fecha_desde},
+			{fecha_hasta},
+			{descripcion},
+			{actualidad}
+		);
+    </command>
+
+    <command name="sp_cursos_a">
+		INSERT INTO cursos
+		(
+			fk_id_cv,
+			nombre,
+			descripcion
+		)
+		VALUES
+		(
+			{fk_id_cv},
+			{nombre},
+			{descripcion}
+		);
+    </command>
+
+</commands>	

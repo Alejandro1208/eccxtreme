@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECC Extreme Cloud Computing SA</title>
+    <meta name="keywords" content="sap, cursos de sap, consultores, sistemas, consultores sap, capacitación sap, implementaciones, búsqueda y selección de personal, software factory o desarrollo de software, sistema alemán SAP">
+    <meta name="Description" content="Consultoría. Servicios de primer nivel de TI en consultorías trabajando con un equipo de recursos experimentados, permitiendo a las empresas resolver y mantener aplicaciones de negocio de misión crítica.">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="es-AR">
+    <meta name="geo.region" content="AR-C">
+    <meta name="geo.position" content="-38.416097;-63.616672">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../../estilo.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Google Analytics Script -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-32006801-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo" id="logo">
+                <img src="../../../../images/logo.png" alt="ECC Extreme Cloud Computing">
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="../../index_eng.html">Home</a></li>
+                    <li><a href="../servicios/servicios_eng.html">Services</a></li>
+                    <li><a href="../proyectos/proyectos_eng.html">Projects</a></li>
+                    <li><a href="../consultoria/consultoria_eng.html" class="active">Consulting</a></li>
+                    <li><a href="../contacto/contacto_eng.html">Contact</a></li>
+                </ul>
+                <div class="mobile-language-selector">
+                    <a href="consultoria_eng.html" class="lang-btn  active" title="English">EN</a>
+                    <a href="consultoria_por.html" class="lang-btn" title="Português">PT</a>
+                    <a href="index.html" class="lang-btn" title="Castellano">ES</a>
+                </div>
+            </nav>
+
+            <div class="language-selector">
+                <a href="consultoria_eng.html" class="lang-btn  active" title="English">EN</a>
+                <a href="consultoria_por.html" class="lang-btn" title="Português">PT</a>
+                <a href="index.html" class="lang-btn" title="Castellano">ES</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="container hero-content">
+            <h1>Consulting</h1>
+            <p>First-class IT services with qualified experts</p>
+        </div>
+    </section>
+
+    <main class="section">
+        <div class="container">
+            <div class="consulting-intro">
+                <p>First-class IT consulting services working with a team of experienced resources, enabling companies to solve and maintain mission-critical business applications.</p>
+                <p>Innovative and cost-effective solutions delivered timely to National and International clients requiring immediate service delivery.</p>
+                <p>Deep expertise in consumer goods, insurance, retail, healthcare, and National and International Government Organizations, with technical specialization covering SAP, Java, .NET, PHP, and Databases under various architectures.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="services-list">
+                    <h3>Core Services</h3>
+                    <ul>
+                        <li>Project Management</li>
+                        <li>Architecture Design</li>
+                        <li>SAP Technical and Functional Consulting</li>
+                        <li>SAP Security Consulting</li>
+                        <li>Specialized Remote Consulting and Support</li>
+                    </ul>
+                    <ul>
+                        <li>Process Reengineering in all technologies</li>
+                        <li>Biometric Systems Consulting</li>
+                        <li>SAP Training for end users, functional and technical consultants</li>
+                    </ul>
+                </div>
+
+                <div class="services-list">
+                    <h3>Specialized Services</h3>
+                    <ul>
+                        <li>Corrective Maintenance</li>
+                        <li>Training</li>
+                        <li>Application Refactoring</li>
+                        <li>Upgrade or Migration Process Support</li>
+                    </ul>
+                    <ul>
+                        <li>SAP Basis, Security and Functional areas (CO, FI, MM, SD, PS, PP modules, etc), Banking, specialized BI through outsourcing or from our specialized global service center</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="partners-section">
+                <h3>Our Partners</h3>
+                <div class="partner-card">
+                    <p>BUSINESS PERFORMANCE ADVISORS, a consulting firm specializing in business processes, financial services, and information systems.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">
+                <img src="../../images/logo.png" alt="ECC Extreme Cloud Computing">
+            </div>
+            <p class="copyright">
+                Copyright ECC Extreme Cloud Computing SA © 2024 - Buenos Aires - Argentina
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menuToggle");
+            const mainNav = document.getElementById("mainNav");
+            const body = document.body;
+    
+            menuToggle.addEventListener("click", function () {
+                mainNav.classList.toggle("active");
+                menuToggle.classList.toggle("active");
+                body.style.overflow = mainNav.classList.contains("active") ? "hidden" : "";
+            });
+    
+            const navLinks = mainNav.getElementsByTagName("a");
+            Array.from(navLinks).forEach(link => {
+                link.addEventListener("click", () => {
+                    mainNav.classList.remove("active");
+                    menuToggle.classList.remove("active");
+                    body.style.overflow = "";
+                });
+            });
+        });
+    </script>
+    <script src="../../js/header-scroll.js"></script>
+</body>
+</html>

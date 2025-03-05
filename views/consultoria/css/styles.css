@@ -1,0 +1,178 @@
+/* Importamos los estilos base */
+@import 'estilo.css';
+
+/* Sobreescribimos los estilos específicos para consultoría */
+.hero-banner {
+    min-height: 400px;
+    padding-top: 120px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/consultoria-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilos para la introducción */
+.consulting-intro {
+    max-width: 800px;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+.consulting-intro p {
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Grid de servicios */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin: 4rem 0;
+}
+
+.services-list {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.services-list h3 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.services-list h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.services-list ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.services-list ul:last-child {
+    margin-bottom: 0;
+}
+
+.services-list li {
+    color: var(--gray);
+    padding: 0.8rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.4;
+}
+
+.services-list li::before {
+    content: '•';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Sección de asociados */
+.partners-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.partners-section h3 {
+    color: var(--text);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.partner-card {
+    background: var(--nav-bg);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.partner-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-banner h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-banner p {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.consulting-intro p {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.consulting-intro p:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.consulting-intro p:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.services-list {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.services-list:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 300px;
+        padding-top: 100px;
+    }
+
+    .consulting-intro {
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .services-grid {
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .services-list {
+        padding: 1.5rem;
+    }
+
+    .partner-card {
+        margin: 0 1rem;
+    }
+}

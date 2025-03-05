@@ -1,0 +1,217 @@
+/* Importamos los estilos base */
+@import 'estilo.css';
+
+/* Sobreescribimos los estilos específicos para contacto */
+.hero-banner {
+    min-height: 400px;
+    padding-top: 120px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/contacto-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Grid de contacto */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin: 4rem 0;
+}
+
+/* Estilos del formulario */
+.contact-form-container {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form-container h2 {
+    color: var(--text);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Información de contacto */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.office-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.office-card .flag {
+    margin-bottom: 1rem;
+}
+
+.office-card .flag img {
+    width: 32px;
+    height: auto;
+}
+
+.office-card h3 {
+    color: var(--text);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.office-card p {
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-banner h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-banner p {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.contact-form-container,
+.office-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.office-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.office-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 300px;
+        padding-top: 100px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+
+    .contact-info {
+        gap: 1.5rem;
+    }
+}
+
+/* Estilos para el campo de archivo */
+.form-group.file-upload {
+    display: none;
+    margin-top: 1rem;
+}
+
+.form-group.file-upload.active {
+    display: block;
+    animation: fadeInUp 0.3s ease-out forwards;
+}
+
+.file-upload-label {
+    display: block;
+    padding: 1rem;
+    border: 2px dashed #e2e8f0;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+    border-color: var(--primary);
+    background: rgba(255, 107, 0, 0.05);
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-info {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+/* Agregar al final del archivo CSS */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 4px;
+    color: white;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    max-width: 350px;
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}

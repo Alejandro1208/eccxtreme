@@ -1,0 +1,154 @@
+<script language="javascript" type="text/javascript">
+	var iINDICE_NOTAS_RIGHT_ANTERIOR = 1;
+
+	$(document).ready(function(){
+		$("#tableNotas_1").show();
+
+		$("#aMasLeidas").click(function(){
+			$("#tableNotas_" + iINDICE_NOTAS_RIGHT_ANTERIOR).hide();
+			$("#tableNotas_1").show();
+			iINDICE_NOTAS_RIGHT_ANTERIOR = 1;
+		});
+
+		$("#aMasValoradas").click(function(){
+			$("#tableNotas_" + iINDICE_NOTAS_RIGHT_ANTERIOR).hide();
+			$("#tableNotas_2").show();
+			iINDICE_NOTAS_RIGHT_ANTERIOR = 2;
+		});
+
+		$("#aMasComentadas").click(function(){
+			$("#tableNotas_" + iINDICE_NOTAS_RIGHT_ANTERIOR).hide();
+			$("#tableNotas_3").show();
+			iINDICE_NOTAS_RIGHT_ANTERIOR = 3;
+		});		
+	})
+	
+	 
+</script>
+				
+								<table width="290" border="0" cellspacing="0" cellpadding="0">
+              						<tr>
+                						<td>{BANNER_CUBO_1}</td>
+              						</tr>
+              						<tr>
+                						<td height="10"></td>
+              						</tr>
+              						<tr>
+                						<td>{BANNER_ANCHO_1}</td>
+              						</tr>
+              						<tr>
+                						<td height="5"><span class="Estilo26">........................................................................</span></td>
+              						</tr>
+              						<tr>
+                						<td height="13"></td>
+              						</tr>
+              						<tr>
+                						<td width="290" height="0" valign="top"><table width="290" border="0" cellspacing="0" cellpadding="0">
+                  							<tr>
+                    							<td height="30"><table width="290" height="25" border="0" cellpadding="0" cellspacing="0">
+                      								<tr>
+                        								<td width="93" height="30" align="center" valign="middle" bgcolor="#085E7F"><table width="93" border="0" cellspacing="0" cellpadding="0">
+                          									<tr>
+                            									<td width="10">&nbsp;</td>
+                            									<td width="78" align="left"><a id="aMasLeidas" href="javascript:void(0)" class="Estilo30">+ Leidas</a></td>
+                            									<td width="5">&nbsp;</td>
+                          									</tr>
+                        								</table></td>
+                        								<td width="5" height="30">&nbsp;</td>
+                        								<td width="94" height="30" align="center" valign="middle" bgcolor="#666666"><table width="93" border="0" cellspacing="0" cellpadding="0">
+                          									<tr>
+                            									<td width="10">&nbsp;</td>
+                            									<td width="78" align="left"><a id="aMasValoradas" href="javascript:void(0)" class="Estilo30">+ Valoradas</a></td>
+                            									<td width="5">&nbsp;</td>
+                          									</tr>
+                        								</table></td>
+                        								<td width="5" height="30">&nbsp;</td>
+                        								<td width="93" height="30" align="center" valign="middle" bgcolor="#999999"><table width="93" border="0" cellspacing="0" cellpadding="0">
+                          									<tr>
+                            									<td width="8">&nbsp;</td>
+                            									<td width="80" align="left"><a id="aMasComentadas" href="javascript:void(0)" class="Estilo30">+ Comentadas</a></td>
+                            									<td width="5">&nbsp;</td>
+                          									</tr>
+                        								</table></td>
+                      								</tr>
+                    							</table></td>
+                  							</tr>
+                  							<tr>
+                    							<td height="0" valign="top">
+                    								<!-- BEGIN NOTAS -->
+                    								<table id="tableNotas_{iIndice}" width="290" border="0" cellspacing="0" cellpadding="0" style="display: none;">
+	                  									<tr>
+	                    									<td colspan="3" height="8" bgcolor="#{sBgColor}"></td>
+	                  									</tr>                    							
+	                      								<tr>
+	                        								<td width="8" height="73" bgcolor="#{sBgColor}">&nbsp;</td>
+	                        								<td width="274" height="100" valign="top"><table width="274" border="0" cellspacing="0" cellpadding="0">
+	                          									<tr>
+			                            							<td width="8">&nbsp;</td>
+			                            							<td width="258"><table width="258" border="0" cellspacing="0" cellpadding="0">
+			                              								<tr>
+			                                								<td height="10" align="right"></td>
+			                                								<td width="5" align="right"></td>
+			                                								<td height="10"></td>
+			                              								</tr>
+			                              								<!-- BEGIN NOTA -->
+			                              								<tr>
+			                                								<td width="20" align="right"><span class="Estilo3">{iNumero}.</span></td>
+			                                								<td width="5" align="right">&nbsp;</td>
+			                                								<td><a href="/nota/{sTituloLink}" class="Estilo3">{sTitulo}</a></td>
+			                              								</tr>
+			                              								<tr>
+			                                								<td width="20" height="5" align="right"></td>
+			                                								<td width="5" height="5" align="right"></td>
+			                                								<td height="5"></td>
+			                              								</tr>
+			                              								<!-- END NOTA -->
+	                            									</table></td>
+	                            									<td width="8"></td>
+	                          									</tr>
+	                        								</table></td>
+	                        								<td width="8" bgcolor="#{sBgColor}">&nbsp;</td>
+	                      								</tr>
+				                  						<tr>
+			                    							<td colspan="3" height="8" bgcolor="#{sBgColor}"></td>
+			                  							</tr>	                      								
+	                    							</table>
+	                    							<!-- END NOTAS -->
+												</td>
+	                  						</tr>
+										</table></td>
+              						</tr>
+              						<tr>
+                						<td height="5"><span class="Estilo26">........................................................................</span></td>
+              						</tr>
+              						<tr>	
+                						<td width="290" height="13"></td>
+              						</tr>
+              						<tr>
+                						<td width="290" height="110" bgcolor="#666666">{BANNER_ANCHO_2}</td>
+              						</tr>
+              						<tr>
+                						<td></td>
+              						</tr>
+              						<tr>
+                						<td><span class="Estilo26">........................................................................</span></td>
+              						</tr>
+              						<tr>
+                						<td height="13"></td>
+              						</tr>
+              						<tr>
+                						<td width="290" height="50" align="center" valign="middle" bgcolor="#085E7F"><span class="Estilo27">Quiero suscribirme al <strong>Newsletter!</strong></span></td>
+              						</tr>
+              						<tr>
+                						<td><span class="Estilo26">........................................................................</span></td>
+              						</tr>
+              						<tr>
+                						<td height="13"></td>
+              						</tr>
+              						<tr>
+                						<td width="290" height="110" bgcolor="#666666">{BANNER_ANCHO_3}</td>
+              						</tr>
+              						<tr>
+                						<td height="13"></td>
+              						</tr>
+            					</table>

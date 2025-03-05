@@ -1,0 +1,260 @@
+<script type="text/javascript">
+    function subME(intId)
+    {
+        with(document.frmops)
+        {
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_op.value = "me";
+            hdn_alt_id.value = intId;
+            hdn_op_int.value = (intId!=null)?"modificacion":"alta";
+            submit();
+        }
+    }
+
+    function subMC(intId)
+    {
+        with(document.frmops)
+        {
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_op.value = "mc";
+            hdn_alt_id.value = intId;
+            hdn_op_int.value = (intId!=null)?"modificacion":"alta";
+            submit();
+        }
+    }
+
+
+    function subMEst(intId)
+    {
+        with(document.frmops)
+        {
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_op.value = "mest";
+            hdn_alt_id.value = intId;
+            hdn_op_int.value = (intId!=null)?"modificacion":"alta";
+            submit();
+        }
+    }
+    function subMI(intId)
+    {
+        with(document.frmops)
+        {
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_op.value = "mi";
+            hdn_alt_id.value = intId;
+            submit();
+        }
+    }
+    function subMImg(intId)
+    {
+        with(document.frmops)
+        {
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_op.value = "mimg";
+            hdn_alt_id.value = intId;
+            submit();
+        }
+    }
+</script>
+<div  style="text-align:center;"><a href='javascript:document.location="cvs-l.php"'><img src="images/form/bot_cancelar.png"  alt="Volver"/></a></div>
+<!-- BEGIN BLK_FORM -->
+{flash}
+{err_string}
+
+<form action=""  method="POST" id="frm">
+    <fieldset> <legend>Datos Personales</legend>
+        <div class="form-top">
+            <div class="form-bottom">
+                <div class="form-middle">
+                    <div id="foto" style="float:right;">
+                        <img src="../upload/{rutaFoto}" alt="foto-cv" style="width:128px;height:128px;display:block;"/>
+                        <a href="javascript:subMImg({hd_cv_id})" style="float:right;">Cambiar</a>
+                    </div>
+                    <p>
+                        <label>Nombre y apellido: *</label>
+                        <input type="text" id="txtNyA" name="txtNyA" maxlength="50" value="{txtNyA}" style="width: 250px;">
+                    </p>
+                    <p>
+                        <label for="lastname">Fecha de Nacimiento: </label>
+                        <select id="cmbFechasNacimientoD" name="cmbFechasNacimientoD">
+                            <option value="">D&iacute;a:</option>
+                            {cmbFechasNacimientoD}
+                        </select>
+                        <select id="cmbFechasNacimientoM" name="cmbFechasNacimientoM" >
+                            <option value="">Mes:</option>
+                            {cmbFechasNacimientoM}
+                        </select>
+
+                        <select id="cmbFechasNacimientoA" name="cmbFechasNacimientoA" style="width: 60px;">
+                            <option value="">A&ntilde;o:</option>
+                            {cmbFechasNacimientoA}
+                        </select>
+
+                        <label >Estado civil: *</label>
+                        {rdoEstadoCivil}
+                    </p>
+
+                    <p>
+                        <label>Cantidad de hijos: </label>
+                        <select id="cmbHijos" name="cmbHijos">
+                            <option value="0">Ninguno</option>
+                            {cmbHijos}
+                        </select>
+                    </p>
+
+                    <p>
+                        <label >Documento: </label>
+                        <select tabindex="8" id="cmbTiposDocumento" name="cmbTiposDocumento">
+                            <option value="">Seleccionar</option>
+                            {cmbTiposDocumento}
+                        </select>
+                        <label  class="w-60">N&uacute;mero: </label>
+                        <input type="text" id="txtDocumento" name="txtDocumento" maxlength="8" style="width: 80px;" value="{txtDocumento}" />
+                        <label >CUIL: </label>
+                        <input type="text" id="txtCuil2" name="txtCuil" maxlength="11" style="width: 80px;" value="{txtCuil}" />
+
+                    </p>
+                    <p>
+                        <label >Tel&eacute;fono:</label>
+                        <input type="text" id="txtTelefono2" name="txtTelefono" maxlength="40" value="{txtTelefono}"/>
+                    </p>
+
+                    <p>
+                        <label for="confirm_password">Direcci&oacute;n:</label><br/>
+                        <span>Calle:</span>
+                        <input type="text" id="txtCalle" name="txtCalle" maxlength="50" style="width:200px;" value="{txtCalle}"/>
+                        <span>Nro:</span>
+                        <input type="text" id="txtNro" name="txtNro" maxlength="10" style="width:75px;" value="{txtNro}"/>
+                        <span>Piso:</span>
+                        <input type="text" id="txtPiso" name="txtPiso" maxlength="3" style="width:50px;" value="{txtPiso}"/>
+                        <span>Dto:</span>
+                        <input type="text" id="txtDepto" name="txtDepto" maxlength="3" style="width:50px;"value="{txtDepto}"/>
+                        <span>CP:</span>
+                        <input type="text" id="txtCp" name="txtCp" maxlength="10" style="width:50px;" value="{txtCp}"/>
+                    </p>
+                    <p>
+                        <label for="email">Barrio:</label>
+                        <input type="text" id="txtBarrio" name="txtBarrio" maxlength="50"  value="{txtBarrio}" />
+                        <span>Provincia:</span>
+                        <select tabindex="8" id="cmbProvincias" name="cmbProvincias">
+                            <option value="">Provincia:</option>
+                            {cmbProvincias}
+                        </select>
+                    </p>
+
+                    <p >
+                        <label class="bullet">Email: *</label>
+                        <input type="text" id="txtEmail" name="txtEmail" maxlength="50"  value="{txtEmail}" style="width: 200px;"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Perfil</legend>
+        <div class="form-top">
+            <div class="form-bottom">
+                <div class="form-middle">
+                    <p>
+                        <label>Perfil: *</label>
+                        <select tabindex="8" id="cmbPerfiles" name="cmbPerfiles" >
+                            <option value="">Perfil</option>
+                            {cmbPerfiles}
+                        </select>
+                    </p>
+
+
+
+                    <p id="perfilSap2">
+                        <label >Tiene conocimientos SAP:</label>
+                        {chkConocimientosSap}
+                    </p>
+                    <p id="perfilSap1">
+                        {chkPerfiles}
+                        <span id="perfilSap1Otro">Otro:<input type="text" id="txtPerfilSapOtro" name="txtPerfilSapOtro" maxlength="50" value="{txtPerfilSapOtro}"/></span>
+                        <br/>
+                        <span>Es certificado?:</span>
+                        {rdoCertificadoSap}
+                    </p>
+                    <p >
+                        <label >Conocimientos:*</label>
+                        <textarea cols="100" rows="10" id="taConocimientos" name="taConocimientos">{taConocimientos}</textarea>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+
+        <legend>Remuneraci&oacute;n</legend>
+        <div class="form-top">
+            <div class="form-bottom">
+                <div class="form-middle">
+                    <p>
+                        <label >&iquest;Cual es la remuneraci&oacute;n bruta pretendida?</label>
+                        <span>$</span> <input id="txtRemuneracion" name="txtRemuneracion" value="{txtRemuneracion}"/>
+                    </p>
+                    <p>
+                        <label  class="bullet remu">Modalidad de contrataci&oacute;n</label>
+                        <select tabindex="8" id="cmbProvincias" name="cmbTipoContratacion">
+                            <option value="">No especifica</option>
+                            {cmbTiposContratacion}
+                        </select>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+    <input type="hidden" name="hdn_op" value="{hdn_op}"/>
+    <input type="submit" value ="Guardar" name="submited"/>
+
+</form>
+
+
+<form action="" method="POST" name="frmops">
+    <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+    <input type="hidden" name="hdn_op" value=""/>
+    <input type="hidden" name="hdn_alt_id" value=""/>
+    <input type="hidden" name="hdn_op_int"/>
+</form>
+<!-- END BLK_FORM -->
+
+<!-- BEGIN BLK_EXP -->
+<fieldset>
+    <legend>Experiencia</legend>
+    {experiencias}
+</fieldset>
+<!-- END BLK_EXP -->
+
+<!-- BEGIN BLK_CURSOS -->
+<fieldset>
+    <legend>Conocimientos</legend>
+    {cursos}
+</fieldset>
+<!-- END BLK_CURSOS -->
+
+<!-- BEGIN BLK_ESTUDIOS -->
+<fieldset>
+    <legend>Estudios</legend>
+    {estudios}
+</fieldset>
+<!-- END BLK_ESTUDIOS -->
+<!-- BEGIN BLK_IDIOMAS -->
+<fieldset>
+    <legend>Idiomas</legend>
+    {idiomas}
+</fieldset>
+<!-- END BLK_IDIOMAS-->

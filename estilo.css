@@ -1,0 +1,568 @@
+/* Hero Banner */
+:root {
+    --primary: #ff6b00;    /* Naranja */
+    --secondary: #1a1a1a;  /* Negro */
+    --nav-bg: #2d2d2d;    /* Gris oscuro para el nav */
+    --text: #333333;
+    --background: #f8f8f8;
+    --white: #ffffff;
+    --gray: #64748b;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+	--header-height: 80px; 
+}
+
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.container {
+    width: min(1200px, 95%);
+    margin: 0 auto;
+}
+
+.main-header {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+    transition: transform 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    width: 200px; /* Tamaño más pequeño para el logo */
+    height: auto;
+    display: flex;
+    align-items: center;
+	filter: brightness(0) invert(1); /* Hace el logo blanco */
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 130px; /* Aún más pequeño en mobile */
+    }
+}
+
+
+.main-nav {
+    flex: 1;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    list-style: none;
+}
+
+.main-header {
+    background: var(--nav-bg);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+.main-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary);
+    background: rgba(255, 107, 0, 0.1);
+}
+
+/* Actualizar los estilos del selector de idiomas en desktop */
+.lang-btn {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.1);
+}
+
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.1);
+}
+
+/* Hero Banner */
+.hero-banner {
+    padding-top: 120px; /* Valor ajustable para desktop */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(235, 152, 117, 0.5)), url('images/banner.jpg');
+    background-size: cover;
+    background-position: top center;
+    min-height: 700px;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    text-align: center;
+}
+
+/* Agregar variable para la altura del header */
+:root {
+    --header-height: 80px; /* Ajusta este valor según la altura real de tu header */
+    /* ... resto de variables ... */
+}
+
+.main-header {
+    background: var(--nav-bg);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary);
+    background: rgba(255, 107, 0, 0.1);
+}
+
+/* Actualizar los estilos del selector de idiomas en desktop */
+
+.hero-content {
+	margin-top: -100px;
+    max-width: 800px;
+}
+
+/* Animaciones para el banner */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-banner h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-banner p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    opacity: 0;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s; /* Retraso para que aparezca después del título */
+}
+
+/* Cards y Grid */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text);
+}
+
+/* Cards y Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem; /* Agregamos espacio antes de la sección CTA */
+}
+
+/* Estilos para la sección CTA */
+.cta-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--nav-bg);
+    border-radius: 1rem;
+}
+
+.cta-card {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-card .card-content {
+    text-align: center;
+}
+
+.cta-card h3 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.cta-card p {
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.cta-card .btn-primary {
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+.card {
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card h3 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+}
+
+/* Botones y CTAs */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Footer */
+.footer {
+    background: var(--nav-bg);
+    color: var(--white);
+    padding: 4rem 0;
+    margin-top: 4rem;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.footer .logo {
+    width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer .logo img {
+    filter: brightness(0) invert(1); /* Hace el logo blanco */
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer .logo {
+        width: 120px;
+    }
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+		padding-top: 100px; /* Valor ajustable para mobile */
+        min-height: 400px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .hero-banner {
+        min-height: 400px;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* Utilidades */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+/* Estilos del menú hamburguesa */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+/* Animación del menú hamburguesa cuando está activo */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Media queries actualizados */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--secondary);
+        padding-top: 80px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .main-nav a {
+        color: var(--white);
+        font-size: 1.2rem;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+        color: var(--primary);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .language-selector {
+        z-index: 1001;
+    }
+}
+/* Estilos para los botones de idioma */
+.language-selector {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.lang-btn {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Banderas para cada idioma */
+.lang-btn[title="English"]::before {
+    background-image: url('images/flags/us.png');
+}
+
+.lang-btn[title="Português"]::before {
+    background-image: url('images/flags/br.png');
+}
+
+.lang-btn[title="Castellano"]::before {
+    background-image: url('images/flags/es.png');
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    color: var(--primary);
+    background: rgba(255, 107, 0, 0.1);
+}
+
+.mobile-language-selector {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .language-selector {
+        display: none; /* Oculta los botones originales en mobile */
+    }
+
+    .mobile-language-selector {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+
+    .mobile-language-selector .lang-btn {
+        color: var(--white);
+        font-size: 1.2rem;
+        padding: 0.8rem 1.8rem;
+    }
+
+    .mobile-language-selector .lang-btn.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--primary);
+    }
+
+    .main-nav.active .mobile-language-selector {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

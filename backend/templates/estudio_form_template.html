@@ -1,0 +1,82 @@
+<!-- BEGIN BLK_FORM -->
+
+<h3>Estudios</h3>
+<div  style="text-align:center;"><a href="javascript:subM({hd_cv_id})"><img src="images/form/bot_cancelar.png"  alt="Volver"/></a></div>
+{flash}
+{err_string}
+<div class="form-top">
+    <div class="form-bottom">
+        <div class="form-middle">
+            <form method="post" action="" name="estudios">
+                <p>
+                    <label>Nivel de estudio:</label>
+                    <select id="cmbNiveles" name="cmbNiveles">
+                        <option value="">Nivel de estudio</option>
+                        {cmbNiveles}
+                    </select>
+                </p>
+                <p>
+                    <label>T&iacute;tulo o certificaci&oacute;n:</label>
+                    <input type="text" id="txtTitulo" name="txtTitulo" value="{txtTitulo}" />
+                </p>
+
+                <p>
+                    <label>&Aacute;rea de estudio:</label>
+                    <input type="text" id="txtArea" name="txtArea" maxlength="50" value="{txtArea}"/>
+                </p>
+
+                <p>
+                    <label>Instituci&oacute;n:</label>
+                    <input type="text" id="txtInstitucion" name="txtInstitucion" maxlength="50" value="{txtInstitucion}"/>
+                </p>
+
+                <p>
+                    <label  class="bullet">Per&iacute;odo:</label>
+                <p> Desde:
+                    <select name="cmbFechaDesdeD">
+                        <option value="">D&iacute;a:</option>
+                        {cmbFechaDesdeD}
+                    </select>
+                    <select name="cmbFechaDesdeM" >
+                        <option value="">Mes:</option>
+                        {cmbFechaDesdeM}
+                    </select>
+                    <select name="cmbFechaDesdeA" style="width: 60px;">
+                        <option value="">A&ntilde;o:</option>
+                        {cmbFechaDesdeA}
+                    </select>
+                </p>
+                <p> Hasta:
+                    <select name="cmbFechaHastaD">
+                        <option value="">D&iacute;a:</option>
+                        {cmbFechaHastaD}
+                    </select>
+                    <select name="cmbFechaHastaM" >
+                        <option value="">Mes:</option>
+                        {cmbFechaHastaM}
+                    </select>
+                    <select name="cmbFechaHastaA" style="width: 60px;">
+                        <option value="">A&ntilde;o:</option>
+                        {cmbFechaHastaA}
+                    </select>
+                </p>
+                <p>Actualidad {chkActualidad}</p>
+                <p class="last">
+                    <label class="bullet">Descripci&oacute;n:</label>
+                    <textarea id="taEstudiosDescripcion" name="taEstudiosDescripcion">{taEstudiosDescripcion}</textarea>
+                </p>
+                <input type="hidden" name="hdn_op" value="mest"/>
+                <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+                <input type="hidden" name="hdn_op_int" value="{alta_modif}"/>
+                <input type="hidden" name="hdn_alt_id" value="{hdn_est_id}"/>
+                <input type="submit" value="Guardar" name="submited"/>
+            </form>
+        </div>
+    </div>
+</div>
+<form action="" method="POST" name="frmops">
+    <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+    <input type="hidden" name="hdn_op" value=""/>
+    <input type="hidden" name="hdn_alt_id" value=""/>
+</form>
+<!-- END BLK_FORM -->

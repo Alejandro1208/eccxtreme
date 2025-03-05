@@ -1,0 +1,18 @@
+<table width="100%" height="30" cellpadding="0" cellspacing="0" border="0">
+	<tr class="fondo_titulo_modulo">
+		<td class="txt">&nbsp;&nbsp;<a href="{url}" title="Ir al Front" target="_blank"><img src="{img_src}home.gif" width="16" height="16" border="0"></a>&nbsp;&nbsp;<a href="logout.php" title="Log Out"><img src="{img_src}logout.gif" width="16" height="16" border="0"></a>&nbsp;&nbsp;<b>{administrador}</b></td>
+		<td align="right">
+			<select name="cmb_modulos" onChange="document.location=this.value">
+				<option value="" SELECTED>[Menu]</option>
+				<optgroup label=""></optgroup>
+				<!-- BEGIN BLK_OPTIONGROUP -->
+				<optgroup label="{label}"></optgroup>
+				<!-- END BLK_OPTIONGROUP -->
+				<!-- BEGIN BLK_OPTION -->
+				<option value="{val}" {selected}>{des}</option>
+				<!-- END BLK_OPTION -->
+			</select>&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+

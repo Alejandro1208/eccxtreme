@@ -1,0 +1,89 @@
+<!-- BEGIN BLK_FORM -->
+<h3>Experiencia laboral</h3>
+
+<div  style="text-align:center;"><a href="javascript:subM({hdn_id})"><img src="images/form/bot_cancelar.png"  alt="Volver"/></a></div>
+{flash}
+{err_string}
+<div class="form-top">
+    <div class="form-bottom">
+        <div class="form-middle">
+            <form action="" method="post">
+                <p>
+                    <label  class="bullet">Per&iacute;odo:</label>
+                <p> Desde:
+                    <select name="cmbPeriodosDesdeD">
+                        <option value="">D&iacute;a:</option>
+                        {cmbPeriodosDesdeD}
+                    </select>
+                    <select name="cmbPeriodosDesdeM" >
+                        <option value="">Mes:</option>
+                        {cmbPeriodosDesdeM}
+                    </select>
+                    <select name="cmbPeriodosDesdeA" style="width: 60px;">
+                        <option value="">A&ntilde;o:</option>
+                        {cmbPeriodosDesdeA}
+                    </select>
+                </p>
+                <p> Hasta:
+                    <select name="cmbPeriodosHastaD">
+                        <option value="">D&iacute;a:</option>
+                        {cmbPeriodosHastaD}
+                    </select>
+                    <select name="cmbPeriodosHastaM" >
+                        <option value="">Mes:</option>
+                        {cmbPeriodosHastaM}
+                    </select>
+                    <select name="cmbPeriodosHastaA" style="width: 60px;">
+                        <option value="">A&ntilde;o:</option>
+                        {cmbPeriodosHastaA}
+                    </select>
+                </p>
+
+                <p>
+                    <label> Cargo:</label>
+                    <input type="text" id="txtCargo" name="txtCargo" maxlength="50" value="{txtCargo}"/>
+
+                </p>
+                <p>
+                    <label>Compa&ntilde;ia:</label>
+                    <input type="text" id="txtCompania" name="txtCompania" value="{txtCompania}" /></p>
+
+                <p>
+                    <label>Cliente:</label>
+                    <input type="text" id="txtCliente" name="txtCliente" maxlength="50" value="{txtCliente}"/>
+                </p>
+
+                <p>
+                    <label>Ubicaci&oacute;n:</label>
+                    <select id="cmbPaises" name="cmbPaises">
+                        <option value="">Ubicaci&oacute;n</option>
+                        {cmbUbicacion} <!-- sp_paises_combo-->
+                    </select>
+                    <input type="text" name="txtPais" value="{txtPais}"/>
+                </p>
+
+                <p>
+                    <label>Contexto del proyecto:</label>
+                    <input type="text" id="txtContextoProyecto" name="txtContextoProyecto" value="{txtContextoProyecto}"/>
+                </p>
+
+                <p>
+                    <label>Actividades:</label><br/>
+                    <textarea cols="100" rows="10" id="taActividades" name="taActividades">{taActividades}</textarea>
+                </p>
+
+                <input type="hidden" name="hdn_op" value="me"/>
+                <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+                <input type="hidden" name="hdn_op_int" value="{alta_modif}"/>
+                <input type="hidden" name="hdn_alt_id" value="{hdn_exp_id}"/>
+                <input type="submit" value="Guardar" name="submited"/>
+            </form>
+        </div>
+    </div>
+</div>
+<form action="" method="POST" name="frmops">
+    <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+    <input type="hidden" name="hdn_op" value=""/>
+    <input type="hidden" name="hdn_alt_id" value=""/>
+</form>
+<!-- END BLK_FORM -->

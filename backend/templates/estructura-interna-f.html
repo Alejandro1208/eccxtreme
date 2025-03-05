@@ -1,0 +1,448 @@
+<!-- ---------------------  -->
+<!-- MultiSelectOrder.	    -->
+<!-- ---------------------  -->
+<style type="text/css">
+	<!-- BEGIN BLK_MULTISELECTORDER_STYLE -->
+	.estilo_mso_{name}
+	{
+		width:  {w}px;
+		height: {h}px;
+	}
+	<!-- END BLK_MULTISELECTORDER_STYLE -->
+</style>	
+<!-- ---------------------  -->
+
+<script language="JavaScript" type="text/JavaScript">
+	function subVolver()
+	{
+		with(document.frm)
+		{
+			action  = "{href_listado}";
+			enctype = "application/x-www-form-urlencoded";
+			submit ();
+		}
+	}
+</script>
+
+<!-- ---------------------  -->
+<!-- On load.			    -->
+<!-- ---------------------  -->
+<script language="JavaScript" type="text/JavaScript">
+	function subOnLoad()
+	{
+		<!-- BEGIN BLK_MULTISELECTORDER_ONLOAD_JS -->
+		var objMSO = new MultiSelectOrder ("lst_{name}[]");
+		objMSO.TheSource		= window.document.getElementById ("src_{name}");
+		objMSO.TheContainer		= window.document.getElementById ("cnt_{name}");
+		objMSO.Estilo			= "estilo_mso_{name}";
+		objMSO.EstiloTitulo		= "txt";
+		objMSO.TitleSource		= "Disponibles";
+		objMSO.TitleDestination = "Seleccionados";
+		objMSO.Type				= {type};
+		objMSO.Url				= MULTISELECTORDER_URL;
+		objMSO.Draw();
+		<!-- END BLK_MULTISELECTORDER_ONLOAD_JS -->				
+	}	
+</script>
+<!-- ---------------------  -->
+
+<!-- ---------------------  -->
+<!-- Before submit.		    -->
+<!-- ---------------------  -->
+<script language="JavaScript" type="text/JavaScript">
+	function subBeforeSubmit()
+	{
+		<!-- BEGIN BLK_MULTISELECTORDER_BEFORESUBMIT_JS -->
+		SelectAll("lst_{name}[]");
+		<!-- END BLK_MULTISELECTORDER_BEFORESUBMIT_JS -->
+	}
+</script>
+<!-- ---------------------  -->
+
+<!-- BEGIN BLK_VALIDAR -->
+<!-- ---------------------  -->
+<!-- Validación.		    -->
+<!-- ---------------------  -->
+<script language="JavaScript" type="text/JavaScript">
+	var strERROR;
+	var strFOCUS;
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+	function fncRadioNingunoSeleccionado(objRadio)
+	{
+		for(var j = 0; j <= objRadio.length - 1; j ++)
+		{
+			if(objRadio[j].checked)
+				return(false);
+		}
+		return(true);
+	}
+</script>	
+
+{OTRO}
+
+<script language="JavaScript" type="text/JavaScript">	
+	function fncValidar()
+	{
+		strERROR = "";
+		strFOCUS = "";
+				
+		with(document.frm)
+		{
+			<!-- BEGIN BLK_ITEM -->
+
+			<!-- BEGIN BLK_TEXT -->
+			if(isWhitespace(txt_{name}.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "txt_{name}";
+
+				strERROR = strERROR + "-> Debe ingresar el campo [{field}].\n";
+			}
+			<!-- END BLK_TEXT -->
+
+			<!-- BEGIN BLK_RADIO -->
+			if(fncRadioNingunoSeleccionado(rdo_{name}))
+			{
+				/*if(strERROR == "")
+					strFOCUS = "txt_{name}";*/
+
+				strERROR = strERROR + "-> Debe seleccionar el campo [{field}].\n";
+			}
+			<!-- END BLK_RADIO -->
+
+			<!-- BEGIN BLK_EMAIL_OBLIGATORIO -->
+			if(isWhitespace(txt_{name}.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "txt_{name}";
+
+				strERROR = strERROR + "-> Debe ingresar el campo [{field}].\n";
+			}
+			else
+			{
+				if(!isEmail(txt_{name}.value))
+				{
+					if(strERROR == "")
+						strFOCUS = "txt_{name}";
+
+					strERROR = strERROR + "-> El campo [{field}] es incorrecto.\n";
+				}
+			}
+			<!-- END BLK_EMAIL_OBLIGATORIO -->
+			<!-- BEGIN BLK_EMAIL_OPCIONAL -->
+			if(!isWhitespace(txt_{name}.value) && !isEmail(txt_{name}.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "txt_{name}";
+
+				strERROR = strERROR + "-> El campo [{field}] es incorrecto.\n";
+			}
+			<!-- END BLK_EMAIL_OPCIONAL -->
+
+			<!-- BEGIN BLK_URL_OBLIGATORIO -->
+			if(isWhitespace(txt_{name}.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "txt_{name}";
+
+				strERROR = strERROR + "-> Debe ingresar el campo [{field}].\n";
+			}
+			else
+			{
+				if(!isURL(txt_{name}.value))
+				{
+					if(strERROR == "")
+						strFOCUS = "txt_{name}";
+
+					strERROR = strERROR + "-> El campo [{field}] es incorrecto.\n";
+				}
+			}
+			<!-- END BLK_URL_OBLIGATORIO -->
+			<!-- BEGIN BLK_URL_OPCIONAL -->
+			if(!isWhitespace(txt_{name}.value) && !isURL(txt_{name}.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "txt_{name}";
+
+				strERROR = strERROR + "-> El campo [{field}] es incorrecto.\n";
+			}
+			<!-- END BLK_URL_OPCIONAL -->
+
+			<!-- BEGIN BLK_SELECT -->
+			if(cmb_{name}.selectedIndex <= 0)
+			{
+				if(strERROR == "")
+					strFOCUS = "cmb_{name}";
+
+				strERROR = strERROR + "-> Debe seleccionar el campo [{field}].\n";
+			}
+			<!-- END BLK_SELECT -->
+
+			<!-- BEGIN BLK_TEXTAREA -->
+			if(isWhitespace(ta_{name}.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "ta_{name}";
+
+				strERROR = strERROR + "-> Debe ingresar el campo [{field}].\n";
+			}
+			<!-- END BLK_TEXTAREA -->
+			<!-- BEGIN BLK_TEXTAREA_ENRIQUECIDO -->
+			if(isEmpty_ta_{name}())
+			{
+				//if(strError == "")
+					//strFocus = "ta_{name}";
+
+				strERROR = strERROR + "-> Debe ingresar el campo [{field}].\n";
+			}
+			<!-- END BLK_TEXTAREA_ENRIQUECIDO -->
+			
+			<!-- BEGIN BLK_FILE_OBLIGATORIO -->
+			if(hdn_op.value == "a")
+			{
+				if(isWhitespace(file_{name}.value))
+				{
+					if(strERROR == "")
+						strFOCUS = "file_{name}";
+
+					strERROR = strERROR + "-> Debe seleccionar el campo [{field}].\n";
+				}
+				else
+				{
+					if(!isExtension(file_{name}.value, "{extenciones}"))
+					{
+						if(strERROR == "")
+							strFOCUS = "file_{name}";
+
+						strERROR = strERROR + "-> El campo [{field}] es incorrecto. Debe ser un archivo con algunas de las siguientes extenciones: {extenciones}.\n";
+					}
+				}
+			}
+			else
+			{
+				if(!isWhitespace(file_{name}.value) && !isExtension(file_{name}.value, "{extenciones}"))
+				{
+					if(strERROR == "")
+						strFOCUS = "file_{name}";
+
+					strERROR = strERROR + "-> El campo [{field}] es incorrecto. Debe ser un archivo con algunas de las siguientes extenciones: {extenciones}\n.";
+				}
+			}
+			<!-- END BLK_FILE_OBLIGATORIO -->
+			<!-- BEGIN BLK_FILE_OPCIONAL -->
+			if(!isWhitespace(file_{name}.value) && !isExtension(file_{name}.value, "{extenciones}"))
+			{
+				if(strERROR == "")
+					strFOCUS = "file_{name}";
+
+				strERROR = strERROR + "-> El campo [{field}] es incorrecto. Debe ser un archivo con algunas de las siguientes extenciones: {extenciones}.\n";
+			}
+			<!-- END BLK_FILE_OPCIONAL -->
+
+			<!-- BEGIN BLK_DATE_OBLIGATORIO -->
+			if(cmb_{name}_d.selectedIndex <= 0 || cmb_{name}_m.selectedIndex <= 0 || cmb_{name}_y.selectedIndex <= 0)
+			{
+				if(strERROR == "")
+					strFOCUS = "cmb_{name}_d";
+
+				strERROR = strERROR + "-> Debe seleccionar el campo [{field}].\n";
+			}
+			else
+			{
+				if(!isDate(cmb_{name}_y.value, cmb_{name}_m.value, cmb_{name}_d.value))
+				{
+					if(strERROR == "")
+						strFOCUS = "cmb_{name}_d";
+
+					strERROR = strERROR + "-> El campo [{field}] es incorrecto.\n";
+				}
+			}
+			<!-- END BLK_DATE_OBLIGATORIO -->
+			<!-- BEGIN BLK_DATE_OPCIONAL -->
+			if((cmb_{name}_d.selectedIndex > 0 && cmb_{name}_m.selectedIndex > 0 && cmb_{name}_y.selectedIndex > 0) && !isDate(cmb_{name}_y.value, cmb_{name}_m.value, cmb_{name}_d.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "cmb_{name}_d";
+
+				strERROR = strERROR + "-> El campo [{field}] es incorrecto.\n";
+			}
+			<!-- END BLK_DATE_OPCIONAL -->
+
+			<!-- BEGIN BLK_NUMBER_OBLIGATORIO -->
+			if(isWhitespace(txt_{name}.value))
+			{
+				if(strERROR == "")
+					strFOCUS = "txt_{name}";
+
+				strERROR = strERROR + "-> Debe ingresar el campo [{field}].\n";
+			}
+			else
+			{
+				if(!isNumberWithXDecimals(txt_{name}.value, {decimales}))
+				{
+					if(strERROR == "")
+						strFOCUS = "txt_{name}";
+
+					if({decimales} == 0)
+						strERROR = strERROR + "-> El campo [{field}] es incorrecto. Debe ser un valor numerico entero.\n";
+					else
+						strERROR = strERROR + "-> El campo [{field}] es incorrecto. Debe ser un valor numerico con {decimales} decimales como maximo.\n";
+				}
+			}
+			<!-- END BLK_NUMBER_OBLIGATORIO -->
+			<!-- BEGIN BLK_NUMBER_OPCIONAL -->
+			if(!isWhitespace(txt_{name}.value) && !isNumberWithXDecimals(txt_{name}.value, {decimales}))
+			{
+				if(strERROR == "")
+					strFOCUS = "txt_{name}";
+
+				if({decimales} == 0)
+					strERROR = strERROR + "-> El campo [{field}] es incorrecto. Debe ser un valor numerico entero.\n";
+				else
+					strERROR = strERROR + "-> El campo [{field}] es incorrecto. Debe ser un valor numerico con {decimales} decimales como maximo.\n";
+			}
+			<!-- END BLK_NUMBER_OPCIONAL -->
+
+			<!-- BEGIN BLK_MULTISELECTORDER -->
+			var objLst = document.getElementById ("lst_{name}[]");
+			if(objLst.length == 0)
+			{
+				if(strERROR == "")
+					strFOCUS = "lst_{name}[]_source";
+
+				strERROR = strERROR + "-> El campo [{field}] debe tener seleccionado al menos un item.\n";
+			}
+			<!-- END BLK_MULTISELECTORDER -->
+
+			<!-- BEGIN BLK_OTRO -->
+			sub{nombre}();
+			<!-- END BLK_OTRO -->
+
+			<!-- END BLK_ITEM -->
+		}
+		
+		if(strERROR == "")
+		{
+			if(window.subBeforeSubmit){subBeforeSubmit();}
+			return(true);
+		}
+		else
+		{
+			alert(strERROR);
+			var objFocus = document.getElementById (strFOCUS);
+			if(objFocus != null){objFocus.focus ()};				
+			return(false);
+		}		
+	}
+</script>
+<!-- ---------------------  -->
+<!-- END BLK_VALIDAR -->
+
+<form name="frm" action="{action}" method="post" enctype="multipart/form-data" style="margin:0" onSubmit="return(fncValidar());">
+	{INPUTS}
+	<!-- BEGIN BLK_HIDDEN --><input type="hidden" name="hdn_{name}" value="{value}"><!-- END BLK_HIDDEN -->
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">	
+		<tr>
+			<td align="center"><div id="div" style="width: 100%; overflow:auto;"><table cellpadding="3" cellspacing="3" border="0" class="txt">
+				<!-- BEGIN BLK_INPUTS -->
+				<!-- BEGIN BLK_TR -->
+				
+				<!-- BEGIN BLK_AUX -->{contenido}<!-- END BLK_AUX -->
+
+				<!-- BEGIN BLK_SEPARADOR -->
+				<tr height="15">
+					<td></td>
+				</tr>
+				<!-- END BLK_SEPARADOR -->
+
+				<!-- BEGIN BLK_TITULO -->
+				<tr height="15">
+					<td colspan="2">{title}</td>
+				</tr>
+				<!-- END BLK_TITULO -->
+
+				<!-- BEGIN BLK_CAMPO -->
+				<tr>
+					<td align="right" valign="top"><!-- BEGIN BLK_OBLIGATORIO --><b>{name}: *</b><!-- END BLK_OBLIGATORIO --><!-- BEGIN BLK_OPCIONAL -->{name}:<!-- END BLK_OPCIONAL --></td>
+					<td>						
+						<!-- BEGIN BLK_LABEL -->{value}<!-- END BLK_LABEL -->
+						<!-- BEGIN BLK_TEXT --><input type="text" id="txt_{name}" name="txt_{name}" size="{size}" maxlength="{maxlength}" value="{value}"><!-- END BLK_TEXT -->
+						<!-- BEGIN BLK_CHECKBOX --><input type="checkbox" id="chk_{name}_{value}" name="chk_{name}" value="{value}" {checked}>{field}&nbsp;<!-- BEGIN BLK_BR --><br><!-- END BLK_BR --><!-- END BLK_CHECKBOX -->
+						<!-- BEGIN BLK_RADIO --><input type="radio" id="rdo_{name}_{value}" name="rdo_{name}" value="{value}" {checked}>{field}&nbsp;<!-- BEGIN BLK_BR --><br><!-- END BLK_BR --><!-- END BLK_RADIO -->
+						<!-- BEGIN BLK_FILE --><script language="JavaScript" type="text/JavaScript">subFile("file_{name}", "{file}", {eliminar});</script><!-- END BLK_FILE -->
+						<!-- BEGIN BLK_TEXTAREA -->
+						<textarea id="ta_{name}" name="ta_{name}" rows="{rows}" cols="{cols}">{value}</textarea>
+						<!-- BEGIN BLK_ENRIQUECIDO -->
+						<script language="JavaScript" type="text/JavaScript">
+							var objFCKE = new FCKeditor("ta_{name}");
+							objFCKE.BasePath	= "{url}common/js/inputs/fckeditor/";
+							objFCKE.Width		= 420;
+							objFCKE.Height		= 200;
+							objFCKE.ToolbarSet	= "MyToolBar";
+							objFCKE.ReplaceTextarea();
+						</script>
+						<script language="JavaScript" type="text/JavaScript">
+							function isEmpty_ta_{name}()
+							{
+								var objFck = FCKeditorAPI.GetInstance ('ta_{name}');
+								var strContent = objFck.GetXHTML(true);
+								return(strContent == "");
+							}
+						</script>													
+						<!-- END BLK_ENRIQUECIDO -->
+						<!-- END BLK_TEXTAREA -->
+						<!-- BEGIN BLK_SELECT -->
+						<select id="cmb_{name}" name="cmb_{name}">
+							<option value="">[{title}]</option>
+							<!-- BEGIN BLK_OPTION --><option value="{val}" {selected}>{des}</option><!-- END BLK_OPTION -->
+						</select>
+						<!-- END BLK_SELECT -->
+						<!-- BEGIN BLK_DATE --><script language="JavaScript" type="text/JavaScript">subSelectsDate("cmb_{name}", {d}, {m}, {y}, {FromYear}, {ToYear});</script><!-- END BLK_DATE -->
+						<!-- BEGIN BLK_NUMBER --><script language="JavaScript" type="text/JavaScript">subTextBoxNumeric("txt_{name}", {size}, {maxlength}, "{value}", {decimales});</script><!-- END BLK_NUMBER -->
+						<!-- BEGIN BLK_MULTISELECTORDER -->
+						<select id="src_{name}" multiple="true" style="display:none">
+							<!-- BEGIN BLK_OPCION -->
+							<option value="{val}" {selected}>{des}</option>
+							<!-- END BLK_OPCION -->
+						</select>
+						<span id="cnt_{name}"></span>
+						<!-- END BLK_MULTISELECTORDER -->
+						<!-- BEGIN BLK_COMENTARIO --><i>{value}</i><!-- END BLK_COMENTARIO -->
+					</td>
+				</tr>
+				<!-- END BLK_CAMPO -->
+
+				<!-- END BLK_TR -->
+				<!-- END BLK_INPUTS -->
+
+				<tr height="15">
+					<td></td>
+				</tr>
+			</table></div></td>
+		</tr>
+		<tr>
+			<td align="center"><table width="95%" cellpadding="0" cellspacing="0" border="0" class="txt">
+				<tr>
+					<td align="left"><i>(<b>*</b>) Campos obligatorios.</i></td>
+					<td align="center"><i>Auditoria: {auditoria}</i></td>
+					<td align="right">
+						<!-- BEGIN BLK_ESTADO -->
+						<select id="cmb_enabled" name="cmb_enabled">
+							<option value="1" style="color: green" {selected_habilitado}   >Habilitado</option>
+							<option value="0" style="color: red"   {selected_deshabilitado}>Deshabilitado</option>
+						</select>
+						<!-- END BLK_ESTADO -->
+					</td>
+				</tr>
+			</table></td>
+		</tr>
+		<tr height="15">
+			<td></td>
+		</tr>		
+		<tr>
+			<td align="center"><!-- BEGIN BLK_BOTONES --><!-- BEGIN BLK_ACEPTAR_E --><input type="image" src="{img_src}form/bot_guardar.png" width="65" height="18"><!-- END BLK_ACEPTAR_E --><!-- BEGIN BLK_ACEPTAR_D --><img src="{img_src}form/bot_guardar_disabled.png" width="65" height="18"><!-- END BLK_ACEPTAR_D --><img src="{img_src}trans.gif" width="5"><a href="JavaScript:subVolver();"><img src="{img_src}form/bot_cancelar.png" width="65" height="18" border="0" alt="Cancel / Go Back"></a><!-- END BLK_BOTONES --><!-- BEGIN BLK_VOLVER --><a href="JavaScript:subVolver()">Volver</a><!-- END BLK_VOLVER --></td>
+		</tr>
+	</table>		
+</form>

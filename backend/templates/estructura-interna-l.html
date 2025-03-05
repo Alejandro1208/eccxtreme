@@ -1,0 +1,671 @@
+<script language="JavaScript" type="text/JavaScript">
+	// Detalle.
+	function subD(intId)
+	{
+		with(document.frm)
+		{		
+		 // subOpenPopUp("{action_f}");
+			action		 = "{action_f}";
+		//  target		 = "PopUp";
+			enctype		 = "application/x-www-form-urlencoded"
+			hdn_op.value = "d";
+			hdn_id.value = intId;
+			submit ();
+		}
+	}
+
+	// Habilitar.
+	function subHabilitar(intId)
+	{
+		with(document.frm)
+		{
+			action		 = "{action_abm}";
+			target		 = "";
+			enctype		 = "multipart/form-data";
+			hdn_op.value = "h";
+			hdn_id.value = intId;
+			submit ();
+		}
+	}	
+	// Deshabilitar.
+	function subDeshabilitar(intId)
+	{
+		with(document.frm)
+		{
+			action		 = "{action_abm}";
+			target		 = "";
+			enctype		 = "multipart/form-data";
+			hdn_op.value = "dh";
+			hdn_id.value = intId;
+			submit ();
+		}
+	}
+
+	// Alta.
+	function subA()
+	{
+		with(document.frm)
+		{
+			action		 = "{action_f}";
+			target		 = "";
+			enctype		 = "application/x-www-form-urlencoded";			
+			hdn_op.value = "a";
+			hdn_id.value = 0;
+			submit ();
+		}
+	}
+	// Baja.
+	function subB(intId)
+	{
+		if(window.confirm("¿Esta seguro que desea dar de baja este item?"))
+		{
+			with(document.frm)
+			{
+				action		 = "{action_abm}";
+				target		 = "";
+				enctype		 = "multipart/form-data";
+				hdn_op.value = "b";
+				hdn_id.value = intId;
+				submit ();
+			}
+		}
+	}
+	// Modificar.
+	function subM(intId)
+	{
+		with(document.frm)
+		{
+			action		 = "{action_f}";
+			target		 = "";
+			enctype		 = "application/x-www-form-urlencoded";
+			hdn_op.value = "m";
+			hdn_id.value = intId;
+			submit ();
+		}
+	}
+        
+	function subOtro(intId)
+	{
+		with(document.frm)
+		{
+			action = "{action_otro}";
+			target = "";
+			<!-- BEGIN BLK_OTRO_ENCTYPE_MULTIPART -->enctype = "multipart/form-data";<!-- END BLK_OTRO_ENCTYPE_MULTIPART -->
+			hdn_id.value = intId
+			hdn_op.value = "{op_otro}"
+			submit ();
+		}
+	}
+
+	// Acciones aux.
+	function subAccionAux(accion,intId,op)
+	{
+		with(document.frm)
+		{
+			action		 = accion + ".php";
+			target		 = "";
+			enctype		 = "application/x-www-form-urlencoded";			
+			hdn_op.value = op;
+			hdn_id.value = intId;
+			submit ();
+                        hdn_id.value = "";
+		}
+	}
+
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+	function subPintarTds(objTr, strColor)
+	{
+		var j;
+
+		for(j = 0; j <= objTr.cells.length - 1; j ++)
+			objTr.cells[j].style.color = strColor;
+	}
+
+	function subOnMouseOver(objTr)
+	{	
+		objTr.style.backgroundColor = "darkblue";
+		subPintarTds(objTr, "white");
+	}
+
+	function subOnMouseOut(objTr)
+	{
+		objTr.style.backgroundColor = "white";
+		subPintarTds(objTr, "black");
+	}
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+	function subOrder(strField)
+	{
+		with(document.frm)
+		{
+			action			  = "";
+			enctype			  = "application/x-www-form-urlencoded";
+			hdn_OrderBy.value = strField;
+                        //indico que se requirio la busqueda
+                        hdn_search_requested.value = "1";
+			submit ();
+		}
+	}
+		
+	function subPage(intPage)
+	{
+		with(document.frm)
+		{
+			action		   = "";
+			enctype	   	   = "application/x-www-form-urlencoded";
+			hdn_page.value = intPage;
+                        //indico que se requirio la busqueda
+                        hdn_search_requested.value = "1";
+			submit ();
+		}
+	}
+</script>
+
+<!-- BEGIN BLK_BUSCADOR -->	
+<script language="JavaScript" type="text/JavaScript">
+	var intFIELDS = {cant_fields}, intCANT_FK = {cant_fk}, intCANT_CHK = {cant_chk};
+	var blnESTADOS = {estados};
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+	function fncValidar()
+	{
+		var strError = "";
+		var strType;
+
+		var intPipe;
+
+
+		with(document.frm_buscador)
+		{
+			if(intFIELDS > 0)
+			{
+				if(cmb_search_fields.selectedIndex > 0)
+				{
+					intPipe = cmb_search_fields.value.indexOf ("|", 0);
+					strType	= cmb_search_fields.value.substr (intPipe + 1);	
+				}
+			
+				switch(strType)
+				{
+					case "dte":
+					{
+						if(!strIsDate(txt_search.value))
+							strError = "El campo [fecha] es incorrecto. Debe tener el formato 'dd/mm/aaaa'";
+
+						break;
+					}
+				}
+			}
+		}
+
+		return(strError);
+	}
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+	function subBuscar()
+	{
+		var strError;
+		var j;
+
+
+		strError = fncValidar();
+
+		if(strError == "")
+		{
+			with(document.frm)
+			{
+				action = "";
+
+				if(intFIELDS > 0)
+				{
+					hdn_search_field.value = document.frm_buscador.cmb_search_fields.value;
+					hdn_search_signo.value = document.frm_buscador.cmb_search_signos.value;
+					hdn_search_text.value  = document.frm_buscador.txt_search.value;					
+				}
+
+				// Cmb FK.
+				if(intCANT_FK > 0)
+				{			
+					hdn_search_fk.value = "";
+
+					for(j = 1; j <= intCANT_FK; j ++)
+					{
+						//if(document.frm_buscador["cmb_search_fk_" + j].selectedIndex > 0)
+						hdn_search_fk.value = hdn_search_fk.value + document.frm_buscador["cmb_search_fk_" + j].value + ",";
+					}
+
+					if(hdn_search_fk.value != "")
+						hdn_search_fk.value = hdn_search_fk.value.substring (0, hdn_search_fk.value.length - 1);
+				}
+
+				// Chk.
+				if(intCANT_CHK > 0)
+				{			
+					hdn_search_chk.value = "";
+
+					for(j = 1; j <= intCANT_CHK; j ++)
+					{
+						// if(document.frm_buscador["chk_searh_" + j].checked)
+						hdn_search_chk.value = hdn_search_chk.value + document.frm_buscador["chk_searh_" + j].value + ",";
+					}
+
+					if(hdn_search_chk.value != "")
+						hdn_search_chk.value = hdn_search_chk.value.substring (0, hdn_search_chk.value.length - 1);
+				}
+
+				// Estados.
+				if(blnESTADOS)
+					hdn_search_estado.value = document.frm_buscador.cmb_search_estados.value;
+
+                                //idiomas
+                                hdn_search_idioma.value = document.frm_buscador.cmb_idioma.value;
+
+
+                                //indico que se requirio la busqueda
+                                hdn_search_requested.value = "1";
+
+				submit ();
+			}
+		}
+		else
+		{
+			alert(strError);
+			document.frm_buscador.txt_search.focus ();
+		}
+	}
+
+	function subOnChange()
+	{
+		var strBuscadorJs = new String("{BuscadorJs}");
+		var strField, strType;
+
+		var j = -1;
+		var intPipe;
+
+		var arrBuscadorJs = new Array();
+
+
+		arrBuscadorJs = strBuscadorJs.split (",");
+
+		with(document.frm_buscador)
+		{
+			cmb_search_signos.length = 0;
+
+			if(cmb_search_fields.selectedIndex == 0)
+			{
+				cmb_search_signos.length = 1;
+
+				cmb_search_signos[0].value = "";
+				cmb_search_signos[0].text  = "[S / Filtro]";
+
+				txt_search.value = "";
+			}
+			else
+			{
+				do
+				{
+					j ++;
+
+					intPipe = arrBuscadorJs[j].indexOf ("|", 0);
+
+					strField = arrBuscadorJs[j].substr (0, intPipe);
+					strType	 = arrBuscadorJs[j].substr (intPipe + 1);
+				}
+				while((strField + "|" + strType) != (cmb_search_fields.value));
+
+				switch(strType)
+				{
+					case "string":
+					{
+						cmb_search_signos.length = 2;
+
+						cmb_search_signos[0].value = "Like";
+						cmb_search_signos[0].text  = "Like";
+
+						cmb_search_signos[1].value = "Igual";
+						cmb_search_signos[1].text  = "Igual";
+
+						break;
+					}
+
+					default:
+					{
+						cmb_search_signos.length = 6;
+
+						cmb_search_signos[0].value = "=";
+						cmb_search_signos[0].text  = "=";
+
+						cmb_search_signos[1].value = "<>";
+						cmb_search_signos[1].text  = "<>";
+			
+						cmb_search_signos[2].value = ">";
+						cmb_search_signos[2].text  = ">";
+
+						cmb_search_signos[3].value = ">=";
+						cmb_search_signos[3].text  = ">=";
+
+						cmb_search_signos[4].value = "<";
+						cmb_search_signos[4].text  = "<";
+
+						cmb_search_signos[5].value = "<=";
+						cmb_search_signos[5].text  = "<=";
+
+						break;
+					}
+				}
+				
+				cmb_search_signos[0].selectedIndex = 0;
+				txt_search.focus ();
+			}
+		}
+	}
+
+function handleKeyboardEnter(event){
+    //si la tecla presionada es enter, entonces ejecuto la busqueda
+    if (event.keyCode == 13)
+        subBuscar();
+}
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+	function subOnLoad()
+	{
+		var j;
+		var arr = new Array();
+
+		with(document.frm_buscador)
+		{
+			function subSelectSelectedIndex(objSelect, strValue)
+			{
+				for(var j = 0; j <= objSelect.length - 1; j ++)
+				{
+					if(objSelect[j].value == strValue)
+						objSelect.selectedIndex = j;
+				}
+			}
+
+			// cmb_search_fields.
+			if(intFIELDS > 0)
+			{
+				if(document.frm.hdn_search_field.value == "")
+					cmb_search_fields.selectedIndex = 0;
+				else
+					cmb_search_fields.value	= document.frm.hdn_search_field.value;
+
+				// OnChange().
+				if(cmb_search_fields.value != "")
+					subOnChange();
+
+				// cmb_search_signos.
+				if(document.frm.hdn_search_signo.value == "")
+					cmb_search_fields.selectedIndex = 0;
+				else
+					cmb_search_signos.value	= document.frm.hdn_search_signo.value;
+
+				// txt_search.
+				txt_search.value = document.frm.hdn_search_text.value;
+			}
+
+			// Cmb Fk.
+			if(intCANT_FK > 0)
+			{			
+				if(document.frm.hdn_search_fk.value != "")
+				{
+					arr = document.frm.hdn_search_fk.value.split (",");
+					for(j = 0; j <= arr.length - 1; j ++)
+						subSelectSelectedIndex(elements["cmb_search_fk_" + (j + 1)], arr[j]);
+				}
+			}
+
+			// Chk.
+			if(intCANT_CHK > 0)
+			{
+				if(document.frm.hdn_search_chk.value != "")
+				{
+					arr = document.frm.hdn_search_chk.value.split (",");
+							
+					for(j = 0; j <= arr.length - 1; j ++)
+					{			
+						if(arr[j] == elements["chk_searh_" + (j + 1)].value)
+							elements["chk_searh_" + (j + 1)].checked = true;
+					}
+				}
+			}
+
+			// Estaso.
+			if(blnESTADOS)
+				cmb_search_estados.value = document.frm.hdn_search_estado.value;
+		}
+	}
+</script>
+
+<form name="frm_buscador" action="" method="post" style="margin:0">
+<table cellpadding="0" cellspacing="0" border="0" align="center" class="borde_modulo">	
+	<tr height="20" class="fondo2_titulo_modulo">
+		<td align="center" colspan="3" valign="middle" class="txt"><b>Buscador</b></td>
+	</tr>	
+	<tr height="5">
+		<td><img src="{img_src}trans.gif" width="1"></td>
+	</tr>
+	<tr>
+		<td><img src="{img_src}trans.gif" width="5"></td>
+		<td><table cellpadding="0" cellspacing="6" border="0">
+			<!-- BEGIN BLK_TR_1 -->
+			<tr>
+				<td>
+					<select name="cmb_search_fields" onChange="subOnChange()">
+						<option value="" selected>[S / Filtro]</option>
+						<!-- BEGIN BLK_CMB_SEARCH_FIELDS_OPTION -->
+						<option value="{val}">{des}</option>
+						<!-- END BLK_CMB_SEARCH_FIELDS_OPTION -->
+					</select>
+					<select name="cmb_search_signos" style="width:90" onChange="document.frm_buscador.txt_search.focus ()">
+						<option value="" selected>[S / Filtro]</option>
+					</select>
+                                    <input type="text" name="txt_search" size="30" maxlength="50" onkeypress="handleKeyboardEnter(event)">
+				</td>
+			</tr>
+			<!-- END BLK_TR_1 -->
+			<!-- BEGIN BLK_TR_2 -->
+			<tr>
+				<td>
+					<!-- BEGIN BLK_CMB_SEARCH_FK -->
+					<select name="cmb_search_fk_{index}">
+						<option value="" selected>[{title}]</option>
+						<option value="">[S / Filtro]</option>
+						<!-- BEGIN BLK_CMB_SEARCH_FK_OPTION -->
+						<option value="{val}">{des}</option>
+						<!-- END BLK_CMB_SEARCH_FK_OPTION -->	
+					</select>
+					<!-- END BLK_CMB_SEARCH_FK -->
+				</td>
+			</tr>
+			<!-- END BLK_TR_2 -->	
+			<!-- BEGIN BLK_TR_3 -->
+			<tr>
+				<td class="txt">
+					<!-- BEGIN BLK_CHK_SEARCH -->
+					<input type="checkbox" name="chk_searh_{index}" size="50" maxlength="50" value="{val}">{des}
+					<!-- END BLK_CHK_SEARCH -->
+				</td>
+			</tr>
+			<!-- END BLK_TR_3 -->
+
+                        <!-- injerto para busqueda por idioma-->
+                        <!-- BEGIN BLK_SRCH_IDIOMA -->
+			<tr>
+				<td class="txt">
+					<select name="cmb_idioma">
+                                            <option>[Idioma]</option>
+                                            {options}
+                                        </select>
+				</td>
+			</tr>
+			<!-- END BLK_SRCH_IDIOMA -->
+
+
+			<!-- BEGIN BLK_TR_4 -->
+			<tr>
+				<td>
+					<select name="cmb_search_estados">
+						<option value="-1" 					    selected			    >[S / Filtro]</option>
+						<option value="1"  style="color: green" {selected_habilitado}   >Habilitado</option>
+						<option value="0"  style="color: red"   {selected_deshabilitado}>Deshabilitado</option>
+					</select>
+				</td>
+			</tr>
+			<!-- END BLK_TR_4 -->
+			<tr>
+				<td align="center"><a href="JavaScript:subBuscar()"><img src="{img_src}listado/bot_buscar.png" width="65" height="18" border="0"></a></td>
+			</tr>
+		</table></td>
+		<td><img src="{img_src}trans.gif" width="5"></td>
+	</tr>
+	<tr height="5">
+		<td><img src="{img_src}trans.gif" width="1"></td>
+	</tr>
+</table>
+</form>
+<br>
+<!-- END BLK_BUSCADOR -->
+
+<table height="30" cellspacing="0" cellpadding="0" border="0" class="borde_table">
+	<tr>
+		<td>&nbsp;&nbsp;</td>
+		<td>{RecorCount} Registro(s)</td>
+		<td>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+		<!-- BEGIN BLK_PAGINADOR -->		
+		<td width="15"><a href="JavaScript:subPage({FirstPage})"><img src="{img_src}listado/bot_none.gif" width="15" height="15" border="0" alt="Ir a la primer pagina"></a></td>
+		<td>&nbsp;&nbsp;</td>
+		<td width="15"><a href="JavaScript:subPage({PrevPage})"><img src="{img_src}listado/bot_left.gif" width="15" height="15" border="0" alt="Ir a la pagina anterior"></a></td>
+		<td>&nbsp;&nbsp;</td> 
+		<td>pagina</td>
+		<td>&nbsp;&nbsp;</td> 
+		<td>
+			<select name="cmb_paginas" onChange="subPage(this.value)">
+				<!-- BEGIN BLK_CMB_PAGINAS -->
+				<option value="{page}" {selected}>{page}</option>
+				<!-- END BLK_CMB_PAGINAS -->
+			</select>
+		</td>
+		<td>&nbsp;&nbsp;</td> 
+		<td>de {pages}</td>	
+		<td>&nbsp;&nbsp;</td>
+		<td width="15"><a href="JavaScript:subPage({NextPage})"><img src="{img_src}listado/bot_right.gif" width="15" height="15" border="0" alt="Ir a la pagina siguiente"></a></td>
+		<td>&nbsp;&nbsp;</td> 
+		<td width="15"><a href="JavaScript:subPage({LastPage})"><img src="{img_src}listado/bot_all.gif" width="15" height="15" border="0" alt="Ir a la Ultima pagina"></a></td>
+		<td>&nbsp;&nbsp;|&nbsp;&nbsp;</td> 
+		<!-- END BLK_PAGINADOR -->
+		<td>
+			<!-- BEGIN BLK_A_E --><a href="JavaScript:subA()"><img src="{img_src}listado/bot_agregar.gif" width="17" height="17" border="0" alt="Alta / Agregar"></a><!-- END BLK_A_E -->
+			<!-- BEGIN BLK_A_D --><img src="{img_src}listado/bot_agregar_disabled.gif" width="17" height="17" alt="Alta / Agregar"><!-- END BLK_A_D -->
+			<!-- BEGIN BLK_OTRO_E --><a href="JavaScript:subOtro()"><img src="{img_src}listado/bot_{bot}.gif" width="17" height="17" border="0" alt="{alt}"></a><!-- END BLK_OTRO_E -->
+			<!-- BEGIN BLK_OTRO_D --><img src="{img_src}listado/bot_{bot}_disabled.gif" width="17" height="17" alt="{alt}"><!-- END BLK_OTRO_D -->
+		</td>
+		<td>&nbsp;&nbsp;</td> 
+	</tr>
+</table>
+</br>
+<!-- BEGIN BLK_NOITEMS -->
+<span class="txt"><i>No existen registros ingresados</i></span>
+<!-- END BLK_NOITEMS -->	
+
+<!-- BEGIN BLK_LIST -->
+<table width="95%" cellspacing="0" cellpadding="0" border="0" class="sort-table">
+	<thead>
+		<tr>
+			<!-- BEGIN BLK_TD_TITLE --><td align="center" width="{width}%" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='default'" onClick="subOrder('{field}')">{title}<!-- BEGIN BLK_IMGORDEN -->&nbsp;&nbsp;<img src="{img_src}listado/{img_orden}" width="8" height="7"><!-- END BLK_IMGORDEN --></td><!-- END BLK_TD_TITLE -->
+			<!-- BEGIN BLK_TD_TITLE_DESTACADO --><td align="center" width="10%">Destacado</td><!-- END BLK_TD_TITLE_DESTACADO -->
+			<!-- BEGIN BLK_TD_TITLE_HABILITADO --><td align="center" width="10%">Habilitado</td><!-- END BLK_TD_TITLE_HABILITADO -->			
+			<!-- BEGIN BLK_TD_TITLE_ACCIONES --><td align="center" width="{width}%">Acci&oacute;n</td><!-- END BLK_TD_TITLE_ACCIONES -->
+			<!-- BEGIN BLK_TD_TITLE_ACCION_AUX --><td align="center" width="15%">&nbsp;</td><!-- END BLK_TD_TITLE_ACCION_AUX -->
+		</tr>
+	</head>
+	<tbody>
+		<!-- BEGIN BLK_TR_VALUE -->
+		<tr onMouseOver="subOnMouseOver(this)" onMouseOut="subOnMouseOut(this)">
+			<!-- BEGIN BLK_TD_VALUE -->
+			<!-- BEGIN BLK_COMMON --><td align="{align}">{value}</td><!-- END BLK_COMMON -->			
+			<!-- BEGIN BLK_IMG --><td align="center"><img src="{src}" width="30" height="20" border="0"></td><!-- END BLK_IMG -->
+			<!-- BEGIN BLK_FILE --><td align="center"><img src="{script_src}inputs/file/images/{ext}.gif" border="0"></td><!-- END BLK_FILE -->	
+			<!-- END BLK_TD_VALUE -->
+			<!-- -------------------------- -->
+			<!-- Otros.					    -->
+			<!-- -------------------------- -->
+			<!-- BEGIN BLK_DESTACADO_E --><td align="center"><a href="JavaScript:subDesdestacar({id})" style="color:green"><b>S&iacute;</b></a></td><!-- END BLK_DESTACADO_E -->
+			<!-- BEGIN BLK_DESTACADO_D --><td align="center"><span style="color:green"><b>S&iacute;</b></span></td><!-- END BLK_DESTACADO_D -->
+			<!-- BEGIN BLK_DESDESTACADO_E --><td align="center"><a href="JavaScript:subDestacar({id})" style="color:red"><b>No</b></a></td><!-- END BLK_DESDESTACADO_E -->
+			<!-- BEGIN BLK_DESDESTACADO_D --><td align="center"><span style="color:green"><b>No</b></span></td><!-- END BLK_DESDESTACADO_D -->
+			<!-- -------------------------- -->
+			<!-- BEGIN BLK_HABILITADO_E --><td align="center"><a href="JavaScript:subDeshabilitar({id})" style="color:green"><b>S&iacute;</b></a></td><!-- END BLK_HABILITADO_E -->
+			<!-- BEGIN BLK_HABILITADO_D --><td align="center"><span style="color:green"><b>S&iacute;</b></span></td><!-- END BLK_HABILITADO_D -->
+			<!-- BEGIN BLK_DESHABILITADO_E --><td align="center"><a href="JavaScript:subHabilitar({id})" style="color:red"><b>No</b></a></td><!-- END BLK_DESHABILITADO_E -->
+			<!-- BEGIN BLK_DESHABILITADO_D --><td align="center"><span style="color:green"><b>No</b></span></td><!-- END BLK_DESHABILITADO_D -->
+			<!-- BEGIN BLK_ACCIONES -->
+			<td align="center">
+				<!-- BEGIN BLK_B_E --><a href="JavaScript:subB({id})"><img src="{img_src}listado/bot_borrar.gif" width="17" height="17" border="0" alt="Baja / Eliminar"></a><!-- END BLK_B_E -->
+<!--				 BEGIN BLK_B_D <img src="{img_src}listado/bot_borrar_disabled.gif" width="17" height="17" alt="Sin permiso para eliminar"></a> END BLK_B_D -->
+				<!-- BEGIN BLK_M_E --><a href="JavaScript:subM({id})"><img src="{img_src}listado/bot_editar.gif" width="17" height="17" border="0" alt="Modificación / Modificar"></a><!-- END BLK_M_E -->
+<!--				 BEGIN BLK_M_D <img src="{img_src}listado/bot_editar_disabled.gif" width="17" height="17" alt="Sin permiso para modificar"> END BLK_M_D -->
+				<!-- BEGIN BLK_E_E --><a href="JavaScript:subAccionAux('cvs-exportar',{id})"><img src="{img_src}listado/bot_word.gif" width="17" height="17" border="0" alt="Exportar CV"></a><!-- END BLK_E_E -->
+				<!-- BEGIN BLK_I_E --><a href="JavaScript:subAccionAux('cvs-l',{id},'ent')"><img src="{img_src}listado/bot_interview6.gif" width="17" height="17" border="0" alt="Ver Entrevistas"></a><!-- END BLK_I_E -->
+                        </td>
+			<!-- END BLK_ACCIONES -->
+			<!-- BEGIN BLK_ACCION_AUX --><td align="center"><a href="JavaScript:subAccionAux('{accion}',{id},'{op}')">{descripcion} >></a></td><!-- END BLK_ACCION_AUX -->
+		</tr>
+		<!-- END BLK_TR_VALUE -->
+	</tbody>
+</table>
+<!-- END BLK_LIST -->	
+
+<table height="10" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td><img src="{img_src}trans.gif" width="1" height="10"></td>
+	</tr>
+</table>
+
+<table height="30" cellspacing="0" cellpadding="0" border="0" class="borde_table">
+	<tr>
+		<td>&nbsp;&nbsp;</td>
+		<td>{RecorCount} Registro(s)</td>
+		<td>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+		<!-- BEGIN BLK_PAGINADOR -->		
+		<td width="15"><a href="JavaScript:subPage({FirstPage})"><img src="{img_src}listado/bot_none.gif" width="15" height="15" border="0" alt="Ir a la primer pagina"></a></td>
+		<td>&nbsp;&nbsp;</td>
+		<td width="15"><a href="JavaScript:subPage({PrevPage})"><img src="{img_src}listado/bot_left.gif" width="15" height="15" border="0" alt="Ir a la pagina anterior"></a></td>
+		<td>&nbsp;&nbsp;</td> 
+		<td>pagina</td>
+		<td>&nbsp;&nbsp;</td> 
+		<td>
+			<select name="cmb_paginas" onChange="subPage(this.value)">
+				<!-- BEGIN BLK_CMB_PAGINAS -->
+				<option value="{page}" {selected}>{page}</option>
+				<!-- END BLK_CMB_PAGINAS -->
+			</select>
+		</td>
+		<td>&nbsp;&nbsp;</td> 
+		<td>de {pages}</td>	
+		<td>&nbsp;&nbsp;</td>
+		<td width="15"><a href="JavaScript:subPage({NextPage})"><img src="{img_src}listado/bot_right.gif" width="15" height="15" border="0" alt="Ir a la pagina siguiente"></a></td>
+		<td>&nbsp;&nbsp;</td> 
+		<td width="15"><a href="JavaScript:subPage({LastPage})"><img src="{img_src}listado/bot_all.gif" width="15" height="15" border="0" alt="Ir a la Ultima pagina"></a></td>
+		<td>&nbsp;&nbsp;|&nbsp;&nbsp;</td> 
+		<!-- END BLK_PAGINADOR -->
+		<td>
+			<!-- BEGIN BLK_A_E --><a href="JavaScript:subA()"><img src="{img_src}listado/bot_agregar.gif" width="17" height="17" border="0" alt="Alta / Agregar"></a><!-- END BLK_A_E -->
+			<!-- BEGIN BLK_A_D --><img src="{img_src}listado/bot_agregar_disabled.gif" width="17" height="17" alt="Alta / Agregar"><!-- END BLK_A_D -->
+			<!-- BEGIN BLK_OTRO_E --><a href="JavaScript:subOtro()"><img src="{img_src}listado/bot_{bot}.gif" width="17" height="17" border="0" alt="{alt}"></a><!-- END BLK_OTRO_E -->
+			<!-- BEGIN BLK_OTRO_D --><img src="{img_src}listado/bot_{bot}_disabled.gif" width="17" height="17" alt="{alt}"><!-- END BLK_OTRO_D -->
+		</td>
+		<td>&nbsp;&nbsp;</td> 
+	</tr>
+</table>
+
+<form name="frm" method="post" style="margin:0">
+	{INPUTS}
+</form>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ECC Extreme Cloud Computing SA - Contacto</title>
+        <!-- Mantenemos los meta tags existentes -->
+        <meta
+            name="keywords"
+            content="sap, cursos de sap, consultores, sistemas, consultores sap, capacitación sap, implementaciones, búsqueda y selección de personal, software factory o desarrollo de software, sistema alemán SAP"
+        />
+        <meta
+            name="Description"
+            content="Contacto. Para obtener más información sobre los servicios brindados por ECC Extreme Cloud Computing, escribir un mail a info@eccextremecloud.com. Nuestros ejecutivos de cuenta se pondrán en contacto con Usted a la brevedad"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="es-AR" />
+        <meta name="geo.region" content="AR-C" />
+        <meta name="geo.position" content="-38.416097;-63.616672" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="../../estilo.css" rel="stylesheet" type="text/css" />
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="contacto.css" rel="stylesheet" type="text/css" />
+
+        <!-- Google Analytics Script -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(["_setAccount", "UA-32006801-1"]);
+            _gaq.push(["_trackPageview"]);
+
+            (function () {
+                var ga = document.createElement("script");
+                ga.type = "text/javascript";
+                ga.async = true;
+                ga.src =
+                    ("https:" == document.location.protocol
+                        ? "https://ssl"
+                        : "http://www") + ".google-analytics.com/ga.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo" id="logo">
+                    <img
+                        src="../../images/logo.png"
+                        alt="ECC Extreme Cloud Computing"
+                    />
+                </div>
+
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- ... head y meta tags igual ... -->
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="../../index_por.html">Home</a></li>
+                        <li><a href="../servicios/servicios_por.html">Serviços</a></li>
+                        <li><a href="../proyectos/proyectos_por.html">Projetos</a></li>
+                        <li><a href="../consultoria/consultoria_por.html">Consultoria</a></li>
+                        <li><a href="../contacto/contacto_por.html" class="active">Contato</a></li>
+                    </ul>
+                    <div class="mobile-language-selector">
+                        <a
+                            href="contacto_eng.html"
+                            class="lang-btn"
+                            title="English"
+                            >EN</a
+                        >
+                        <a
+                            href="contacto_por.html"
+                            class="lang-btn  active"
+                            title="Português"
+                            >PT</a
+                        >
+                        <a
+                            href="index.html"
+                            class="lang-btn"
+                            title="Castellano"
+                            >ES</a
+                        >
+                    </div>
+                </nav>
+
+                <div class="language-selector">
+                    <a href="contacto_eng.html" class="lang-btn" title="English"
+                        >EN</a
+                    >
+                    <a
+                        href="contacto_por.html"
+                        class="lang-btn  active"
+                        title="Português"
+                        >PT</a
+                    >
+                    <a
+                        href="index.html"
+                        class="lang-btn"
+                        title="Castellano"
+                        >ES</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <section class="hero-banner">
+            <div class="container hero-content">
+                <h1>Contato</h1>
+                <p>Estamos aqui para ajudar</p>
+            </div>
+        </section>
+
+        <main class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form-container">
+                        <h2>Envie-nos uma mensagem</h2>
+                        <form id="contactForm" action="process.php" method="POST" class="contact-form" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="name">Nome completo</label>
+                                <input type="text" id="name" name="name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="general">Informações Gerais</option>
+                                    <option value="sap">Serviços de Consultoria SAP</option>
+                                    <option value="rrhh">Recursos Humanos</option>
+                                    <option value="capacitacion">Treinamento</option>
+                                </select>
+                            </div>
+                            <div class="form-group file-upload" id="fileUpload" style="display: none">
+                                <label for="cv" class="file-upload-label">
+                                    Arraste seu currículo aqui ou clique para selecionar
+                                    <div class="file-info">
+                                        Formatos permitidos: PDF, DOCX (Máx. 5MB)
+                                    </div>
+                                </label>
+                                <input type="file" id="cv" name="cv" accept=".pdf,.docx" />
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Enviar mensagem
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="office-card">
+                            <div class="flag">
+                                <img src="../../images/ar.png" alt="Argentina" />
+                            </div>
+                            <h3>Escritório Principal</h3>
+                            <p>Viamonte 611 piso 2 "E".</p>
+                            <p>C1053ABM</p>
+                            <p>Cidade Autônoma de Buenos Aires</p>
+                            <p>Argentina</p>
+                            <p>Tel: +54 11 4328 2517</p>
+                            <p>Celular: (+54 9 11) 4 9380146</p>
+                        </div>
+
+                        <div class="office-card">
+                            <div class="flag">
+                                <img src="../../images/pa.png" alt="Panamá" />
+                            </div>
+                            <h3>Panamá</h3>
+                            <p>Century Tower Building Floor 4</p>
+                            <p>Office 401-82 Tumba Muerto</p>
+                            <p>Panamá, Panama City</p>
+                            <p>Tel: +507 360-5482</p>
+                            <p>Celular: +507 6400-8122</p>
+                            <p>Fax: +507 360-5480</p>
+                        </div>
+
+                        <div class="office-card">
+                            <div class="flag">
+                                <img src="../../images/ve.png" alt="Venezuela" />
+                            </div>
+                            <h3>Venezuela</h3>
+                            <p>Avenida Francisco Solano López</p>
+                            <p>Sans Souci El Pilón Piso 4 N.42</p>
+                            <p>El Bosque, Caracas, Venezuela</p>
+                            <p>Tel: 00 + 58 + (412) 7092734</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="logo">
+                    <img
+                        src="../../images/logo.png"
+                        alt="ECC Extreme Cloud Computing"
+                    />
+                </div>
+                <p class="copyright">
+                    Copyright ECC Extreme Cloud Computing SA © 2024 - Buenos
+                    Aires - Argentina
+                </p>
+            </div>
+        </footer>
+
+        <div id="notification" class="notification"></div>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Menu toggle functionality
+                const menuToggle = document.getElementById("menuToggle");
+                const mainNav = document.getElementById("mainNav");
+                const body = document.body;
+
+                menuToggle.addEventListener("click", function () {
+                    mainNav.classList.toggle("active");
+                    menuToggle.classList.toggle("active");
+                    body.style.overflow = mainNav.classList.contains("active") ? "hidden" : "";
+                });
+
+                const navLinks = mainNav.getElementsByTagName("a");
+                Array.from(navLinks).forEach((link) => {
+                    link.addEventListener("click", () => {
+                        mainNav.classList.remove("active");
+                        menuToggle.classList.remove("active");
+                        body.style.overflow = "";
+                    });
+                });
+
+                // Notification functionality
+                function showNotification(message, type) {
+                    const notification = document.getElementById('notification');
+                    notification.textContent = message;
+                    notification.className = `notification ${type}`;
+                    notification.classList.add('show');
+                    
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 5000);
+                }
+
+                // Form handling
+                const form = document.getElementById("contactForm");
+                const subjectSelect = document.getElementById("subject");
+                const fileUpload = document.getElementById("fileUpload");
+                const cvInput = document.getElementById("cv");
+
+                // Check URL parameters for subject selection
+                const urlParams = new URLSearchParams(window.location.search);
+                const subjectParam = urlParams.get('subject');
+                
+                if (subjectParam) {
+                    subjectSelect.value = subjectParam;
+                    if (subjectParam === 'rrhh') {
+                        fileUpload.style.display = 'block';
+                    }
+                    document.querySelector('.contact-form-container').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+
+                // Subject change handler
+                subjectSelect.addEventListener("change", function () {
+                    fileUpload.style.display = this.value === "rrhh" ? "block" : "none";
+                });
+
+                // File upload handler
+                cvInput.addEventListener("change", function () {
+                    const fileName = this.files[0]?.name;
+                    const fileSize = this.files[0]?.size / 1024 / 1024;
+                    const fileInfo = this.parentElement.querySelector(".file-info");
+
+                    if (fileName && fileSize <= 5) {
+                        fileInfo.textContent = `Arquivo selecionado: ${fileName}`;
+                    } else if (fileSize > 5) {
+                        fileInfo.textContent = "Erro: O arquivo excede o limite de 5MB";
+                        this.value = "";
+                    }
+                });
+
+                // Form submission handler
+                form.addEventListener("submit", async function(e) {
+                    e.preventDefault();
+                    
+                    if (subjectSelect.value === 'rrhh' && (!cvInput.files || cvInput.files.length === 0)) {
+                        showNotification('Você deve anexar seu currículo para candidaturas de RH', 'error');
+                        return;
+                    }
+                    
+                    const formData = new FormData(this);
+                    
+                    try {
+                        const response = await fetch("process.php", {
+                            method: "POST",
+                            body: formData
+                        });
+                    
+                        const result = await response.json();
+                    
+                        if (result.success) {
+                            showNotification(result.message, 'success');
+                            form.reset();
+                            document.querySelector('.file-info').textContent = 'Formatos permitidos: PDF, DOCX (Máx. 5MB)';
+                        } else {
+                            const errorMessage = result.message + 
+                                (result.errors ? '\n' + result.errors.join('\n') : '');
+                            showNotification(errorMessage, 'error');
+                        }
+                    } catch (error) {
+                        showNotification('Erro ao enviar o formulário', 'error');
+                    }
+                });
+            });
+        </script>
+        <script src="../../js/header-scroll.js"></script>
+    </body>
+</html>

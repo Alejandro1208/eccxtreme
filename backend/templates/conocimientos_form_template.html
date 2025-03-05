@@ -1,0 +1,35 @@
+<div class="form-top">
+    <div class="form-bottom">
+        <div class="form-middle">
+
+            <p> IDIOMA </p>
+            <p>
+                <label>Idioma:</label>
+                <select id="cmbIdiomas" name="cmbIdiomas">
+                    <option value="">Idioma</option>
+                    <!--"sp_idiomas_combo"-->
+                </select>
+            </p>
+
+            <?php
+						//			$rs = $oDBCommand->Rs("sp_niveles_idioma_getall", null);
+						//			while(!$rs->EOF()){
+						//			?>
+                                                <!--spIdiomas-Get-->
+            <p >
+                <label  class="bullet"><?php echo($rs->Field("nombre")->Value()) ?>:</label>
+                <input type="radio" value="bas" class="radio"  name="rdoIdioma_1_<?php echo($rs->Field("id_nivel_idioma")->Value()) ?>" />
+                       <span>B&aacute;sico</span>
+                <input type="radio" value="int" class="radio"  name="rdoIdioma_1_<?php echo($rs->Field("id_nivel_idioma")->Value()) ?>" />
+                       <span>Intermedio</span>
+                <input type="radio" value="ava" class="radio"  name="rdoIdioma_1_<?php echo($rs->Field("id_nivel_idioma")->Value()) ?>" />
+                       <span>Avanzado</span>
+            </p>
+            <?php
+										$rs->MoveNext();
+									}
+									unset($rs);
+									?>
+        </div>
+    </div>
+</div>

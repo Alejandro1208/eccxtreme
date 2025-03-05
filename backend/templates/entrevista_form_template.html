@@ -1,0 +1,77 @@
+<!-- BEGIN BLK_FORM -->
+<script type="text/javascript" language="javascript" src="./js/calendarDateInput.js"></script>
+<script type="text/javascript">
+
+    // Acciones aux.
+    function subVolver()
+    {
+        with(document.frmAcciones)
+        {
+            action		 = "cvs-l.php";
+            target		 = "";
+            enctype		 = "application/x-www-form-urlencoded";
+            hdn_op.value = "ent";
+            hdn_id.value = {hdn_id};
+            submit ();
+            hdn_id.value = "";
+        }
+    }
+
+</script>
+<form name="frmAcciones" method="POST">
+    <input id="hdn_op" type="hidden" name="hdn_op"/>
+    <input id="hdn_id" type="hidden" name="hdn_id" value="{hdn_id}"/> <!-- id del cv -->
+    <input id="hdn_alt_id" type="hidden" name="hdn_alt_id"/> <!-- id de la entrevista -->
+    <input id="hdn_op_int" type="hidden" name="hdn_op_int"/> <!-- id de la operacion interna-->
+</form>
+<div  style="text-align:center;"><a href="javascript:subVolver();"><img src="images/form/bot_cancelar.png"  alt="Volver"/></a></div>
+{flash}
+{err_string}
+
+<div style="font-size:13px;">
+    <form method="post">
+        <fieldset><legend>Datos entrevista</legend>
+            <label for="fecha">Fecha de entrevista:</label>
+
+            <script>DateInput('fecha', true, 'YYYY-MM-DD','{fecha}')</script>
+            <label for="cliente">Cliente:</label>
+            <input type="text"  name="org" placeholder="Cliente" value="{org}"/><br/><br/>
+            <label for="contacto">Contacto:</label>
+            <input type="text"  name="contacto" placeholder="Contacto" value="{contacto}"/><br/><br/>
+            <label for="comentarioEntrevista">Comentario general</label><br/>
+            <textarea cols="100" rows="5"  name="comentarioEntrevista" placeholder="Escriba un comentario general sobre el desarrollo de la entrevista">{comentarioEntrevista}</textarea><br/><br/>
+
+            <p>Nivel Técnico</p>
+            {optsNivelTecnico}
+            <br/>
+            <label for="comentarioTecnico">Comentario:</label><br/>
+            <textarea name="comentarioTecnico" rows="5" cols="100" placeholder="Escriba un comentario sobre el nivel tecnico del candidato">{comentarioTecnico}</textarea><br/><br/>
+
+            <p>Nivel Idiomas</p>
+            {optsNivelIdioma}
+            <br/>
+            <label for="comentarioIdiomas">Comentario</label><br/>
+            <textarea name="comentarioIdiomas" rows="5" cols="100" placeholder="Escriba un comentario sobre el nivel de idiomas del candidato">{comentarioIdiomas}</textarea><br/><br/>
+
+            <p>Nivel Presentación</p>
+            {optsNivelPresentacion}
+            <br/>
+            <label for="comentarioPresentacion">Comentario</label><br/>
+            <textarea name="comentarioPresentacion" rows="5" cols="100" placeholder="Escriba un comentario sobre la presentación del candidato">{comentarioPresentacion}</textarea><br/><br/>
+
+            <p>Aprobo entrevista: {optsAprobo}</p>
+            <textarea name="observaciones" rows="5" cols="100" placeholder="Motivo de desaprobación">{observaciones}</textarea><br/><br/>
+
+
+        </fieldset>
+
+        <input id="hdn_op" type="hidden" name="hdn_op" value="nent"/>
+        <input id="hdn_id" type="hidden" name="hdn_id" value="{hdn_id}"/> <!-- id del cv -->
+        <input id="hdn_op_int" type="hidden" name="hdn_op_int" value="{alta_modif}"/> <!-- id de la operacion interna-->
+        <input id="hdn_alt_id" type="hidden" name="hdn_alt_id" value="{id_entrevista}"/> <!-- id de la entrevista editada-->
+        <input id="submit" type="hidden" name="submited" />
+        <input type="submit" value="Guardar">
+    </form>
+    <!-- END BLK_FORM -->
+
+</div>

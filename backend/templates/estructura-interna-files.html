@@ -1,0 +1,84 @@
+<script language="JavaScript" type="text/JavaScript">
+	function subVolver()
+	{
+		with(document.frm)
+		{
+			action		 = "{volver}";
+			enctype		 = "application/x-www-form-urlencoded"
+			hdn_op.value = "";
+			hdn_id.value = 0;
+			submit ();
+		}
+	}
+</script>
+
+<form name="frm" action="" method="post" enctype="multipart/form-data" style="margin:0">
+{INPUTS}
+
+<table cellspacing="3" cellpadding="3" border="0" class="borde_table">
+	<tr>
+		<td><table cellspacing="0" cellpadding="0" border="0" class="txt">
+			<tr>
+				<td><b>Path:</b></td>
+				<td>&nbsp;</td>
+				<td>{path}</td> 
+			</tr>	
+			<tr>
+				<td><b>URL:</b></td>
+				<td>&nbsp;</td>
+				<td>{url}</td> 
+			</tr>
+		</table></td>
+	</tr>
+</table>
+
+<br>
+
+<!-- BEGIN BLK_NOITEMS -->
+<p class="txt"><i>No existen registros ingresados</i></p>
+<!-- END BLK_NOITEMS -->	
+
+<!-- BEGIN BLK_LIST -->
+<table cellspacing="0" cellpadding="0" border="0" class="sort-table">
+	<thead>
+		<tr>
+			<td align="center" width="50">Preview</td>
+			<td align="center" width="*">Filename</td>
+			<td align="center" width="10">Modificar</td>
+			<td align="center" width="10"><a href="JavaScript:document.frm.submit ();">Eliminar</a></td>
+		</tr>
+	</head>
+	<tbody>
+		<!-- BEGIN BLK_TR -->
+		<tr>			
+			<td align="center"><a href="JavaScript:subPopUp('file_PopUp.asp?file={FileFullName}', 500, 400)"><img src="{FileFullName}" width="50" height="50" border="0"></a></td>
+			<td align="center">{FileName}</td>
+			<td align="center"><input type="radio" name="opt" value="{key}"></td>
+			<td align="center"><input type="checkbox" name="chk" value="{key}"></td>
+		</tr>
+		<!-- END BLK_TR -->
+	</tbody>
+</table>
+<br>
+<!-- END BLK_LIST -->
+
+<table width="40%" cellspacing="3" cellpadding="3" border="0" class="borde_table">
+	<td><table cellspacing="0" cellpadding="0" border="0" class="txt">
+		<tr>
+			<td><script language="JavaScript" type="text/JavaScript">subFile("file", "{file}", false);</script></td>		
+		</tr>
+		<tr>
+			<td><input type="submit" value="Upload >>"></td>
+		</tr>
+	</table></td>
+</table>
+
+<br>
+
+<table cellspacing="0" cellpadding=0" border="0">
+	<tr>
+		<td><a href="JavaScript:subVolver()">Volver</a></td>		
+	</tr>
+</table>
+
+</form>

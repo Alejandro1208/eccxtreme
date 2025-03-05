@@ -1,0 +1,34 @@
+<!-- BEGIN BLK_FORM -->
+<script type="text/javascript">
+    
+</script>
+<h3>Idioma</h3>
+{flash}
+{err_string}
+<div class="form-top">
+    <div class="form-bottom">
+        <div class="form-middle">
+            <form method="post" action="" name="estudios">
+                <p>
+                    <label>Idioma:<input type="text" name="txtIdioma" value="{txtIdioma}" style="disabled:true;"/></label>
+                </p>
+                
+                <p><label class="bullet">Instituci&oacute;n:</label>
+                <input type="text" name="txtInstitucion" value="{txtInstitucion}"/></p>
+                {niveles}
+
+                <input type="hidden" name="hdn_op" value="mi"/>
+                <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+                <input type="hidden" name="hdn_alt_id" value="{hdn_idioma_id}"/>
+                <input type="submit" value="Guardar" name="submited"/>
+            </form>
+            <a href="javascript:subM({hd_cv_id})">Volver</a>
+        </div>
+    </div>
+</div>
+<form action="" method="POST" name="frmops">
+    <input type="hidden" name="hdn_id" value="{hdn_id}"/>
+    <input type="hidden" name="hdn_op" value=""/>
+    <input type="hidden" name="hdn_alt_id" value=""/>
+</form>
+<!-- END BLK_FORM -->

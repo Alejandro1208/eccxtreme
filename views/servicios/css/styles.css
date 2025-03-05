@@ -1,0 +1,123 @@
+/* Importamos los estilos base */
+@import 'estilo.css';
+
+/* Sobreescribimos los estilos específicos para servicios */
+.hero-banner {
+    min-height: 400px; /* Banner más pequeño */
+    padding-top: 120px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/servicios-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Grid específico para servicios */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin: 4rem 0;
+}
+
+.service-card {
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card .card-content {
+    padding: 2rem;
+}
+
+.service-card h3 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-card p {
+    color: var(--gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.service-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+}
+
+/* Animaciones para el contenido */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-banner h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-banner p {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.service-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.service-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 300px;
+        padding-top: 100px;
+    }
+
+    .services-grid {
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+}
+
+.more-services {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.more-services .btn {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.more-services .btn i {
+    font-size: 1.2rem;
+}
+
+/* Efecto hover */
+.more-services .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}

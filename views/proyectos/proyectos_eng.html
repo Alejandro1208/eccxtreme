@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ECC Extreme Cloud Computing SA</title>
+        <meta
+            name="keywords"
+            content="sap, cursos de sap, consultores, sistemas, consultores sap, capacitación sap, implementaciones, búsqueda y selección de personal, software factory o desarrollo de software, sistema alemán SAP"
+        />
+        <meta
+            name="Description"
+            content="Proyectos. Nacionales - Internacionales - Dispositivos Móviles"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="es-AR" />
+        <meta name="geo.region" content="AR-C" />
+        <meta name="geo.position" content="-38.416097;-63.616672" />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link href="../../estilo.css" rel="stylesheet" type="text/css" />
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+        <!-- Google Analytics Script -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(["_setAccount", "UA-32006801-1"]);
+            _gaq.push(["_trackPageview"]);
+
+            (function () {
+                var ga = document.createElement("script");
+                ga.type = "text/javascript";
+                ga.async = true;
+                ga.src =
+                    ("https:" == document.location.protocol
+                        ? "https://ssl"
+                        : "http://www") + ".google-analytics.com/ga.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo" id="logo">
+                    <img
+                        src="../../images/logo.png"
+                        alt="ECC Extreme Cloud Computing"
+                    />
+                </div>
+
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="../../index_eng.html">Home</a></li>
+                        <li><a href="../servicios/servicios_eng.html">Services</a></li>
+                        <li><a href="../proyectos/proyectos_eng.html" class="active">Projects</a></li>
+                        <li><a href="../consultoria/consultoria_eng.html">Consulting</a></li>
+                        <li><a href="../contacto/contacto_eng.html">Contact</a></li>
+                    </ul>
+                    <div class="mobile-language-selector">
+                        <a
+                            href="proyectos_eng.html"
+                            class="lang-btn  active"
+                            title="English"
+                            >EN</a
+                        >
+                        <a
+                            href="proyectos_por.html"
+                            class="lang-btn"
+                            title="Português"
+                            >PT</a
+                        >
+                        <a
+                            href="index.html"
+                            class="lang-btn"
+                            title="Castellano"
+                            >ES</a
+                        >
+                    </div>
+                </nav>
+
+                <div class="language-selector">
+                    <a
+                        href="proyectos_eng.html"
+                        class="lang-btn  active"
+                        title="English"
+                        >EN</a
+                    >
+                    <a
+                        href="proyectos_por.html"
+                        class="lang-btn"
+                        title="Português"
+                        >PT</a
+                    >
+                    <a
+                        href="index.html"
+                        class="lang-btn"
+                        title="Castellano"
+                        >ES</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <section class="hero-banner">
+            <div class="container hero-content">
+                <h1>Projects</h1>
+                <p>Innovative solutions for complex challenges</p>
+            </div>
+        </section>
+
+        <main class="section">
+            <div class="container">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3>National Projects</h3>
+                            <p>
+                                We carry out projects within different
+                                government areas such as Health, Social
+                                Security, Infractions, etc. We work with both
+                                the National Government and Provincial and
+                                Municipal Governments. Additionally, we work on
+                                projects for various National companies, both
+                                SMEs and Corporations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3>International Projects</h3>
+                            <p>
+                                We have extensive experience in Managing,
+                                Developing and Implementing international
+                                projects, coordinating and collaborating with
+                                teams from different countries even within the
+                                same project. We are involved in Border Control,
+                                Biometrics, Document Recognition, Digitization,
+                                Administration Systems, SAP projects, etc.<br />We
+                                have carried out various projects in the USA,
+                                Brazil, Chile, etc.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3>Mobile Development</h3>
+                            <p>
+                                We venture into different projects in the world
+                                of mobile devices such as iPhones or
+                                BlackBerrys. We are currently developing various
+                                applications for both iPhone OS and Android.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="logo">
+                    <img
+                        src="../../images/logo.png"
+                        alt="ECC Extreme Cloud Computing"
+                    />
+                </div>
+                <p class="copyright">
+                    Copyright ECC Extreme Cloud Computing SA © 2024 - Buenos
+                    Aires - Argentina
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const mainNav = document.getElementById("mainNav");
+                const body = document.body;
+
+                menuToggle.addEventListener("click", function () {
+                    mainNav.classList.toggle("active");
+                    menuToggle.classList.toggle("active");
+                    body.style.overflow = mainNav.classList.contains("active")
+                        ? "hidden"
+                        : "";
+                });
+
+                const navLinks = mainNav.getElementsByTagName("a");
+                Array.from(navLinks).forEach((link) => {
+                    link.addEventListener("click", () => {
+                        mainNav.classList.remove("active");
+                        menuToggle.classList.remove("active");
+                        body.style.overflow = "";
+                    });
+                });
+            });
+        </script>
+        <script src="../../js/header-scroll.js"></script>
+    </body>
+</html>

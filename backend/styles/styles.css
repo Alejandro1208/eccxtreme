@@ -1,0 +1,249 @@
+/* ----------------------------------------------------------------------------- */
+/* Colores. 				           											 */
+/* ----------------------------------------------------------------------------- */
+/* Oscuro: #424242.			           											 */
+/* Claro:  #f99c23.	            	            								 */
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* Body. 					            										 */
+/* ----------------------------------------------------------------------------- */
+body 
+{
+    MARGIN-LEFT: 0px;
+    MARGIN-TOP: 0px;
+    MARGIN-RIGHT: 0px;
+    MARGIN-BOTTOM: 0px;
+    BACKGROUND-COLOR: #424242;
+    SCROLLBAR-FACE-COLOR: #fef423; 
+    SCROLLBAR-SHADOW-COLOR: #f99c23; 
+    SCROLLBAR-HIGHLIGHT-COLOR: #f99c23; 
+    SCROLLBAR-3DLIGHT-COLOR: #f99c23; 
+    SCROLLBAR-DARKSHADOW-COLOR: #f99c23; 
+    SCROLLBAR-TRACK-COLOR: #f99c23; 
+    SCROLLBAR-ARROW-COLOR: #f99c23;
+} 
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* A.					            */
+/* ----------------------------------------------------------------------------- */
+a
+{
+    FONT: 11px Tahoma, Arial, Helvetica, sans-serif; 
+    FONT-WEIGHT: normal;
+    COLOR: #865127;
+    TEXT-DECORATION: none;
+}
+
+a:hover
+{
+    FONT: 11px Tahoma, Arial, Helvetica, sans-serif; 
+    FONT-WEIGHT: normal;
+    COLOR: #865127;
+    TEXT-DECORATION: underline;
+}	
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* Textos.				            */
+/* ----------------------------------------------------------------------------- */
+.txt
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 10px;
+    COLOR: #666666;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+}
+
+.txt_general
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 10px;
+    COLOR: #666666;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    TEXT-ALIGN: justify;
+}
+
+.titulo_seccion
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 9px;
+    COLOR: #666666;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    LINE-HEIGHT: 100%;
+}
+
+.msg
+{
+    COLOR: #f99c23;
+    FONT-STYLE: bold;
+}
+
+.titulo_backend
+{
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 20px;
+    COLOR: #ffffff;
+    FONT-WEIGHT: bold;
+    MARGIN-RIGHT: 20px;
+    WHITE-SPACE: nowrap;
+}
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* Form. 					            */
+/* ----------------------------------------------------------------------------- */
+input
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 10px;
+    COLOR: #666666;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+}
+
+textarea
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 10px;
+    COLOR: #666666;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    TEXT-ALIGN: justify;
+}
+
+select
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 10px;
+    COLOR: #666666;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    TEXT-ALIGN: justify;
+}
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* Fondos.				            */
+/* ----------------------------------------------------------------------------- */
+.fondo_top
+{
+    BACKGROUND-COLOR: #cccccc;
+}
+
+.fondo_top2
+{
+    BACKGROUND-COLOR: #eeeeee;
+}
+
+.fondo_bottom
+{
+    BACKGROUND-COLOR: #eeeeee;
+}
+
+.fondo_titulo_modulo
+{
+    BACKGROUND-COLOR: #f8f8f8;
+}
+
+.fondo2_titulo_modulo
+{
+    BACKGROUND-COLOR: #efefef;
+}
+/* ----------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------------------- */
+/* Bordes.				            */
+/* ----------------------------------------------------------------------------- */
+.borde_modulo
+{
+    BORDER-RIGHT: #e8e8e8 1px solid;
+    BORDER-TOP: #e8e8e8 1px solid;
+    BORDER-LEFT: #e8e8e8 1px solid;
+    BORDER-BOTTOM: #e8e8e8 1px solid;
+}
+
+.borde_table
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    BORDER-TOP: buttonshadow 1px solid;
+    BACKGROUND: window;
+    FONT: Icon;
+    BORDER-LEFT: buttonshadow 1px solid;
+    COLOR: windowtext;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+}
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* Listado.				            */
+/* ----------------------------------------------------------------------------- */
+.sort-table
+{
+    FONT: Icon;
+    BORDER: 1px Solid ThreeDShadow;
+    BACKGROUND: Window;
+    COLOR: WindowText;
+}
+
+.sort-table thead 
+{
+    BACKGROUND: ButtonFace;
+}
+
+.sort-table thead td 
+{
+    BORDER: 1px solid;
+    BORDER-COLOR: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+    CURSOR: default;
+}
+	
+.sort-table td 
+{
+    PADDING: 2px 5px;
+}
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* PopUp.				            */
+/* ----------------------------------------------------------------------------- */
+.font_titulo_1
+{
+    FONT: 16px Tahoma, Arial, Helvetica, sans-serif; 
+    FONT-WEIGHT: bold;
+    COLOR: #0474bc;
+}
+
+.font_titulo_2
+{
+    FONT: 16px Tahoma, Arial, Helvetica, sans-serif; 
+    FONT-WEIGHT: bold;
+    COLOR: #99CCFF;
+}
+
+.font_SubTit
+{
+    FONT: 12px Tahoma, Arial, Helvetica, sans-serif; 
+    FONT-WEIGHT: bold;
+    COLOR: #0474bc;
+}
+
+.scroll 
+{
+    WIDTH: 100%;
+    HEIGHT: 100%;
+    OVERFLOW: auto;
+}
+/* ----------------------------------------------------------------------------- */
+							

@@ -1,0 +1,53 @@
+<script language="JavaScript" type="text/JavaScript">
+	function subOnLoad(){document.frm.txt_username.focus ();}
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+	function fncValidar()
+	{
+		var strError = "";
+		var objFocus;
+
+		with(document.frm)
+		{
+			objFocus = txt_username;
+
+			if(isWhitespace(txt_username.value))
+				strError = strError + "-> Debe ingresar el campo [Usuario].\n";
+
+			if(isWhitespace(pass.value))
+			{
+				if(strError == "")
+					objFocus = pass;
+
+				strError = strError + "-> Debe ingresar el campo [Password].";
+			}
+		}
+
+		if(strError == "")
+			return(true);
+		else
+		{
+			alert(strError);
+			objFocus.focus();
+			return(false);
+		}
+	}
+</script>
+
+<table cellpadding="0" cellspacing="0" border="0" class="txt_general"><form name="frm" method="post" action="" onSubmit="return(fncValidar())">
+	<input type="hidden" name="hdn_submit" value="true">
+	<tr height="25">
+		<td width="70">Usuario:</td>
+		<td><input type="text" name="txt_username" maxlength="50" value="{username}"></td>
+	</tr>
+	<tr height="25">
+		<td>Password:</td>
+		<td><input type="password" name="pass" maxlength="50"></td>
+	</tr>
+	<tr height="30">
+		<td></td>
+		<td><input type="image" src="{img_src}LogIn/bot_ingresar.png" width="65" height="18" border="0"></td>
+	</tr>
+</form></table>
+<!-- BEGIN BLK_ERROR --><br><span class="msg">ERROR: El username no existe o el password es incorrecto.</span><!-- END BLK_ERROR -->

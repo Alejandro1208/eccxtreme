@@ -1,0 +1,92 @@
+.courses-container {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.courses-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    border: none;
+    background: var(--background);
+    color: var(--text);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: left;
+    width: auto;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .courses-tabs {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        min-height: 60px;
+        height: auto;
+    }
+}
+
+.tab-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.course-info {
+    padding: 2rem;
+    background: var(--background);
+    border-radius: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .courses-tabs {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+        text-align: left;
+    }
+}

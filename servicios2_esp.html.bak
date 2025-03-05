@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Xtreme Software Solutions</title>
+<link href="estilo.css" rel="stylesheet" type="text/css" />
+<link href="esp.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="sector1"> 
+	
+	<div id="header" class="caja"> 
+    	<div id="logo"> </div>
+    	 <div id="idioma">
+  
+     <div id="ingles" onclick="location.href='servicios2_eng.html';" style="cursor:pointer;" title="English"></div>
+     
+          <div id="portugues" onclick="location.href='servicios2_por.html';" style="cursor:pointer;" title="Português"></div>
+
+    <div id="español" onclick="location.href='servicios2_esp.html';" style="cursor:pointer;" title="Castellano"> </div>
+    
+     
+ 
+
+		
+
+</div>
+         <!--COMENIZO MENU-->
+            
+			<div id="menu">
+            
+            <ul id="navBar">
+    			<li id="navBarhome"><a href="index.html">home</a></li>
+    			<li id="navBarserviciosCurrent"><a href="servicios_esp.html">servicios</a></li>
+    			<li id="navBarproyectos"><a href="proyectos_esp.html">proyectos</a></li>
+    			<li id="navBarconsultoria"><a href="consultoria_esp.html">consultoria</a></li>
+
+    			<li id="navBarcontacto"><a href="contacto_esp.html">contacto</a></li>
+
+    </ul>         
+         </div>
+               <!--FIN MENU-->
+	</div>
+</div>
+
+<div id="sector2" class="servicios"> 
+
+	<div id="banner_servicios" class="caja" >
+	 
+    </div>
+
+
+</div>
+
+<div id="sector3"> 
+
+  <div id="contenido" class="caja" >
+    <div id="titulo_servicios"  >
+    
+    <!--<div id="info" class="info2" onclick="location.href='pdf/mesa_de_ayuda.pdf';" style="cursor: pointer;" title="Más Información"> </div>-->
+     </div>
+
+    <div  id="columna" class="columna1_servicios2" >
+      <p class="cuerpo_servicios">Aportamos recursos por  tiempo, en función de su necesidad tanto para proyectos como soporte evolutivo.<br />
+      </p>
+  </div>
+  
+  <div  id="columna" class="columna2_servicios2"> <p class="cuerpo_servicios">Seleccionamos personal de  IT para incorporar en relación de dependencia en su compañía.</p>
+  </div>
+  
+  <div  id="columna" class="columna3_servicios2"> <p class="cuerpo_servicios">Seleccionamos  ejecutivos preparados académicamente, con  experiencia sustentable para liderar proyectos, como verdaderos Head Hunters.
+  <p/> 
+   
+  
+  </div>
+  
+  
+</div>
+
+	 </div>
+
+</div>
+
+<div id="sector4">
+
+
+<div id="footer" class="caja">
+
+	<div id="copyright">  Copyright XTREME Software Solutions ©  2010 - Buenos Aires - Argentina </div>
+    
+</div>
+ 
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "es": {
+    "nav": {
+      "home": "Home",
+      "services": "Servicios",
+      "projects": "Proyectos",
+      "consulting": "Consultoría",
+      "contact": "Contacto"
+    },
+    "home": {
+      "hero_title": "ECC Extreme Cloud Computing",
+      "hero_subtitle": "Soluciones tecnológicas innovadoras para tu empresa",
+      "agile_title": "UNA EMPRESA ÁGIL",
+      "agile_text": "Contamos con un plantel de profesionales altamente capacitados de forma continua y con experiencia en proyectos de análisis, diseño, desarrollo, control de calidad, instalaciones, implementaciones, upgrades, monitoreo, seguridad y soporte de sistemas Nacionales como Internacionales.",
+      "projects_title": "Últimos Proyectos",
+      "projects_text": "Nuestros últimos proyectos estuvieron fuertemente ligados al área de Seguridad Social Gubernamental y al sector Multinacional Privado. Nos destacamos fuertemente en ambos sectores por lograr los objetivos planteados con éxito.",
+      "tech_title": "Tecnologías",
+      "tech_text": "Dominamos y aplicamos las más diversas tecnologías del mercado desempeñándonos eficientemente en áreas tan disímiles como desde la Dirección de Proyecto hasta el Monitoreo y Soporte. Contamos además con un equipo de profesionales altamente capacitados y con gran experiencia en Java, .Net, PHP, C++, Xcode y SAP.",
+      "courses_title": "Cursos Disponibles",
+      "courses_button": "Ver Cursos",
+      "join_title": "Únete a Nuestro Equipo",
+      "join_text": "Ingresá tus datos y formá parte de nuestro equipo.",
+      "cv_button": "Cargar CV"
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "projects": "Projects",
+      "consulting": "Consulting",
+      "contact": "Contact"
+    },
+    "home": {
+      "hero_title": "ECC Extreme Cloud Computing",
+      "hero_subtitle": "Innovative technological solutions for your company",
+      "agile_title": "AN AGILE COMPANY",
+      "agile_text": "We have a team of continuously trained professionals with experience in analysis, design, development, quality control, installations, implementations, upgrades, monitoring, security and support of National and International systems.",
+      "projects_title": "Latest Projects",
+      "projects_text": "Our latest projects were strongly linked to the Government Social Security area and the Private Multinational sector. We stand out strongly in both sectors for achieving the objectives successfully.",
+      "tech_title": "Technologies",
+      "tech_text": "We master and apply the most diverse technologies in the market, performing efficiently in areas as different as Project Management to Monitoring and Support. We also have a team of highly trained professionals with extensive experience in Java, .Net, PHP, C++, Xcode and SAP.",
+      "courses_title": "Available Courses",
+      "courses_button": "View Courses",
+      "join_title": "Join Our Team",
+      "join_text": "Enter your details and be part of our team.",
+      "cv_button": "Upload CV"
+    }
+  }
+}

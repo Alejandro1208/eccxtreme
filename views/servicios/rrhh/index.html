@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <title>ECC Extreme Cloud Computing SA</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta
+            name="keywords"
+            content="sap, cursos de sap, consultores, sistemas, consultores sap, capacitación sap, implementaciones, búsqueda y selección de personal, software factory o desarrollo de software, sistema alemán SAP"
+        />
+        <meta
+            name="Description"
+            content="Servicios. Staffing, Selección de Personal, Servicios de Head Hunting"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="ALL" />
+        <meta name="language" content="es-AR" />
+        <meta name="geo.region" content="AR-C" />
+        <meta name="geo.position" content="-38.416097;-63.616672" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link href="../../../estilo.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo" id="logo">
+                    <img src="../../../images/logo.png" alt="ECC Extreme Cloud Computing">
+                </div>
+    
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+    
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="../../../">Home</a></li>
+                        <li><a href="../../servicios/" class="active">Servicios</a></li>
+                        <li><a href="../../proyectos/">Proyectos</a></li>
+                        <li><a href="../../consultoria/">Consultoría</a></li>
+                        <li><a href="../../contacto/">Contacto</a></li>
+                    </ul>
+                    <div class="mobile-language-selector">
+                        <a href="servicios2_eng.html" class="lang-btn" title="English">EN</a>
+                        <a href="servicios2_por.html" class="lang-btn" title="Português">PT</a>
+                        <a href="index.html" class="lang-btn active" title="Castellano">ES</a>
+                    </div>
+                </nav>
+    
+                <div class="language-selector">
+                    <a href="servicios2_eng.html" class="lang-btn" title="English">EN</a>
+                    <a href="servicios2_por.html" class="lang-btn" title="Português">PT</a>
+                    <a href="index.html" class="lang-btn active" title="Castellano">ES</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero-banner">
+            <div class="container hero-content">
+                <h1>Servicios de RRHH</h1>
+                <p>Soluciones en gestión de talento IT</p>
+            </div>
+        </section>
+
+        <main class="section">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="card-content">
+                            <h3>Staffing</h3>
+                            <p>
+                                Aportamos recursos por tiempo, en función de su
+                                necesidad tanto para proyectos como soporte
+                                evolutivo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="card-content">
+                            <h3>Selección de Personal IT</h3>
+                            <p>
+                                Seleccionamos personal de IT para incorporar en
+                                relación de dependencia en su compañía.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="card-content">
+                            <h3>Head Hunting</h3>
+                            <p>
+                                Seleccionamos ejecutivos preparados
+                                académicamente, con experiencia sustentable para
+                                liderar proyectos, como verdaderos Head Hunters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="logo">
+                    <img
+                        src="../../../images/logo.png"
+                        alt="ECC Extreme Cloud Computing"
+                    />
+                </div>
+                <p class="copyright">
+                    Copyright ECC Extreme Cloud Computing SA © 2024 - Buenos
+                    Aires - Argentina
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const mainNav = document.getElementById("mainNav");
+                const body = document.body;
+        
+                menuToggle.addEventListener("click", function () {
+                    mainNav.classList.toggle("active");
+                    menuToggle.classList.toggle("active");
+                    body.style.overflow = mainNav.classList.contains("active") ? "hidden" : "";
+                });
+        
+                const navLinks = mainNav.getElementsByTagName("a");
+                Array.from(navLinks).forEach(link => {
+                    link.addEventListener("click", () => {
+                        mainNav.classList.remove("active");
+                        menuToggle.classList.remove("active");
+                        body.style.overflow = "";
+                    });
+                });
+            });
+        </script>
+        <script src="../../../js/header-scroll.js"></script>
+    </body>
+</html>
