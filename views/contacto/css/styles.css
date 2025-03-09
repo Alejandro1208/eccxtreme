@@ -5,9 +5,9 @@
 .hero-banner {
     min-height: 400px;
     padding-top: 120px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/contacto-banner.jpg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/views/contacto/contacto.webp');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
 }
 
 /* Grid de contacto */

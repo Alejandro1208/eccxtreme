@@ -5,9 +5,9 @@
 .hero-banner {
     min-height: 400px;
     padding-top: 120px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/proyectos-banner.jpg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/views/proyectos/proyectos.webp');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
 }
 
 /* Grid específico para proyectos */
@@ -22,12 +22,31 @@
     background: var(--white);
     border-radius: 1rem;
     overflow: hidden;
-    transition: transform 0.3s ease;
-    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
+                0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.project-card:hover h3::after {
+    width: 80px;
 }
 
 .project-card .card-content {
@@ -45,7 +64,6 @@
     content: '';
     position: absolute;
     left: 0;
-    bottom: -0.5rem;
     width: 50px;
     height: 3px;
     background: var(--primary);

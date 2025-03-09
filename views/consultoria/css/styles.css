@@ -5,9 +5,9 @@
 .hero-banner {
     min-height: 400px;
     padding-top: 120px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/consultoria-banner.jpg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/views/consultoria/consultoria.webp');
     background-size: cover;
-    background-position: center;
+    background-position:center;
 }
 
 /* Estilos para la introducción */
@@ -36,7 +36,31 @@
     background: var(--white);
     border-radius: 1rem;
     padding: 2.5rem;
-    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.services-list:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
+                0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.services-list h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin-top: 0.8rem;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    position: static;
+}
+
+.services-list:hover h3::after {
+    width: 80px;
 }
 
 .services-list h3 {
@@ -146,6 +170,7 @@
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
 }
+
 
 .services-list:nth-child(2) {
     animation-delay: 0.2s;
