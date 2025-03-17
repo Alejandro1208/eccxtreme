@@ -128,13 +128,13 @@
     overflow: hidden;
 }
 
-.card-image img {
+.card-image video, .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.service-card:hover .card-image img {
+.service-card:hover .card-image video, .service-card:hover .card-image img {
     transform: scale(1.05);
 }
