@@ -136,13 +136,29 @@ body {
     background: linear-gradient(rgb(0 0 0 / 79%), rgb(179 121 96 / 40%)), url(images/new-banner.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     min-height: 700px;
     display: grid;
     place-items: center;
     color: var(--white);
     text-align: center;
-    animation: bannerZoom 15s infinite alternate;
+    animation: none; /* Remove zoom animation for better mobile performance */
     overflow: hidden;
+}
+
+@media (min-width: 769px) {
+    .hero-banner {
+        animation: bannerZoom 15s infinite alternate;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 400px;
+        padding-top: 100px;
+        background-attachment: scroll;
+        background-position: center center;
+    }
 }
 
 @keyframes bannerZoom {
@@ -269,7 +285,7 @@ body {
 /* Estilos para la sección CTA */
 .cta-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
     gap: 2rem;
     margin-top: 2rem;
     padding: 2rem;
@@ -650,7 +666,6 @@ body {
 
 /* Partners Logo Carousel */
 .partners-section {
-    padding: 2rem 0;
     background: var(--nav-bg);
     overflow: hidden;
 }
@@ -678,7 +693,7 @@ body {
     height: 80px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -759,6 +774,6 @@ body {
     text-align: center;
     color: var(--white);
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
     letter-spacing: 1px;
 }

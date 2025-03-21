@@ -113,9 +113,9 @@
 }
 
 .partners-section h3 {
-    color: var(--text);
+    color: #f0f0f0;
     font-size: 1.8rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
 }
 
 .partner-card {
