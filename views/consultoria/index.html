@@ -12,6 +12,7 @@
     <meta name="geo.position" content="-38.416097;-63.616672">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="../../estilo.css" rel="stylesheet" type="text/css" />
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     
@@ -83,39 +84,69 @@
                 <div class="services-list">
                     <h3>Servicios Principales</h3>
                     <ul>
-                        <li>Gerencia de Proyectos</li>
-                        <li>Diseño de Arquitectura</li>
-                        <li>Consultoría Técnica y Funcional SAP</li>
-                        <li>Consultoría en Seguridad SAP</li>
-                        <li>Consultoría y Soporte remoto especializado</li>
-                    </ul>
-                    <ul>
-                        <li>Reingeniería de procesos en todas las tecnologías</li>
-                        <li>Consultoría en Sistemas Biométricos</li>
-                        <li>Capacitación en SAP a usuarios finales, consultores funcionales y técnicos</li>
+                        <li class="service-item" data-image="../../images/banner.jpg">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Gerencia de Proyectos</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/empresa.jpg">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Consultoría Técnica y Funcional SAP</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/banner.webp">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Capacitación SAP</span>
+                        </li>
                     </ul>
                 </div>
-
-                <div class="services-list">
-                    <h3>Servicios Especializados</h3>
-                    <ul>
-                        <li>Mantenimiento correctivo</li>
-                        <li>Capacitación</li>
-                        <li>Refactoring de aplicaciones</li>
-                        <li>Soporte en procesos de upgrade o migraciones</li>
-                    </ul>
-                    <ul>
-                        <li>Área SAP Basis, Seguridad y Funcional (módulos CO,FI,MM,SD,PS,PP, etc), Banking, BI especializados mediante outsourcing o desde nuestro centro de atención global especializado</li>
-                        <li>Servicios DevOps</li>
-                    </ul>
+                <div class="service-preview">
+                    <div class="preview-image"></div>
                 </div>
             </div>
 
-            <div class="partners-section">
-                <h3>Nuestros Asociados</h3>
-                <div class="partner-card">
-                    <p>BUSINESS PERFORMANCE ADVISORS, empresa de consultaría en procesos de negocios, servicios financieros y sistemas de información.</p>
+            <div class="services-grid specialized-services">
+                <div class="services-list">
+                    <h3>Servicios Especializados</h3>
+                    <ul>
+                        <li class="service-item" data-image="../../images/banner.webp">
+                            <i class="fas fa-database"></i>
+                            <span>SAP Hana Soporte y mantenimiento, outsourcing, mejoras y proyectos</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/proyectos.jpg">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Integraciones CPI PI/PO BTP</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/banner.webp">
+                            <i class="fas fa-plug"></i>
+                            <span>Integraciones Comunes</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/proyectos.jpg">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>Integración con Facturación electrónica</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/banner.webp">
+                            <i class="fas fa-cloud"></i>
+                            <span>Integración de SAP con tecnologías Cloud Systems</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/proyectos.jpg">
+                            <i class="fas fa-headset"></i>
+                            <span>Consultoría, Soporte y Monitorización centralizada</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/banner.jpg">
+                            <i class="fas fa-code"></i>
+                            <span>Desarrollo y otras tecnologías</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/services.jpg">
+                            <i class="fas fa-cogs"></i>
+                            <span>Otros servicios</span>
+                        </li>
+                    </ul>
                 </div>
+                <div class="specialized-preview">
+                    <div class="specialized-preview-image"></div>
+                </div>
+            </div>
+            <div class="service-preview">
+                <div class="preview-image"></div>
             </div>
         </div>
     </main>
@@ -154,5 +185,62 @@
         });
     </script>
     <script src="../../js/header-scroll.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para inicializar la sección de servicios principales
+            function initializeMainServices() {
+                const container = document.querySelector('.services-grid:not(.specialized-services)');
+                const serviceItems = container.querySelectorAll('.service-item');
+                const previewImage = container.querySelector('.preview-image');
+
+                if (serviceItems.length > 0) {
+                    const firstItem = serviceItems[0];
+                    firstItem.classList.add('active');
+                    const imageUrl = firstItem.dataset.image;
+                    previewImage.style.backgroundImage = `url(${imageUrl})`;
+                    previewImage.style.opacity = '1';
+                }
+
+                serviceItems.forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        serviceItems.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                        const imageUrl = this.dataset.image;
+                        previewImage.style.backgroundImage = `url(${imageUrl})`;
+                        previewImage.style.opacity = '1';
+                    });
+                });
+            }
+
+            // Función para inicializar la sección de servicios especializados
+            function initializeSpecializedServices() {
+                const container = document.querySelector('.specialized-services');
+                const serviceItems = container.querySelectorAll('.service-item');
+                const previewImage = container.querySelector('.specialized-preview-image');
+
+                if (serviceItems.length > 0) {
+                    const firstItem = serviceItems[0];
+                    firstItem.classList.add('active');
+                    const imageUrl = firstItem.dataset.image;
+                    previewImage.style.backgroundImage = `url(${imageUrl})`;
+                    previewImage.style.opacity = '1';
+                }
+
+                serviceItems.forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        serviceItems.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                        const imageUrl = this.dataset.image;
+                        previewImage.style.backgroundImage = `url(${imageUrl})`;
+                        previewImage.style.opacity = '1';
+                    });
+                });
+            }
+
+            // Inicializar ambas secciones
+            initializeMainServices();
+            initializeSpecializedServices();
+        });
+    </script>
 </body>
 </html>
