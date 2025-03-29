@@ -38,4 +38,49 @@ document.addEventListener("DOMContentLoaded", function() {
             e.stopPropagation();
         });
     }
+
+    // Optimización automática de imágenes
+    function optimizeImages() {
+        // 1. Aplicar lazy loading a todas las imágenes que no sean del header/logo
+        const images = document.querySelectorAll('img:not(.logo img, .main-header img)');
+        
+        images.forEach(img => {
+            // Si ya tiene loading="lazy", no hacer nada
+            if (img.getAttribute('loading') !== 'lazy') {
+                img.setAttribute('loading', 'lazy');
+                
+                // Asegurar dimensiones para evitar layout shift
+                if (!img.hasAttribute('width') && !img.hasAttribute('height')) {
+                    const width = img.naturalWidth || img.offsetWidth;
+                    const height = img.naturalHeight || img.offsetHeight;
+                    if (width && height) {
+                        img.setAttribute('width', width);
+                        img.setAttribute('height', height);
+                    }
+                }
+            }
+        });
+    
+        // 2. Precargar imágenes críticas (logo, banner principal)
+        const criticalImages = [
+            '/images/logo.png',
+            '/images/main-banner.jpg'
+        ];
+        
+        criticalImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = src;
+            link.as = 'image';
+            document.head.appendChild(link);
+        });
+    }
+
+    // Ejecutar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+        // ... código existente del menú ...
+        
+        // Añadir optimización de imágenes
+        optimizeImages();
+    });
 });
