@@ -12,6 +12,7 @@
     <meta name="geo.position" content="-38.416097;-63.616672">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="../../estilo.css" rel="stylesheet" type="text/css" />
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     
@@ -71,51 +72,82 @@
         </div>
     </section>
 
-    <main class="section">
+
+    <main class="section" style="padding-top: 0px;">
         <div class="container">
             <div class="consulting-intro">
-                <p>Serviços de consultoria em TI de primeira classe trabalhando com uma equipe de recursos experientes, permitindo que as empresas resolvam e mantenham aplicações de negócios críticas.</p>
-                <p>Soluções inovadoras e econômicas entregues oportunamente a clientes Nacionais e Internacionais que necessitam de entrega imediata de serviços.</p>
-                <p>Profunda experiência em bens de consumo, seguros, varejo, saúde e Organizações Governamentais Nacionais e Internacionais, com especialização técnica abrangendo SAP, Java, .NET, PHP e Bancos de Dados sob diferentes arquiteturas.</p>
+                <p>Servicios de primer nivel de TI en consultorías trabajando con un equipo de recursos experimentados, permitiendo a las empresas resolver y mantener aplicaciones de negocio de misión crítica.</p>
+                <p>Soluciones innovadoras y rentables de manera oportuna a clientes Nacionales e Internacionales que requieren una entrega inmediata de servicios.</p>
+                <p>Profunda experiencia en bienes de consumo, seguros, retail, salud y Organismos Gubernamentales Nacionales e Internacionales, con especialización técnica que abarca SAP, Java, .NET, PHP y Bases de Datos, bajo distintas arquitecturas.</p>
             </div>
 
             <div class="services-grid">
                 <div class="services-list">
                     <h3>Serviços Principais</h3>
                     <ul>
-                        <li>Gerenciamento de Projetos</li>
-                        <li>Design de Arquitetura</li>
-                        <li>Consultoria Técnica e Funcional SAP</li>
-                        <li>Consultoria em Segurança SAP</li>
-                        <li>Consultoria e Suporte Remoto Especializado</li>
-                    </ul>
-                    <ul>
-                        <li>Reengenharia de processos em todas as tecnologias</li>
-                        <li>Consultoria em Sistemas Biométricos</li>
-                        <li>Treinamento SAP para usuários finais, consultores funcionais e técnicos</li>
+                        <li class="service-item" data-image="./img/gerencia.jpg">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Fábrica de Software, Consultoria e Suporte a Aplicações</span>
+                        </li>
+                        <li class="service-item" data-image="./img/consultoria.jpg">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Serviço de Suporte, Consultoria e Gestão de Projetos</span>
+                        </li>
+                        <li class="service-item" data-image="./img/capacitacion.jpg">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Hunting, Seleção de Pessoal, Serviços de Outsourcing</span>
+                        </li>
                     </ul>
                 </div>
-
-                <div class="services-list">
-                    <h3>Serviços Especializados</h3>
-                    <ul>
-                        <li>Manutenção Corretiva</li>
-                        <li>Treinamento</li>
-                        <li>Refatoração de Aplicações</li>
-                        <li>Suporte em processos de atualização ou migrações</li>
-                    </ul>
-                    <ul>
-                        <li>Área SAP Basis, Segurança e Funcional (módulos CO, FI, MM, SD, PS, PP, etc), Banking, BI especializado através de outsourcing ou do nosso centro de serviço global especializado</li>
-                        <li>Serviços DevOps</li>
-                    </ul>
+                <div class="service-preview">
+                    <div class="preview-image"></div>
                 </div>
             </div>
 
-            <div class="partners-section">
-                <h3>Nossos Parceiros</h3>
-                <div class="partner-card">
-                    <p>BUSINESS PERFORMANCE ADVISORS, empresa de consultoria especializada em processos de negócios, serviços financeiros e sistemas de informação.</p>
+            <div class="services-grid specialized-services">
+                <div class="services-list">
+                    <h3>Serviços Especializados</h3>
+                    <ul>
+                        <li class="service-item" data-image="./img/mantenimiento.jpg">
+                            <i class="fas fa-database"></i>
+                            <span>Suporte e manutenção SAP Hana, outsourcing, melhorias e projetos</span>
+                        </li>
+                        <li class="service-item" data-image="./img/integraciones.jpg">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Integrações SAP CPI PI/PO BTP</span>
+                        </li>
+                        <li class="service-item" data-image="./img/ftp.jpg">
+                            <i class="fas fa-plug"></i>
+                            <span>Integrações Comuns</span>
+                        </li>
+                        <li class="service-item" data-image="./img/facturacion.jpg">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>Integração com Faturação Eletrônica</span>
+                        </li>
+                        <li class="service-item" data-image="./img/cloud.jpg">
+                            <i class="fas fa-cloud"></i>
+                            <span>Integração SAP com tecnologias Cloud Systems</span>
+                        </li>
+                        <li class="service-item" data-image="./img/asistencia.jpg">
+                            <i class="fas fa-headset"></i>
+                            <span>Consultoria, Suporte e Monitorização Centralizada</span>
+                        </li>
+                        <li class="service-item" data-image="./img/desarrollo.jpg">
+                            <i class="fas fa-code"></i>
+                            <span>Desenvolvimento e outras tecnologias</span>
+                        </li>
+                        <li class="service-item" data-image="../../images/proyectos.jpg">
+                            <i class="fas fa-cogs"></i>
+                            <span>Outros serviços</span>
+                        </li>
+                    </ul>
                 </div>
+                <div class="specialized-preview">
+                    <div class="specialized-preview-image"></div>
+                </div>
+            </div>
+            <div class="service-preview">
+                <div class="preview-image"></div>
             </div>
         </div>
     </main>
@@ -130,6 +162,44 @@
             </p>
         </div>
     </footer>
+
+    <!-- Modales para Servicios Principales -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-info">
+                    <h2 class="modal-title">Gerencia de Proyectos</h2>
+                    <div class="modal-description">
+                        <!-- El contenido se insertará dinámicamente -->
+                    </div>
+                </div>
+                <div class="modal-image-section">
+                    <div class="modal-image"></div>
+                    <a href="../contacto/" class="contact-button">Contáctenos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agregar antes del cierre del body -->
+    <div class="modal" id="specializedServiceModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-info">
+                    <h2 class="modal-title"></h2>
+                    <div class="modal-description">
+                        <!-- El contenido se insertará dinámicamente -->
+                    </div>
+                </div>
+                <div class="modal-image-section">
+                    <div class="modal-image"></div>
+                    <a href="../contacto/" class="contact-button">Contáctenos</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -153,6 +223,264 @@
             });
         });
     </script>
-        <script src="../../js/header-scroll.js"></script>
+    <script src="../../js/header-scroll.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para inicializar la sección de servicios principales
+            function initializeMainServices() {
+                const container = document.querySelector('.services-grid:not(.specialized-services)');
+                const serviceItems = container.querySelectorAll('.service-item');
+                const previewImage = container.querySelector('.preview-image');
+
+                if (serviceItems.length > 0) {
+                    const firstItem = serviceItems[0];
+                    firstItem.classList.add('active');
+                    const imageUrl = firstItem.dataset.image;
+                    previewImage.style.backgroundImage = `url(${imageUrl})`;
+                    previewImage.style.opacity = '1';
+                }
+
+                serviceItems.forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        serviceItems.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                        const imageUrl = this.dataset.image;
+                        previewImage.style.backgroundImage = `url(${imageUrl})`;
+                        previewImage.style.opacity = '1';
+                    });
+                });
+            }
+
+            // Función para inicializar la sección de servicios especializados
+            function initializeSpecializedServices() {
+                const container = document.querySelector('.specialized-services');
+                const serviceItems = container.querySelectorAll('.service-item');
+                const previewImage = container.querySelector('.specialized-preview-image');
+
+                if (serviceItems.length > 0) {
+                    const firstItem = serviceItems[0];
+                    firstItem.classList.add('active');
+                    const imageUrl = firstItem.dataset.image;
+                    previewImage.style.backgroundImage = `url(${imageUrl})`;
+                    previewImage.style.opacity = '1';
+                }
+
+                serviceItems.forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        serviceItems.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                        const imageUrl = this.dataset.image;
+                        previewImage.style.backgroundImage = `url(${imageUrl})`;
+                        previewImage.style.opacity = '1';
+                    });
+                });
+            }
+
+            // Inicializar ambas secciones
+            initializeMainServices();
+            initializeSpecializedServices();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Datos para los servicios principales
+            // Update the servicesData object to match the new service names
+            const servicesData = {
+                'Fábrica de Software, Consultoria e Suporte a Aplicações': {
+                    title: 'Fábrica de Software, Consultoria e Suporte a Aplicações',
+                    description: `
+                        <p>Os serviços de consultoria podem estar vinculados ao SAP ou a outras tecnologias.</p>
+                        <p>Oferecemos soluções inovadoras para clientes nacionais e internacionais que exigem entrega imediata de serviços, com especialização técnica que abrange desde SAP (Basis, segurança, ABAP, SAP CPI PI/PO e funcional) até outras tecnologias de desenvolvimento (Java, .NET, Mobile e Bancos de Dados) em diferentes arquiteturas como cloud e on premise.</p>
+                        <p>Dominamos e aplicamos as mais diversas tecnologias do mercado, atuando eficientemente em áreas tão distintas como desde a Gestão de Projetos até o Monitoramento e Suporte.</p>
+                        <p>Nosso relacionamento com os clientes é baseado na colaboração constante para a elaboração de soluções sob medida para suas necessidades.</p>
+                        <h3>Temos experiência em Desenvolvimento, Consultoria, Suporte e Projetos nas seguintes áreas:</h3>
+                        <ul>
+                            <li>Desenvolvimento de Software (ABAP, PI/PO, .Net, Java, Mobile, etc.)</li>
+                            <li>Fábrica de Software, Suporte a aplicações L1, L2 e L3</li>
+                            <li>Implantação e Integração Contínua, Automação de Testes</li>
+                            <li>Biometria: (Sistemas de ID Nacional, Cartões de Identidade/Passaportes, Bancos de dados massivos)</li>
+                            <li>Análise de imagem, Autenticação de documentos, Algoritmos de validação, Processamento biométrico</li>
+                            <li>Integração de Sistemas, Protocolos de Integração API REST, SOAP</li>
+                            <li>Projetos de implementação SAP, Atualizações, Migrações, Evolutivos, Suporte Funcional e Técnico.</li>
+                        </ul>
+                        <h3>FÁBRICA DE SOFTWARE</h3>
+                        <p>A Extreme Cloud Computing é uma empresa dinâmica e orientada para o futuro, especializada em serviços de fábrica de software. Com um forte compromisso com a inovação e satisfação do cliente, consolidamo-nos como um parceiro confiável na indústria de desenvolvimento de software.</p>
+                        <p>Estamos dedicados a simplificar os processos de desenvolvimento de software, otimizar a eficiência e garantir a entrega dos melhores resultados para nossos clientes. Nossa abordagem baseia-se nos princípios de agilidade, adaptabilidade e melhoria contínua.</p>
+                    `,
+                    image: './img/gerencia.jpg'
+                },
+                'Serviço de Suporte, Consultoria e Gestão de Projetos': {
+                    title: 'Serviço de Suporte, Consultoria e Gestão de Projetos',
+                    description: `
+                        <p>Detalhamos alguns projetos relacionados a:</p>
+                        <ul>
+                            <li>Desenvolvimentos novos em SAP ECC, S4Hana, CPI, PI, evolutivos, corretivos interfaces, IFlows</li>
+                            <li>Consultoria Técnica e Funcional SAP (FI, MM, SD, PI, SSFF, Basis, etc.)</li>
+                            <li>Consultoria em Segurança SAP (Manutenção, atualizações de versões, novos roles tanto padrão como Z, remediações, auditorias de segurança) em modalidade outsourcing ou consultoria remota.</li>
+                            <li>Implantação e manutenção de SAP GRC para Argentina e Europa.</li>
+                            <li>Faturação eletrônica: Tanto de PI/Po como em CPI Todas RG2485, RG2904, RG2785, COT de Arba para Argentina, Uruguai, Chile, Brasil, El Salvador, Colômbia e México</li>
+                            <li>Migrações SAP (CPI, PI, S4)</li>
+                        </ul>
+                    `,
+                    image: './img/consultoria.jpg'
+                },
+                'Hunting, Seleção de Pessoal, Serviços de Outsourcing': {
+                    title: 'Hunting, Seleção de Pessoal, Serviços de Outsourcing',
+                    description: `
+                        <p>Detectamos, selecionamos e mantemos os melhores talentos, pois contamos dentro de nossa própria equipe com consultores técnicos, funcionais e operativos e sabemos como realizar uma seleção de acordo com cada tipo de indústria.</p>
+                        <p>Somos especialistas em seleção de perfis de sistemas, desde suporte até especialistas nas tecnologias mais novas do mercado, sendo muitas delas buscas de engenheiros especialistas para trabalhar localmente ou no exterior do país.</p>
+                        <p>Realizamos buscas para qualquer nível de experiência, desde estagiários até perfis sênior e executivos.</p>
+                        <p>Atualmente realizamos hunting e seleção de pessoal para importantes empresas nacionais e internacionais.</p>
+                    `,
+                    image: './img/capacitacion.jpg'
+                }
+            };
+
+            const specializedServicesData = {
+            'Suporte e manutenção SAP Hana, outsourcing, melhorias e projetos': {
+                title: 'Suporte e manutenção SAP Hana',
+                description: `
+                    <p>Serviços de suporte, manutenção, outsourcing, melhorias e projetos para SAP Hana.</p>
+                `,
+                image: './img/mantenimiento.jpg'
+            },
+            'Integrações SAP CPI PI/PO BTP': {
+                title: 'Integrações SAP CPI PI/PO BTP',
+                description: `
+                    <p>Desenvolvimento de interfaces com adequação ao serviço. Permite a integração de aplicações SAP entre o software e os sistemas internos de uma empresa e os de terceiros, facilitando assim a troca de informações.</p>
+                `,
+                image: './img/integraciones.jpg'
+            },
+            'Integrações Comuns': {
+                title: 'Integrações Comuns',
+                description: `
+                    <p>Permite integrar-se com servidores FTP, SFTP (segurança), Interfaces do tipo Rest, Soap.</p>
+                    <p>Detalhamos algumas integrações:</p>
+                    <ul>
+                        <li>Integração de SAP PI com: Ariba, Active Directory</li>
+                        <li>Entre ERP com BI/BO, AS/400, BD, Webservices (SOAP, REST)</li>
+                        <li>File, FTP, SFTP, Idocs padrão, Idocs Z</li>
+                        <li>Integração de SAP PI com SuccessFactors e SAP HCM (soluções padrão que permitem enviar infotipos de fotos, salários, etc.)</li>
+                    </ul>
+                `,
+                image: './img/ftp.jpg'
+            },
+            'Desenvolvimento e outras tecnologias': {
+                title: 'Desenvolvimento e outras tecnologias',
+                description: `
+                    <p>Desenvolvimento de aplicações em diferentes linguagens de programação, também desenvolvemos equipes de QA e testers para garantir a qualidade das aplicações.</p>
+                    <p>Criamos aplicações de última geração utilizando metodologias Agile e DevOps, e otimizamos a entrega tanto Onshore como Nearshore para acelerar os roadmaps, melhorar a colaboração entre equipes e alcançar os objetivos de produtividade.</p>
+                `,
+                image: './img/desarrollo.jpg'
+            },
+            'Outros serviços': {
+                title: 'Outros serviços',
+                description: `
+                    <h3>Help Desk Suporte remoto / On Site</h3>
+                    <h3>Serviços Cloud</h3>
+                    <p>A capacidade de acessar aplicações corporativas de qualquer lugar, de maneira fácil e segura, tornou-se cada vez mais essencial. As soluções em nuvem permitem essa acessibilidade aos nossos sistemas corporativos, garantindo ao mesmo tempo sua proteção e permitindo adaptar a tecnologia às necessidades do negócio.</p>
+                    <h3>Serviços adicionais:</h3>
+                    <ul>
+                        <li>Refatoração de aplicações</li>
+                        <li>Suporte em processos de atualização ou migrações</li>
+                        <li>Área SAP: Inclui consultores Basis, Segurança e Funcional (módulos CO,FI,MM,SD,PS,PP,SSFF, etc), Banking, BI especializados através de outsourcing ou do nosso centro de atendimento global especializado</li>
+                    </ul>
+                `,
+                image: '../../images/proyectos.jpg'
+            }
+        };
+
+        const specializedItems = document.querySelectorAll('.specialized-services .service-item');
+        const specializedModal = document.getElementById('specializedServiceModal');
+        const specializedModalTitle = specializedModal.querySelector('.modal-title');
+        const specializedModalDescription = specializedModal.querySelector('.modal-description');
+        const specializedModalImage = specializedModal.querySelector('.modal-image');
+        const specializedCloseBtn = specializedModal.querySelector('.close-modal');
+
+        specializedItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const serviceName = this.querySelector('span').textContent;
+                const serviceData = specializedServicesData[serviceName];
+                
+                if (serviceData) {
+                    specializedModalTitle.textContent = serviceData.title;
+                    specializedModalDescription.innerHTML = serviceData.description;
+                    specializedModalImage.style.backgroundImage = `url(${serviceData.image})`;
+                    specializedModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Agregar evento para cerrar modal especializado
+        specializedCloseBtn.addEventListener('click', () => {
+            specializedModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+            // Inicializar modales para servicios principales
+            const serviceItems = document.querySelectorAll('.services-grid:not(.specialized-services) .service-item');
+            const modal = document.getElementById('serviceModal');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalDescription = modal.querySelector('.modal-description');
+            const modalImage = modal.querySelector('.modal-image');
+            const closeBtn = modal.querySelector('.close-modal');
+
+            serviceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const serviceName = this.querySelector('span').textContent;
+                    const serviceData = servicesData[serviceName];
+                    
+                    if (serviceData) {
+                        modalTitle.textContent = serviceData.title;
+                        modalDescription.innerHTML = serviceData.description;
+                        modalImage.style.backgroundImage = `url(${serviceData.image})`;
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            window.addEventListener('click', (e) => {
+            if (e.target === specializedModal) {
+                specializedModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+            // Cerrar modal
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modalContent = document.querySelector('.modal-content');
+            let lastScrollPosition = window.pageYOffset;
+            
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                const modal = document.querySelector('.modal.active');
+                
+                if (modal) {
+                    if (currentScroll > 100) {
+                        modalContent.classList.add('scrolled');
+                    } else {
+                        modalContent.classList.remove('scrolled');
+                    }
+                }
+                
+                lastScrollPosition = currentScroll;
+            });
+        });
+    </script>
 </body>
 </html>
