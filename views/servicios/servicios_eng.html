@@ -133,28 +133,7 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.getElementById("menuToggle");
-            const mainNav = document.getElementById("mainNav");
-            const body = document.body;
-    
-            menuToggle.addEventListener("click", function () {
-                mainNav.classList.toggle("active");
-                menuToggle.classList.toggle("active");
-                body.style.overflow = mainNav.classList.contains("active") ? "hidden" : "";
-            });
-    
-            const navLinks = mainNav.getElementsByTagName("a");
-            Array.from(navLinks).forEach(link => {
-                link.addEventListener("click", () => {
-                    mainNav.classList.remove("active");
-                    menuToggle.classList.remove("active");
-                    body.style.overflow = "";
-                });
-            });
-        });
-    </script>
+    <script src="../../js/menu.js"></script>
     <script src="../../js/header-scroll.js"></script>
 </body>
 </html>

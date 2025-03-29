@@ -518,17 +518,26 @@ body {
 
     .main-nav {
         position: fixed;
-        top: 0;
+        top: var(--header-height);
         right: -100%;
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - var(--header-height));
         background-color: var(--secondary);
         padding-top: 80px;
         transition: 0.3s ease-in-out;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 20px;
+        /* Añadimos estas propiedades para asegurar que esté completamente oculto */
+        display: none;
+        opacity: 0;
     }
 
     .main-nav.active {
         right: 0;
+        right: 0;
+        display: block;
+        opacity: 1;
     }
 
     .main-nav ul {
