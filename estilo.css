@@ -133,7 +133,7 @@ body {
 /* Hero Banner */
 .hero-banner {
     padding-top: 120px;
-    background: linear-gradient(rgb(0 0 0 / 79%), rgb(179 121 96 / 40%)), url(images/new-banner.jpg);
+    background: linear-gradient(rgb(0 0 0 / 79%), rgb(179 121 96 / 40%)), url(images/new-banner.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
