@@ -17,32 +17,85 @@
         <meta name="language" content="es-AR" />
         <meta name="geo.region" content="AR-C" />
         <meta name="geo.position" content="-38.416097;-63.616672" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Righteous&display=swap" rel="stylesheet">
-        <link href="estilo.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Righteous&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preload" href="estilo.css" as="style" />
+        <link
+            rel="preload"
+            href="images/new-banner.webp"
+            as="image"
+            fetchpriority="high"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+            crossorigin
+        />
+
+        <style>
+            .hero-banner {
+                padding-top: 120px;
+                background: linear-gradient(
+                        rgb(0 0 0 / 79%),
+                        rgb(179 121 96 / 40%)
+                    ),
+                    url(images/new-banner.webp);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                min-height: 700px;
+                display: grid;
+                place-items: center;
+                color: var(--white);
+                text-align: center;
+                animation: none; /* Remove zoom animation for better mobile performance */
+                overflow: hidden;
+            }
+
+            .hero-content {
+                opacity: 1;
+                transform: none;
+            }
+        </style>
 
         <!-- Google Analytics Script -->
         <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(["_setAccount", "UA-32006801-1"]);
+            _gaq.push(["_trackPageview"]);
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-32006801-1']);
-          _gaq.push(['_trackPageview']);
-        
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-        
+            (function () {
+                var ga = document.createElement("script");
+                ga.type = "text/javascript";
+                ga.async = true;
+                ga.src =
+                    ("https:" == document.location.protocol
+                        ? "https://ssl"
+                        : "http://www") + ".google-analytics.com/ga.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
         </script>
     </head>
 
     <body>
+        <script>
+            // Precarga la imagen del hero banner
+            const preloadHeroImage = new Image();
+            preloadHeroImage.src = 'images/new-banner.webp';
+            preloadHeroImage.fetchPriority = 'high';
+        </script>
         <header class="main-header">
             <div class="container header-content">
                 <div class="logo" id="logo">
-                    <img src="images/logo.png" alt="ECC Extreme Cloud Computing" />
+                    <img
+                        src="images/logo.png"
+                        alt="ECC Extreme Cloud Computing"
+                    />
                 </div>
 
                 <div class="menu-toggle" id="menuToggle">
@@ -62,33 +115,60 @@
                     </ul>
                     <!-- Agregamos los botones de idioma dentro del nav -->
                     <div class="mobile-language-selector">
-                        <a href="index_eng.html" class="lang-btn" title="English">EN</a>
-                        <a href="index_por.html" class="lang-btn" title="Português">PT</a>
-                        <a href="index.html" class="lang-btn active" title="Castellano">ES</a>
+                        <a
+                            href="index_eng.html"
+                            class="lang-btn"
+                            title="English"
+                            >EN</a
+                        >
+                        <a
+                            href="index_por.html"
+                            class="lang-btn"
+                            title="Português"
+                            >PT</a
+                        >
+                        <a
+                            href="index.html"
+                            class="lang-btn active"
+                            title="Castellano"
+                            >ES</a
+                        >
                     </div>
                 </nav>
 
                 <div class="language-selector">
-                    <a href="index_eng.html" class="lang-btn" title="English">EN</a>
-                    <a href="index_por.html" class="lang-btn" title="Português">PT</a>
-                    <a href="index.html" class="lang-btn active" title="Castellano">ES</a>
+                    <a href="index_eng.html" class="lang-btn" title="English"
+                        >EN</a
+                    >
+                    <a href="index_por.html" class="lang-btn" title="Português"
+                        >PT</a
+                    >
+                    <a
+                        href="index.html"
+                        class="lang-btn active"
+                        title="Castellano"
+                        >ES</a
+                    >
                 </div>
             </div>
         </header>
 
         <section class="hero-banner">
             <div class="container hero-content">
-                <h1>ECC Extreme Cloud Computing</h1>
+                <h1 fetchpriority="high">ECC Extreme Cloud Computing</h1>
                 <p>Soluciones tecnológicas innovadoras para tu empresa</p>
             </div>
         </section>
 
-        <main class="section" style="padding-bottom: 15px;">
+        <main class="section" style="padding-bottom: 15px">
             <div class="container">
                 <div class="cards-grid">
                     <div class="card">
                         <div class="card-image">
-                            <img src="images/empresa.webp" alt="Una empresa ágil">
+                            <img
+                                src="images/empresa.webp"
+                                alt="Una empresa ágil"
+                            />
                         </div>
                         <div class="card-content">
                             <h3>UNA EMPRESA ÁGIL</h3>
@@ -106,7 +186,10 @@
 
                     <div class="card">
                         <div class="card-image">
-                            <img src="images/proyectos.webp" alt="Últimos Proyectos">
+                            <img
+                                src="images/proyectos.webp"
+                                alt="Últimos Proyectos"
+                            />
                         </div>
                         <div class="card-content">
                             <h3>Últimos Proyectos</h3>
@@ -122,7 +205,10 @@
 
                     <div class="card">
                         <div class="card-image">
-                            <img src="images/tegnologias.webp" alt="Tecnologías">
+                            <img
+                                src="images/tegnologias.webp"
+                                alt="Tecnologías"
+                            />
                         </div>
                         <div class="card-content">
                             <h3>Tecnologías</h3>
@@ -149,8 +235,11 @@
                                 Ingresá tus datos y formá parte de nuestro
                                 equipo.
                             </p>
-                            <a href="views/contacto/index.html?subject=rrhh" class="btn btn-primary">Cargar CV</a>
-                            
+                            <a
+                                href="views/contacto/index.html?subject=rrhh"
+                                class="btn btn-primary"
+                                >Cargar CV</a
+                            >
                         </div>
                     </div>
                 </div>
@@ -164,40 +253,124 @@
             </div>
             <div class="logos-container">
                 <div class="logos-slide">
-                    <div class="logo-item"><img src="./images/logos/claro.webp" alt="claro"></div>
-                    <div class="logo-item"><img src="images/logos/anses.webp" alt="ANSES"></div>
-                    <div class="logo-item"><img src="images/logos/bgh.webp" alt="BGH"></div>
-                    <div class="logo-item"><img src="images/logos/correo-argentin.webp" alt="Correo argentino"></div>
-                    <div class="logo-item"><img src="images/logos/distillery.webp" alt="distillery"></div>
-                    <div class="logo-item"><img src="images/logos/osde.webp" alt="grupo-dacto"></div>
-                    <div class="logo-item"><img src="images/logos/pampa.webp" alt="pampa"></div>
+                    <div class="logo-item">
+                        <img src="./images/logos/claro.webp" alt="claro" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/anses.webp" alt="ANSES" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/bgh.webp" alt="BGH" />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/correo-argentin.webp"
+                            alt="Correo argentino"
+                        />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/distillery.webp"
+                            alt="distillery"
+                        />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/osde.webp" alt="grupo-dacto" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/pampa.webp" alt="pampa" />
+                    </div>
                     <!-- Duplicamos -->
-                    <div class="logo-item"><img src="./images/logos/claro.webp" alt="claro"></div>
-                    <div class="logo-item"><img src="images/logos/anses.webp" alt="ANSES"></div>
-                    <div class="logo-item"><img src="images/logos/bgh.webp" alt="BGH"></div>
-                    <div class="logo-item"><img src="images/logos/correo-argentin.webp" alt="Correo argentino"></div>
-                    <div class="logo-item"><img src="images/logos/distillery.webp" alt="distillery"></div>
-                    <div class="logo-item"><img src="images/logos/osde.webp" alt="grupo-dacto"></div>
-                    <div class="logo-item"><img src="images/logos/pampa.webp" alt="pampa"></div>
+                    <div class="logo-item">
+                        <img src="./images/logos/claro.webp" alt="claro" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/anses.webp" alt="ANSES" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/bgh.webp" alt="BGH" />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/correo-argentin.webp"
+                            alt="Correo argentino"
+                        />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/distillery.webp"
+                            alt="distillery"
+                        />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/osde.webp" alt="grupo-dacto" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/pampa.webp" alt="pampa" />
+                    </div>
                 </div>
                 <div class="logos-slide reverse">
-                    <div class="logo-item"><img src="images/logos/osde.webp" alt="grupo-dacto"></div>
-                    <div class="logo-item"><img src="images/logos/ibm.webp" alt="IBM"></div>
-                    <div class="logo-item"><img src="images/logos/L1.webp" alt="L1"></div>
-                    <div class="logo-item"><img src="images/logos/galicia.webp" alt="mercatin-andina"></div>
-                    <div class="logo-item"><img src="images/logos/seidor.webp" alt="Seidor"></div>
-                    <div class="logo-item"><img src="images/logos/energia-argentina.webp" alt="energia-argentina"></div>
+                    <div class="logo-item">
+                        <img src="images/logos/osde.webp" alt="grupo-dacto" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/ibm.webp" alt="IBM" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/L1.webp" alt="L1" />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/galicia.webp"
+                            alt="mercatin-andina"
+                        />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/seidor.webp" alt="Seidor" />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/energia-argentina.webp"
+                            alt="energia-argentina"
+                        />
+                    </div>
                     <!-- Duplicamos -->
-                    <div class="logo-item"><img src="images/logos/osde.webp" alt="grupo-dacto"></div>
-                    <div class="logo-item"><img src="images/logos/ibm.webp" alt="IBM"></div>
-                    <div class="logo-item"><img src="images/logos/L1.webp" alt="L1"></div>
-                    <div class="logo-item"><img src="images/logos/galicia.webp" alt="mercatin-andina"></div>
-                    <div class="logo-item"><img src="images/logos/seidor.webp" alt="Seidor"></div>
-                    <div class="logo-item"><img src="images/logos/energia-argentina.webp" alt="energia-argentina"></div>
+                    <div class="logo-item">
+                        <img src="images/logos/osde.webp" alt="grupo-dacto" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/ibm.webp" alt="IBM" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/L1.webp" alt="L1" />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/galicia.webp"
+                            alt="mercatin-andina"
+                        />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/seidor.webp" alt="Seidor" />
+                    </div>
+                    <div class="logo-item">
+                        <img
+                            src="images/logos/energia-argentina.webp"
+                            alt="energia-argentina"
+                        />
+                    </div>
                 </div>
             </div>
-            <div class="container" style="text-align: center; margin-top: 1rem;">
-                <a href="views/contacto/" class="btn btn-primary" style="padding: 0.8rem 2rem; font-size: 1.1rem; margin-bottom: 15px;">
+            <div class="container" style="text-align: center; margin-top: 1rem">
+                <a
+                    href="views/contacto/"
+                    class="btn btn-primary"
+                    style="
+                        padding: 0.8rem 2rem;
+                        font-size: 1.1rem;
+                        margin-bottom: 15px;
+                    "
+                >
                     Pedir referencias
                 </a>
             </div>
@@ -206,10 +379,14 @@
         <footer class="footer">
             <div class="container">
                 <div class="logo">
-                    <img src="../../images/logo.png" alt="ECC Extreme Cloud Computing" />
+                    <img
+                        src="../../images/logo.png"
+                        alt="ECC Extreme Cloud Computing"
+                    />
                 </div>
                 <p class="copyright">
-                    Copyright ECC Extreme Cloud Computing SA © 2024 - Buenos Aires - Argentina
+                    Copyright ECC Extreme Cloud Computing SA © 2024 - Buenos
+                    Aires - Argentina
                 </p>
             </div>
         </footer>
