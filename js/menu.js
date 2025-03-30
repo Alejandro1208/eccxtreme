@@ -60,11 +60,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
         });
-    
-        // 2. Precargar imágenes críticas (logo, banner principal)
+
         const criticalImages = [
             '/images/logo.png',
-            '/images/main-banner.jpg'
+            '/images/main-banner.webp'
         ];
         
         criticalImages.forEach(src => {

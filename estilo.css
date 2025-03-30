@@ -133,7 +133,7 @@ body {
 /* Hero Banner */
 .hero-banner {
     padding-top: 120px;
-    background: linear-gradient(rgb(0 0 0 / 79%), rgb(179 121 96 / 40%)), url(images/new-banner.png);
+    background: linear-gradient(rgb(0 0 0 / 79%), rgb(179 121 96 / 40%)), url(images/new-banner.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -600,15 +600,15 @@ body {
 
 /* Banderas para cada idioma */
 .lang-btn[title="English"]::before {
-    background-image: url('images/flags/us.png');
+    background-image: url('images/flags/us.webp');
 }
 
 .lang-btn[title="Português"]::before {
-    background-image: url('images/flags/br.png');
+    background-image: url('images/flags/br.webp');
 }
 
 .lang-btn[title="Castellano"]::before {
-    background-image: url('images/flags/es.png');
+    background-image: url('images/flags/es.webp');
 }
 
 .lang-btn:hover,
