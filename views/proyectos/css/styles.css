@@ -143,3 +143,73 @@
         padding: 1.5rem;
     }
 }
+
+/* Project Cards Enhanced Styling */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-details {
+    padding: 15px 0;
+}
+
+.project-details h4 {
+    color: var(--primary-color);
+    margin: 15px 0 8px;
+    font-size: 1.1em;
+}
+
+.responsibilities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.responsibilities-list li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.4;
+}
+
+.responsibilities-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+/* Animation for list items */
+.responsibilities-list li {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Stagger the animation for each list item */
+.responsibilities-list li:nth-child(1) { animation-delay: 0.1s; }
+.responsibilities-list li:nth-child(2) { animation-delay: 0.2s; }
+.responsibilities-list li:nth-child(3) { animation-delay: 0.3s; }
+.responsibilities-list li:nth-child(4) { animation-delay: 0.4s; }
+.responsibilities-list li:nth-child(5) { animation-delay: 0.5s; }
+.responsibilities-list li:nth-child(6) { animation-delay: 0.6s; }
+.responsibilities-list li:nth-child(7) { animation-delay: 0.7s; }
+.responsibilities-list li:nth-child(8) { animation-delay: 0.8s; }
+.responsibilities-list li:nth-child(9) { animation-delay: 0.9s; }
