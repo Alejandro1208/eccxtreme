@@ -213,3 +213,22 @@
 .responsibilities-list li:nth-child(7) { animation-delay: 0.7s; }
 .responsibilities-list li:nth-child(8) { animation-delay: 0.8s; }
 .responsibilities-list li:nth-child(9) { animation-delay: 0.9s; }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-size: 2.2em;
+    font-weight: 600;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
