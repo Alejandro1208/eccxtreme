@@ -13,9 +13,9 @@
 /* Grid específico para proyectos */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin: 4rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 3fr));
+    gap: 4rem;
+    margin: 2rem 0;
 }
 
 .project-card {
@@ -221,6 +221,17 @@
     font-size: 2.2em;
     font-weight: 600;
     position: relative;
+    font-family: "Afacad Flux" !important;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: titleFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes titleFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .section-title::after {
@@ -228,7 +239,23 @@
     display: block;
     width: 60px;
     height: 3px;
-    background: var(--primary-color);
+    background: var(--primary);
     margin: 15px auto 0;
     border-radius: 2px;
+    transform: scaleX(0);
+    animation: lineExpand 0.6s ease-out 0.4s forwards;
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 120px;
+}
+
+@keyframes lineExpand {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
