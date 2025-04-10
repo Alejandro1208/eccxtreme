@@ -12,10 +12,9 @@
 
 /* Grid de contacto */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 /* Estilos del formulario */
@@ -66,13 +65,49 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .office-card {
+    padding: 1.5rem;
+    text-align: center;
     background: var(--white);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-md);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.office-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
+                0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.office-card h3 {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.office-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--gray);
+}
+
+.flag {
+    width: 60px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.flag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 .office-card .flag {
